@@ -29,12 +29,14 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/vue-gallery.client.js'
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/fontawesome'
   ],
   /*
   ** Nuxt.js modules
@@ -46,6 +48,11 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
   ],
+  fontawesome: {
+    icons: {
+      solid: true
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

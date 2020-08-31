@@ -1,10 +1,10 @@
 <template>
-  <div v-if="hasSidebar" id="sidebar">
-    <ul class="list-group">
-      <li v-if="pageTitle" class="list-group-item">
-        <small class="text-muted">{{this.title}}</small>
+  <div v-if="hasSidebar" id="sidebar" class="p-3">
+    <ul class="list-group rounded-0 p-3 border">
+      <li v-if="pageTitle" class="list-group-item border-0">
+        <span class="sidebar-title">{{this.title}}</span>
       </li>
-      <li v-for="(item, index) in items" :key="index" class="list-group-item">
+      <li v-for="(item, index) in items" :key="index" class="list-group-item border-0">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
@@ -41,6 +41,7 @@
           }
         })
       }
+
 
       // Check if items length > 0
       if (this.items.length > 0) {

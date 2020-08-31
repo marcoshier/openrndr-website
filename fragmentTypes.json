@@ -1,0 +1,42 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "DynamicTextBlockModelDynamicContentField",
+        "possibleTypes": [
+          {
+            "name": "ProjectRecord"
+          },
+          {
+            "name": "InstagramPostRecord"
+          },
+          {
+            "name": "GuideRecord"
+          },
+          {
+            "name": "TutorialRecord"
+          },
+          {
+            "name": "NewsRecord"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
+        "name": "ProjectModelMediaField",
+        "possibleTypes": [
+          {
+            "name": "ImageRecord"
+          },
+          {
+            "name": "VideoRecord"
+          },
+          {
+            "name": "GifRecord"
+          }
+        ]
+      }
+    ]
+  }
+}

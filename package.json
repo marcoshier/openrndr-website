@@ -8,17 +8,23 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "graphql-codegen"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.1",
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/apollo": "^4.0.1-rc.3",
+    "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
-    "bootstrap": "^4.1.3",
-    "bootstrap-vue": "^2.0.0",
-    "nuxt": "^2.0.0"
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
+    "nuxt": "^2.14.4",
+    "vue-gallery": "^2.0.1"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@graphql-codegen/cli": "^1.17.8",
+    "@graphql-codegen/fragment-matcher": "^1.17.8",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2"
   }
