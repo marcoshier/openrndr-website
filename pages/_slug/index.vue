@@ -21,7 +21,7 @@
             <div class="col-12 col-md-8 col-lg-9 px-0 border-left border-right border-primary">
               <template v-for="(block, index) in page.dynamicContentBlocks">
                 <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :index="index" />
+                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
               </template>
             </div>
           </template>
@@ -30,7 +30,7 @@
             <div class="col-12 border-left border-right border-primary">
               <template v-for="(block, index) in page.dynamicContentBlocks">
                 <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :index="index" />
+                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
               </template>
             </div>
           </template>
@@ -89,19 +89,6 @@
                         url
                       }
                       dynamicContent {
-                        ... on NewsRecord {
-                          title
-                          description
-                          url
-                          image {
-                            url
-                            title
-                            alt
-                          }
-                          category {
-                            title
-                          }
-                        }
                       ... on ProjectRecord {
                         title
                         blurb
@@ -137,28 +124,6 @@
                         title
                         link
                         alt
-                      }
-                      ... on GuideRecord {
-                        title
-                        description
-                        estimatedTime
-                        url
-                        image {
-                          url
-                          title
-                          alt
-                        }
-                      }
-                      ... on TutorialRecord {
-                        title
-                        description
-                        estimatedTime
-                        url
-                        image {
-                          url
-                          title
-                          alt
-                        }
                       }
                     }
                   }

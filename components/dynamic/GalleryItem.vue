@@ -1,27 +1,33 @@
 <template>
-  <div class="col-12 col-md-6 mb-5">
-    <v-gallery :id="'blue-imp-gallery-' + id" :images="gallery" :index="index" @close="index = null"></v-gallery>
+  <div :class="classes + ' mb-5'">
+    <v-gallery :id="'blue-imp-gallery-' + id" :images="gallery" :index="index" @close="close()"></v-gallery>
     <b-card
       no-body
-      :img-src="headerImage.url"
-      :img-alt="headerImage.caption"
       img-top
       tag="article"
-      class="h-100 card-overflow clickable"
-      @click="index = 0"
+      class="h-100 card-overflow"
     >
-      <b-card-header>
+      <b-card-img
+        v-if="headerImage.url"
+        :src="headerImage.url"
+        :alt="headerImage.caption"
+        @click="open()"
+        class="rounded-0 clickable">
+      </b-card-img>
+      <b-card-header class="bg-white py-35">
         <h4 class="mb-0">{{title}}</h4>
       </b-card-header>
 
       <b-card-body>
-        <b-card-text v-if="blurb && blurb != ''" v-html="blurb">
-        </b-card-text>
+        <div class="card-text" v-if="blurb && blurb != ''" v-html="blurb">
+        </div>
       </b-card-body>
 
-      <b-card-footer>
-        <b-button href="#" variant="primary">Go somewhere</b-button>
-      </b-card-footer>
+      <!-- <b-card-footer class="bg-white py-35 px-35">
+        <button class="btn btn-primary btn-block" @click="index = 0">
+          View project
+        </button>
+      </b-card-footer> -->
       <!-- <b-card-text v-if="credits && credits != ''" v-html="credits">
       </b-card-text> -->
 
@@ -51,6 +57,10 @@
       },
       media: {
         type: Array
+      },
+      classes: {
+        type: String,
+        default: 'col-12 col-md-6'
       }
     },
     data: function() {
@@ -62,6 +72,24 @@
         index: null,
         gallery: [],
         id: null
+      }
+    },
+    methods: {
+      open() {
+        this.index = 0
+        this.toggleBodyClass('modal-is-open')
+      },
+      close() {
+        this.index = null
+        this.toggleBodyClass('modal-is-open')
+      },
+      toggleBodyClass(className) {
+        const body = document.body
+        body.classList.toggle(className)
+      },
+      getVimeoId(url) {
+        let m = url.match(/^.+vimeo.com\/(.*\/)?([^#\?]*)/);
+        return m ? m[2] || m[1] : null;
       }
     },
     mounted() {
@@ -125,23 +153,13 @@
           })
         }
       }
-    },
-    methods: {
-      getVimeoId(url) {
-        let m = url.match(/^.+vimeo.com\/(.*\/)?([^#\?]*)/);
-        return m ? m[2] || m[1] : null;
-      }
     }
   }
 </script>
 
 <style>
-  .card-overflow .card-body {
-    max-height: 200px;
-    overflow-y: scroll;
-  }
-
-  .card-overflow .card-img-top {
-    height: 250px;
+  .modal-is-open {
+    padding-right: 15px;
+    overflow-y: hidden;
   }
 </style>

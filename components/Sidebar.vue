@@ -61,7 +61,7 @@
 <style>
   /* Set scrolling to smooth and use nav height as offset */
   html {
-    scroll-padding: 93px 0 0 0;
+    scroll-padding: 109px 0 0 0;
     scroll-behavior: smooth;
   }
 

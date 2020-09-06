@@ -7,90 +7,29 @@
       </div>
     </header>
     <!-- END Video background -->
-    <div class="container p-4 border-left border-right border-primary">
+
+    <div class="container py-4 border-left border-right border-primary">
     </div>
-    <!-- BEGIN Getting started -->
-    <section v-if="landing.gettingStarted[0]" class="content-block border-top border-primary">
-        <div class="container py-5 border-left border-right border-primary" :id="landing.gettingStarted[0].anchorpoint ? landing.gettingStarted[0].anchorpoint : ''">
-          <h1 v-if="landing.gettingStarted[0].title">
-            {{landing.gettingStarted[0].title}}
-          </h1>
 
-          <p v-if="landing.gettingStarted[0].subtext">
-            {{landing.gettingStarted[0].subtext}}
-          </p>
-
-          <template v-if="landing.gettingStarted[0].bodyText">
-            <div v-html="landing.gettingStarted[0].bodyText">
-            </div>
-          </template>
-
-          <hr class="my-5">
-
-          <div v-if="landing.gettingStartedButtons" class="d-flex justify-content-between">
-            <template v-for="(button, index) in landing.gettingStartedButtons">
-              <nuxt-link :to="button.link" :key="index" class="btn btn-lg btn-primary getting-started-link">
-                {{ button.title }}
-              </nuxt-link>
-              <img v-if="index < landing.gettingStartedButtons.length -1" src="@/assets/images/arrow.svg" alt="Next step indicator" class="arrow-next">
+    <div class="w-100 border-top border-bottom border-primary">
+      <div class="container px-0">
+        <div class="row row-eq-height p-0 m-0">
+          <div class="col-12 px-0 border-left border-right border-primary">
+            <template v-for="(block, index) in landing.dynamicContentBlocks">
+              <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+              :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
             </template>
           </div>
         </div>
-    </section>
-    <!-- END Getting started -->
-
-    <!-- BEGIN Key features -->
-    <section class="content-block">
-      <content-block v-if="landing.keyFeaturesText[0]"
-      :initTitle="landing.keyFeaturesText[0].title" :initSubtext="landing.keyFeaturesText[0].subtext" :initBodyText="landing.keyFeaturesText[0].bodyText" :initAnchorpoint="landing.keyFeaturesText[0].anchorpoint" />
-
-      <div v-if="landing.keyFeaturesText && landing.keyFeatures" class="container border-left border-right border-primary">
-        <hr class="my-0">
       </div>
+    </div>
 
-      <div class="container py-5 border-left border-right border-primary" v-if="landing.keyFeatures">
-        <div class="row">
-          <key-feature v-for="(feature, index) in landing.keyFeatures" :title="feature.title" :description="feature.description" :index="index" :key="index" />
-        </div>
-      </div>
-    </section>
-    <!-- END Key features -->
-
-    <!-- BEGIN Ecosystem -->
-    <section class="content-block">
-      <content-block v-if="landing.ecosystemText[0]"
-      :initTitle="landing.ecosystemText[0].title" :initSubtext="landing.ecosystemText[0].subtext" :initBodyText="landing.ecosystemText[0].bodyText" :initAnchorpoint="landing.ecosystemText[0].anchorpoint" />
-
-      <div v-if="landing.ecosystemText && landing.ecosystem" class="container border-left border-right border-primary">
-        <hr class="my-0">
-      </div>
-
-      <div class="container py-5 border-left border-right border-primary" v-if="landing.ecosystem">
-        <div class="row">
-          <eco-item v-for="(item, index) in landing.ecosystem" :title="item.title" :image="item.image" :key="index" />
-        </div>
-      </div>
-    </section>
-    <!-- END Ecosystem -->
-
-    <!-- BEGIN FaQ -->
-    <section class="content-block">
-      <content-block v-if="landing.faqText[0]"
-      :initTitle="landing.faqText[0].title" :initSubtext="landing.faqText[0].subtext" :initBodyText="landing.faqText[0].bodyText" :initAnchorpoint="landing.faqText[0].anchorpoint" />
-
-      <div v-if="landing.faqText[0] && landing.faq[0]" class="container border-left border-right border-primary">
-        <hr class="my-0">
-      </div>
-
-      <div class="container py-5 border-left border-right border-primary" v-if="landing.faq[0]">
-        <faq :faq="landing.faq" />
-      </div>
-    </section>
-    <!-- END FaQ -->
+    <div class="container p-4 border-left border-right border-primary">
+    </div>
   </div>
 
   <div v-else>
-    Error
+    Loading
   </div>
 </template>
 
@@ -130,60 +69,84 @@
               }
             }
           }
-          gettingStarted {
-            bodyText
+          dynamicContentBlocks {
             title
             subtext
-            anchorpoint
-          }
-          gettingStartedButtons {
-            link
-            title
-          }
-          keyFeaturesText {
             bodyText
-            subtext
-            title
             anchorpoint
-          }
-          keyFeatures {
-            title
-            description
-          }
-          ecosystemText {
-            bodyText
-            subtext
-            title
-            anchorpoint
-          }
-          ecosystem {
-            title
-            link
-            image {
+            blockType
+            buttons {
+              title
+              size
+              linkType
               url
             }
-          }
-          faqText {
-            bodyText
-            subtext
-            title
-            anchorpoint
-          }
-          faq {
-            question
-            answer
+            dynamicContent {
+              ... on ProjectRecord {
+                id
+                title
+                blurb
+                techSpecs
+                credits
+                url
+                media {
+                  ... on ImageRecord {
+                    file {
+                      url
+                    }
+                    credits
+                    caption
+                  }
+                  ... on GifRecord {
+                    credit
+                    caption
+                    file {
+                      url
+                    }
+                  }
+                  ... on VideoRecord {
+                    file {
+                      url
+                      thumbnailUrl
+                    }
+                    credits
+                    caption
+                  }
+                }
+              }
+              ... on InstagramPostRecord {
+                    title
+                    link
+                    alt
+            	}
+            }
           }
         }
       }`
     },
     data: function() {
       return {
-        isKeyFeature: false,
-        isEcosystem: false,
-        isFaq: false
+        pageInfo: null
+      }
+    },
+    watch: {
+      landing: function() {
+        if(this.landing) {
+          this.initialSetup()
+        }
+      }
+    },
+    methods: {
+      initialSetup() {
+        this.pageInfo = {
+          title: 'home',
+          slug: '/',
+          description: null
+        }
       }
     },
     mounted() {
+      this.initialSetup()
     }
   }
 </script>

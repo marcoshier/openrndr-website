@@ -9,7 +9,7 @@
     </div>
 
     <template v-if="this.page">
-      <nuxt-link v-if="items.length > 4" :to="this.page.slug + '/gallery'" :class="'btn btn-primary btn-lg'">
+      <nuxt-link v-if="items.length > 4" :to="'/gallery'" :class="'btn btn-primary btn-lg'">
         See all gallery items
       </nuxt-link>
     </template>
@@ -31,5 +31,6 @@
         type: Object
       }
     }
+
   }
 </script>

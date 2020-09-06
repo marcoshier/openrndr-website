@@ -68,7 +68,7 @@
   }
 
   .navbar-container {
-    height: 93px;
+    height: 110px;
   }
 
   .navbar {

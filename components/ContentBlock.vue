@@ -28,24 +28,26 @@
 
     <template v-if="blockType != 'normal'">
       <hr v-if="dynamicContentDivider" class="m-0 border-primary">
-      <component v-bind:is="blockType" :items="dynamicContent" :page="page" :name="title"/>
+      <component v-bind:is="blockType" :items="dynamicContent" :page="page" :name="title" :type="blockType"/>
     </template>
   </div>
 </template>
 
 <script>
   import Gallery from '~/components/dynamic/Gallery.vue'
+  import GalleryPage from '~/components/dynamic/GalleryPage.vue'
   import Instagram from '~/components/dynamic/Instagram.vue'
   import Guide from '~/components/dynamic/Guide.vue'
   import Tutorial from '~/components/dynamic/Tutorial.vue'
   import News from '~/components/dynamic/News.vue'
-  import Events from '~/components/dynamic/Events.vue'
-  import Workshops from '~/components/dynamic/Workshops.vue'
-  import Exhibitions from '~/components/dynamic/Exhibitions.vue'
+  import Events from '~/components/dynamic/CalendarCategory.vue'
+  import Workshops from '~/components/dynamic/CalendarCategory.vue'
+  import Exhibitions from '~/components/dynamic/CalendarCategory.vue'
 
   export default {
     components: {
       Gallery,
+      GalleryPage,
       Instagram,
       Guide,
       Tutorial,
@@ -79,7 +81,7 @@
       page: {
         type: Object
       },
-      index: {
+      initIndex: {
         type: Number
       }
     },
@@ -93,12 +95,17 @@
         anchorpoint: null,
         blockType: 'normal',
         buttons: null,
+        index: null,
         borderTop: true
       }
     },
     mounted() {
-      if(this.index = 0) {
-        this.borderTop = false
+      if(this.initIndex != undefined) {
+        this.index = this.initIndex
+
+        if(this.index == 0) {
+          this.borderTop = false
+        }
       }
 
       if(this.initTitle != undefined) {

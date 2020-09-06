@@ -1,20 +1,19 @@
 <template>
   <div :class="this.size +  ' mb-5'" v-if="image.url">
-    <a :href="url" target="_blank">
-      <b-card
-      no-body
-      :img-src="image.url"
-      :img-alt="alt"
-      img-top
-      tag="article"
-      class="instagram-card"
-      >
-        <b-card-header class="border-0">
-          <h4 class="mb-0">{{title}}</h4>
-        </b-card-header>
+    <b-card
+    no-body
+    :img-src="image.url"
+    :img-alt="alt"
+    img-top
+    tag="article"
+    class="instagram-card clickable h-100"
+    @click="goToCardUrl()"
+    >
+      <b-card-header class="border-0 bg-white px-35 py-35">
+        <h4 class="mb-0" ><font-awesome-icon :icon="['fab', 'instagram']" class="mr-2" /> {{parsedTitle}}</h4>
+      </b-card-header>
 
-      </b-card>
-    </a>
+    </b-card>
   </div>
 </template>
 
@@ -33,6 +32,9 @@
       },
       initSize: {
         type: String
+      },
+      initClass: {
+        type: String
       }
     },
     data: function() {
@@ -40,14 +42,18 @@
         image: {
           url: null
         },
-        size: 'col-12 col-md-6'
+        size: 'col-12 col-md-6',
+        parsedTitle: null
       }
     },
     mounted() {
       this.getThumbnailUrl()
+      this.shortenTitle(this.title)
 
       //Set col size
-      if(this.initSize != null) {
+      if(this.initClass != undefined && this.initClass != '') {
+        this.size = this.initClass
+      } else if(this.initSize != undefined) {
         switch(this.initSize) {
           case 'small':
             this.size = 'col-12 col-md-4'
@@ -79,6 +85,21 @@
 
         // Build new thumbnail url based on the first 4 array items
         this.image.url = url[0] + '/' + url[1] + '/' + url[2] + '/' + url[3] + '/media/?size=l'
+      },
+      shortenTitle(title) {
+        let newTitle = title.substring(0, 24)
+
+        if(title.length > 25) {
+          newTitle = newTitle + '...'
+        }
+
+        this.parsedTitle = newTitle
+      },
+      goToCardUrl() {
+        console.log('foo')
+        let cardUrl = this.url
+        let win = window.open(cardUrl, '_blank')
+        win.focus()
       }
     }
   }

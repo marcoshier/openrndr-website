@@ -1,9 +1,9 @@
 <template>
   <div class="jumbotron jumbotron-fluid bg-primary mb-0">
-    <div class="container text-center">
+    <div class="container text-center px-0 py-5">
       <div class="col-12 col-md-8 mx-auto">
         <h1 class="display-1" v-bind:class="{ 'mb-3': description, 'mb-0': !description }">{{title}}</h1>
-        <p class="lead-header" v-if="description">{{description}}</p>
+        <p class="lead-header mb-0" v-if="description">{{description}}</p>
       </div>
     </div>
   </div>

@@ -23,6 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/main.css',
     '@/assets/css/main.scss'
   ],
   /*
@@ -50,7 +51,13 @@ export default {
   ],
   fontawesome: {
     icons: {
-      solid: true
+      solid: true,
+      regular: [
+        'faClock'
+      ],
+      brands: [
+        'faInstagram'
+      ]
     }
   },
   /*

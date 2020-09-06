@@ -3,7 +3,7 @@
 
 // Text elements
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: $textHead;
   color: $dark;
   font-weight: 700;
 }
@@ -16,14 +16,24 @@ h2 {
   font-size: 2rem;
 }
 
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
 h1.display-1 {
   font-size: 3.5rem;
   font-weight: 900;
 }
 
 p {
+  font-family: $textBody;
   color: $gray;
   font-size: 1.5rem;
+  line-height: 150%;
 }
 
 p.lead-header {
@@ -36,7 +46,7 @@ p.lead {
 }
 
 .btn {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: $textButton;
   font-size: 1.25rem;
   color: $dark;
   font-weight: 500;
@@ -46,9 +56,28 @@ p.lead {
   font-size: 1.5rem;
 }
 
+// Cards
+.card-img-middle .card-title, .calendar-card .card-title {
+  font-size: 1.5rem;
+}
+
+.card-img-middle .card-subtitle {
+  font-size: 1.125rem;
+}
+
+.card-img-middle .card-text, .card-overflow .card-text p, .news-card .card-text, .calendar-card .card-text p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.card .card-category {
+  font-size: 1.25rem;
+}
+
+
 // Navigation
 .navbar-light .navbar-nav .nav-link {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: $textNav;
   font-size: 1.25rem;
   color: $dark;
   padding: 0;
@@ -56,20 +85,25 @@ p.lead {
 }
 
 .dropdown-item {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: $textNav;
   font-size: 1.1rem;
   color: $dark;
 }
 
+.nuxt-link-exact-active {
+  border-bottom: 2px solid pink;
+  font-weight: 500;
+}
+
 // Sidebar
 #sidebar .sidebar-title {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: $textHead;
   font-size: 1rem;
   color: $gray;
 }
 
 #sidebar > .list-group > .list-group-item > a {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: $textNav;
   font-size: 1.25rem;
   color: $dark;
 }

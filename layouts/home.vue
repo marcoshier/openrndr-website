@@ -17,10 +17,6 @@
 
 <style>
 
-  @media (min-width: 1200px) {
-    .container, .container-sm, .container-md, .container-lg, .container-xl {
-        max-width: 1400px;
-    }
-  }
   
+
 </style>

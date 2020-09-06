@@ -9,20 +9,28 @@
     </div>
 
     <div v-if="items.length > 4">
-      <!-- Using value -->
+      <!-- <modal :items="items" :title="this.name" /> -->
       <b-button v-b-modal="'instagram-modal-' + this.id" class="btn btn-primary btn-lg" variant="primary">
         See all items
       </b-button>
 
       <!-- The modal -->
       <b-modal :id="'instagram-modal-' + this.id" size="xl" scrollable
-      :title="this.name"
       :header-bg-variant="'primary'"
-      :header-text-variant="'dark'">
-        <div class="row row-eq-height">
+      :header-text-variant="'dark'"
+      :class="'instagram-modal'"
+      hide-footer
+      >
+        <template v-slot:modal-header>
+          <h3 class="mb-0 p-3 w-100">
+            <span>{{name}}</span>
+            <span @click="close()" class="clickable float-right"><font-awesome-icon :icon="['fas', 'times']" /></span>
+          </h3>
+        </template>
+        <div class="row row-eq-height p-3">
           <template v-for="(item, index) in items">
             <instagram-item
-            :title="item.title" :url="item.link" :alt="item.alt" initSize="small"
+            :title="item.title" :url="item.link" :alt="item.alt" initClass="col-12 col-md-6 col-lg-4" initSize="small"
             />
           </template>
         </div>
@@ -36,10 +44,12 @@
 
 <script>
   import InstagramItem from '~/components/dynamic/InstagramItem.vue'
+  import Modal from '~/components/Modal.vue'
 
   export default {
     components: {
-      InstagramItem
+      InstagramItem,
+      Modal
     },
     props: {
       name: {
@@ -55,6 +65,11 @@
     data: function() {
       return {
         id: null
+      }
+    },
+    methods: {
+      close() {
+        this.$root.$emit('bv::hide::modal', 'instagram-modal-' + this.id)
       }
     },
     mounted() {

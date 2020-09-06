@@ -11,6 +11,7 @@
     "generate": "graphql-codegen"
   },
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
     "@nuxtjs/apollo": "^4.0.1-rc.3",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
