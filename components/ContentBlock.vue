@@ -43,6 +43,10 @@
   import Events from '~/components/dynamic/CalendarCategory.vue'
   import Workshops from '~/components/dynamic/CalendarCategory.vue'
   import Exhibitions from '~/components/dynamic/CalendarCategory.vue'
+  import GettingStarted from '~/components/dynamic/GettingStarted.vue'
+  import KeyFeatures from '~/components/dynamic/KeyFeatures.vue'
+  import Ecosystem from '~/components/dynamic/Ecosystem.vue'
+  import Faq from '~/components/dynamic/FaQ.vue'
 
   export default {
     components: {
@@ -54,7 +58,11 @@
       News,
       Events,
       Workshops,
-      Exhibitions
+      Exhibitions,
+      GettingStarted,
+      KeyFeatures,
+      Ecosystem,
+      Faq
     },
     props: {
       initTitle: {
@@ -133,6 +141,7 @@
         this.blockType = this.initType
       }
 
+      // Set button size
       if(this.initButtons != undefined) {
         if(this.initButtons.length > 0) {
 
