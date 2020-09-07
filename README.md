@@ -17,9 +17,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 # generate fragmentTypes.json (must do if model structure of a UNION is changed/added)
 $ yarn generate -r dotenv/config
+```
+
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
