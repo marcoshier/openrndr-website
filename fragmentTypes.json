@@ -3,7 +3,7 @@
     "types": [
       {
         "kind": "UNION",
-        "name": "DynamicTextBlockModelDynamicContentField",
+        "name": "DynamicContentBlockModelDynamicContentField",
         "possibleTypes": [
           {
             "name": "ProjectRecord"
@@ -12,13 +12,7 @@
             "name": "InstagramPostRecord"
           },
           {
-            "name": "GuideRecord"
-          },
-          {
-            "name": "TutorialRecord"
-          },
-          {
-            "name": "NewsRecord"
+            "name": "PageButtonRecord"
           }
         ]
       },
