@@ -90,9 +90,13 @@ p.lead {
   color: $dark;
 }
 
-.nuxt-link-exact-active {
+.navbar-nav > .nav-item > .nuxt-link-exact-active {
   border-bottom: 2px solid pink;
   font-weight: 500;
+}
+
+.dropdown-menu .dropdown-item.nuxt-link-exact-active {
+  background-color: rgba($primary, .75);
 }
 
 // Sidebar
