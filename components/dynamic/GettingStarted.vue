@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="d-flex justify-content-between p-5">
     <template v-for="(button, index) in items">
-      <vue-button :title="button.title" :url="button.url" :type="button.linkType" classList="getting-started-link" />
+      <vue-button :title="button.title" :url="button.url" :type="button.linkType" buttonClasses="getting-started-link" />
       <img v-if="index < items.length -1" src="@/assets/images/arrow.svg" alt="Next step indicator" class="arrow-next">
     </template>
   </div>

@@ -8,13 +8,7 @@
 
       <div v-if="buttons">
         <template v-for="(button, index) in buttons">
-          <nuxt-link v-if="button.linkType == 'intern'" :to="button.url" :class="'btn btn-primary ' + button.class">
-            {{button.title}}
-          </nuxt-link>
-
-          <a v-else :href="button.url" :class="'btn btn-primary ' + button.class" target="_blank">
-            {{button.title}}
-          </a>
+          <vue-button :type="button.linkType" :url="button.url" :size="button.size" :title="button.title" :parentClasses="button.class" />
         </template>
       </div>
     </div>
@@ -34,6 +28,9 @@
 </template>
 
 <script>
+  import VueButton from '~/components/Button.vue'
+
+  // Dynamic content
   import Gallery from '~/components/dynamic/Gallery.vue'
   import GalleryPage from '~/components/dynamic/GalleryPage.vue'
   import Instagram from '~/components/dynamic/Instagram.vue'
@@ -50,6 +47,7 @@
 
   export default {
     components: {
+      VueButton,
       Gallery,
       GalleryPage,
       Instagram,
@@ -103,6 +101,7 @@
         anchorpoint: null,
         blockType: 'normal',
         buttons: null,
+        buttonClass: null,
         index: null,
         borderTop: true
       }
@@ -141,32 +140,24 @@
         this.blockType = this.initType
       }
 
-      // Set button size
+      // Set buttons array and classList for buttons
       if(this.initButtons != undefined) {
         if(this.initButtons.length > 0) {
-
-          // Check button size and give it a bootstrap class
-          this.initButtons.forEach(function(button, index) {
-            switch(button.size) {
-              case 'small':
-                button.class = 'btn-sm'
-                break
-
-              case 'normal':
-                button.class = ''
-                break
-
-              case 'large':
-                button.class = 'btn-lg'
-                break
-
-              default:
-                button.class = ''
-
-            }
-          })
-
           this.buttons = this.initButtons
+
+          // Give spacing class if there are multiple buttons
+          let buttonCounter = 1
+          let self = this
+
+          this.buttons.forEach(function(button, index) {
+            if(buttonCounter < self.buttons.length) {
+              button.class = 'mr-3'
+            } else {
+              button.class = ''
+            }
+
+            buttonCounter++
+          })
         }
       }
 

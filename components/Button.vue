@@ -1,6 +1,6 @@
 <template lang="html">
-  <div>
-    <nuxt-link v-if="type == 'intern'" :to="url" :class="'btn btn-primary ' + sizeClass + ' ' + classList">
+  <div :class="'d-inline-block ' + parentClasses">
+    <nuxt-link v-if="type == 'intern'" :to="url" :class="'btn btn-primary ' + sizeClass + ' ' + buttonClasses">
       {{title}}
     </nuxt-link>
 
@@ -26,7 +26,10 @@ export default {
       type: String,
       default: null
     },
-    classList: {
+    buttonClasses: {
+      type: String
+    },
+    parentClasses: {
       type: String
     }
   },
