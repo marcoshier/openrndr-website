@@ -1,6 +1,6 @@
 <template>
-  <div class="py-5 px-3">
-    <div class="row row-eq-height p-0">
+  <div class="pt-5 px-4">
+    <div class="row row-eq-height py-0 px-3">
       <template v-for="(item, index) in allProjects">
         <gallery-item
         :title="item.title" :media="item.media" :credits="item.credits" :blurb="item.blurb" :specs="item.techSpecs" class="col-12 col-md-6 col-lg-4"
