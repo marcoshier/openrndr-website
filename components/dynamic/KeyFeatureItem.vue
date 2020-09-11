@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="col-12 col-md-6 mb-5 d-flex px-0" v-bind:class="{'pr-3': isFirstInRow, 'pl-3': !isFirstInRow}">
+  <div class="col-12 col-lg-6 mb-5 d-flex px-0" v-bind:class="{'first-item': isFirstInRow, 'last-item': !isFirstInRow}">
     <div class="feature-number mr-5">
       <img class="img-fluid" src="@/assets/images/key-feature-circle.png">
       <h1 class="mb-0 feature-number-text">{{index + 1}}</h1>
@@ -46,6 +46,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Only apply spacing when col-6 is displayed (on lg screens)
+@media only screen and (min-width: 992px) {
+  .first-item {
+    padding-right: 1rem !important;
+  }
+
+  .last-item {
+    padding-left: 1rem !important;
+  }
+}
 
 .feature-number {
   position: relative;
