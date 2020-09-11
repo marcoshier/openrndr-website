@@ -8,6 +8,7 @@
     </header>
     <!-- END Video background -->
 
+    <div class="w-100 border-top border-primary"></div>
     <div class="container py-4 border-left border-right border-primary">
     </div>
 
