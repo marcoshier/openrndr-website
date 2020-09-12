@@ -16,7 +16,7 @@
     <hr v-if="bodyTextDivider && bodyText" class="my-0 border-primary">
 
     <div v-if="bodyText" class="p-5">
-      <div v-html="bodyText">
+      <div v-html="bodyText" class="wizywig">
       </div>
     </div>
 

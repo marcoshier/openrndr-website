@@ -41,6 +41,7 @@ p.lead-header {
 }
 
 p.lead {
+  margin: 0;
   font-size: 1.875rem;
   font-weight: 400;
   color: $gray;
@@ -55,6 +56,20 @@ p.lead {
 
 .btn-lg {
   font-size: 1.5rem;
+}
+
+// Add margin for p.lead whenever there is an element after it
+div > p.lead + * {
+  margin-top: 1rem;
+}
+
+// Remove all margin from all elements inside the wizywig div
+.wizywig > * {
+  margin: 0;
+}
+
+.wizywig > * + * {
+  margin-top: 1rem;
 }
 
 // Cards
