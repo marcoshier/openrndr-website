@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container" v-if="allNavigations">
+  <div class="navbar-container" v-if="allMainNavigations">
     <b-navbar toggleable="lg" type="light" class="border-bottom border-primary py-3">
       <div class="container">
         <b-navbar-brand to="/">
@@ -10,23 +10,16 @@
 
         <!-- <b-collapse id="nav-collapse" is-nav> -->
           <b-navbar-nav class="ml-auto">
-            <template v-for="(page, index) in allNavigations">
+            <template v-for="(page, index) in allMainNavigations">
 
-              <b-nav-item-dropdown v-if="page.navType == 'dropdown'" :text="page.title" :key="index">
-                <template v-for="(item, index) in page.dropdownItems">
-                  <b-dropdown-item v-if="item.linkType == 'intern'" :key="index" :to="item.link">
-                    {{item.title}}
-                  </b-dropdown-item>
+              <menu-item
+                :title="page.menuItem.title"
+                :type="page.menuItem.navType"
+                :intern="page.menuItem.internLink"
+                :value="page.menuItem.value"
+                :items="page.menuItem.dropdownItems"
+              />
 
-                  <a v-else :key="index" :href="'//' + item.link" class="dropdown-item" target="_blank">
-                    {{item.title}}
-                  </a>
-                </template>
-              </b-nav-item-dropdown>
-
-              <b-nav-item v-if="page.navType == 'normal'" :key="index" :to="page.slug">
-                {{ page.title }}
-              </b-nav-item>
             </template>
 
           </b-navbar-nav>
@@ -38,21 +31,33 @@
 
 <script>
   import gql from 'graphql-tag'
+  import MenuItem from '~/components/MenuItem.vue'
 
   export default {
     apollo: {
-      allNavigations: gql`{
-        allNavigations {
-          title
-          slug
-          navType,
-          dropdownItems {
+      allMainNavigations: gql`{
+        allMainNavigations {
+          menuItem {
             title
-            link
-            linkType
+            navType
+            internLink {
+              slug
+            }
+            value
+            dropdownItems {
+              title
+              linkType
+              internLink {
+                slug
+              }
+              value
+            }
           }
         }
       }`
+    },
+    components: {
+      MenuItem
     }
     // computed: {
     //   console: () => console,

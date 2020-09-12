@@ -4,6 +4,7 @@
       :title="feature.title"
       :description="feature.description"
       :index="index"
+      :key="index"
     />
   </div>
 </template>

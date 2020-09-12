@@ -5,6 +5,7 @@
       :description="item.description"
       :image="item.image"
       :index="index"
+      :key="index"
     />
   </div>
 </template>
