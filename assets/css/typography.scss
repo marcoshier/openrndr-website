@@ -31,7 +31,7 @@ h1.display-1 {
 
 p {
   font-family: $textBody;
-  color: $gray;
+  color: $darkGray;
   font-size: 1.5rem;
   line-height: 150%;
 }
@@ -43,6 +43,7 @@ p.lead-header {
 p.lead {
   font-size: 1.875rem;
   font-weight: 400;
+  color: $gray;
 }
 
 .btn {
