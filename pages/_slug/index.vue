@@ -27,7 +27,7 @@
           </template>
 
           <template v-else>
-            <div class="col-12 border-left border-right border-primary">
+            <div class="col-12 border-left border-right border-primary px-0">
               <template v-for="(block, index) in page.dynamicContentBlocks">
                 <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                 :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
