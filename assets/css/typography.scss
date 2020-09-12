@@ -47,6 +47,34 @@ p.lead {
   color: $gray;
 }
 
+a {
+  color: $darkGray;
+  text-decoration: underline;
+  text-decoration-color: $primary;
+}
+
+a.dropdown-item, a.nav-link, .list-group-item > a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primary;
+}
+
+a:focus {
+  outline: solid;
+  outline-width: 2px;
+  outline-color: $primary;
+  outline-offset: 3px;
+}
+
+a.dropdown-item:focus {
+  outline: dotted;
+  outline-width: 1px;
+  outline-color: $primary;
+  outline-offset: 0;
+}
+
 .btn {
   font-family: $textButton;
   font-size: 1.25rem;

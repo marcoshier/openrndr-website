@@ -18,6 +18,7 @@
                 :intern="page.menuItem.internLink"
                 :value="page.menuItem.value"
                 :items="page.menuItem.dropdownItems"
+                :key="index"
               />
 
             </template>

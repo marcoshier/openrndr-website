@@ -1,20 +1,24 @@
 <template lang="html">
   <div>
-    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :key="index">
+    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="itemClass">
       <template v-for="(item, index) in items">
-        <b-dropdown-item v-if="item.linkType == 'intern'" :key="index" :to="item.internLink.slug">
+        <b-dropdown-item v-if="item.linkType == 'intern'" :to="item.internLink.slug">
           {{item.title}}
         </b-dropdown-item>
 
-        <a v-else :key="index" :href="'//' + item.value" class="dropdown-item" target="_blank">
+        <a v-else :href="'//' + item.value" class="dropdown-item" target="_blank">
           {{item.title}}
         </a>
       </template>
     </b-nav-item-dropdown>
 
-    <b-nav-item v-if="type == 'normal'" :key="index" :to="intern.slug">
+    <b-nav-item v-if="type == 'intern'" :to="intern.slug" :class="itemClass">
       {{ title }}
     </b-nav-item>
+
+    <a v-else-if="type == 'extern'" :href="'//' + value" target="_blank" :class="itemClass">
+      {{title}}
+    </a>
   </div>
 </template>
 
@@ -37,6 +41,10 @@ export default {
     },
     items: {
       type: Array,
+      default: undefined
+    },
+    itemClass: {
+      type: String,
       default: undefined
     }
   }
