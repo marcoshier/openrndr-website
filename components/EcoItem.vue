@@ -32,18 +32,14 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .eco-link {
     color: inherit;
   }
 
-  .eco-link:hover{
+  .eco-link, .eco-link:hover{
     text-decoration: none;
     color: inherit;
-  }
-
-  .eco-img {
-    height: 65px;
   }
 
   .eco-img-wrapper {
