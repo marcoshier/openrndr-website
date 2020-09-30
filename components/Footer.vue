@@ -2,7 +2,7 @@
   <footer class="bg-primary">
     <div class="container py-5 px-0">
       <div class="row m-0" v-if="allFooterNavigations">
-        <div class="col-6 col-lg-3" v-for="(block, index) in allFooterNavigations">
+        <div class="col-6 col-lg-3 mb-4 mb-lg-0" v-for="(block, index) in allFooterNavigations" v-if="index < 4">
           <h5 v-if="block.title">{{block.title}}</h5>
           <h5 v-else>&nbsp;</h5>
 
@@ -42,17 +42,33 @@ export default {
             ... on MenuItemRecord {
               title
               navType
-              internLink {
-                slug
-              }
               value
+              internLink {
+                ... on PageRecord {
+                  slug
+                }
+                ... on PageChildRecord {
+                  slug
+                  parentPage {
+                    slug
+                  }
+                }
+              }
               dropdownItems {
                 title
                 linkType
-                internLink {
-                  slug
-                }
                 value
+                internLink {
+                  ... on PageRecord {
+                    slug
+                  }
+                  ... on PageChildRecord {
+                    slug
+                    parentPage {
+                      slug
+                    }
+                  }
+                }
               }
             }
           }

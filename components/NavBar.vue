@@ -41,17 +41,33 @@
           menuItem {
             title
             navType
-            internLink {
-              slug
-            }
             value
+            internLink {
+              ... on PageRecord {
+                slug
+              }
+              ... on PageChildRecord {
+                slug
+                parentPage {
+                  slug
+                }
+              }
+            }
             dropdownItems {
               title
               linkType
-              internLink {
-                slug
-              }
               value
+              internLink {
+                ... on PageRecord {
+                  slug
+                }
+                ... on PageChildRecord {
+                  slug
+                  parentPage {
+                    slug
+                  }
+                }
+              }
             }
           }
         }
