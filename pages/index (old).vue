@@ -95,12 +95,12 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
-  import VideoBackground from '~/components/VideoBackground.vue'
-  import ContentBlock from '~/components/ContentBlock.vue'
-  import KeyFeature from '~/components/KeyFeature.vue'
-  import EcoItem from '~/components/EcoItem.vue'
-  import Faq from '~/components/Faq.vue'
+  // import gql from 'graphql-tag'
+  // import VideoBackground from '~/components/VideoBackground.vue'
+  // import ContentBlock from '~/components/ContentBlock.vue'
+  // import KeyFeature from '~/components/KeyFeature.vue'
+  // import EcoItem from '~/components/EcoItem.vue'
+  // import Faq from '~/components/Faq.vue'
 
   export default {
     layout: 'home',
