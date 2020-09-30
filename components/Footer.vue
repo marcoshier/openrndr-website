@@ -1,15 +1,16 @@
 <template lang="html">
   <footer class="bg-primary">
     <div class="container py-5 px-0">
-      <div class="row" v-if="allFooterNavigations">
+      <div class="row m-0" v-if="allFooterNavigations">
         <div class="col-6 col-lg-3" v-for="(block, index) in allFooterNavigations">
           <h5 v-if="block.title">{{block.title}}</h5>
           <h5 v-else>&nbsp;</h5>
 
           <b-nav vertical>
-            <template v-for="(item, index) in block.menuItems">
+            <template v-if="block.menuItems.length > 0" v-for="(item, index) in block.menuItems">
 
               <menu-item
+                v-if="item.menuItem != undefined || item.menuItem != null"
                 :title="item.menuItem.title"
                 :type="item.menuItem.navType"
                 :intern="item.menuItem.internLink"
@@ -61,6 +62,8 @@ export default {
   },
   components: {
     MenuItem
+  },
+  mounted() {
   }
 }
 </script>
