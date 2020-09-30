@@ -3,6 +3,18 @@
     "types": [
       {
         "kind": "UNION",
+        "name": "DropdownItemModelInternLinkField",
+        "possibleTypes": [
+          {
+            "name": "PageRecord"
+          },
+          {
+            "name": "PageChildRecord"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
         "name": "DynamicContentBlockModelDynamicContentField",
         "possibleTypes": [
           {
@@ -28,6 +40,18 @@
           },
           {
             "name": "GifRecord"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
+        "name": "MenuItemModelInternLinkField",
+        "possibleTypes": [
+          {
+            "name": "PageRecord"
+          },
+          {
+            "name": "PageChildRecord"
           }
         ]
       }
