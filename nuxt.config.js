@@ -51,7 +51,15 @@ export default {
   ],
   fontawesome: {
     icons: {
-      solid: true,
+      solid: [
+        'faTimes',
+        'faCalendarTimes',
+        'faCalendarDay',
+        'faCalendarAlt',
+        'faMapMarkerAlt',
+        'faPhoneAlt',
+        'faEnvelope'
+      ],
       regular: [
         'faClock'
       ],
