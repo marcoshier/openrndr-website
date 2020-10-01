@@ -1,5 +1,5 @@
 <template>
-  <div class="row px-5 pt-5">
+  <div class="row m-0 px-5 pt-5">
     <div class="col-12 mb-5" v-if="!hasCurrentItems">
       <div class="card p-5 d-flex flex-row align-items-center">
         <h1 class="display-1 mb-0 mr-5">
