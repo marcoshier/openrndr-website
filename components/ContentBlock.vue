@@ -8,7 +8,15 @@
 
       <div v-if="buttons">
         <template v-for="(button, index) in buttons">
-          <vue-button :type="button.linkType" :url="button.url" :size="button.size" :title="button.title" :parentClasses="button.class" />
+          <vue-button
+            :type="button.linkType"
+            :url="button.url"
+            :size="button.size"
+            :title="button.title"
+            :page="button.page"
+            :anchorpoint="button.anchorpoint"
+            :parentClasses="button.class"
+          />
         </template>
       </div>
     </div>

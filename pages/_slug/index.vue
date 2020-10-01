@@ -88,44 +88,74 @@
                         size
                         linkType
                         url
-                      }
-                      dynamicContent {
-                      ... on ProjectRecord {
-                        title
-                        blurb
-                        techSpecs
-                        credits
-                        url
-                        media {
-                          ... on ImageRecord {
-                            file {
-                              url
-                            }
-                            credits
-                            caption
+                        anchorpoint
+                        page {
+                          ... on PageRecord {
+                            slug
                           }
-                          ... on VideoRecord {
-                            credits
-                            caption
-                            file {
-                              url
-                              thumbnailUrl
-                            }
-                          }
-                          ... on GifRecord {
-                            credit
-                            caption
-                            file {
-                              url
+                          ... on PageChildRecord {
+                            slug
+                            parentPage {
+                              slug
                             }
                           }
                         }
                       }
-                      ... on InstagramPostRecord {
-                        title
-                        link
-                        alt
-                      }
+                      dynamicContent {
+                        ... on PageButtonRecord {
+                          title
+                          size
+                          linkType
+                          url
+                          anchorpoint
+                          page {
+                            ... on PageRecord {
+                              slug
+                            }
+                            ... on PageChildRecord {
+                              slug
+                              parentPage {
+                                slug
+                              }
+                            }
+                          }
+                        }
+                        ... on ProjectRecord {
+                          title
+                          blurb
+                          techSpecs
+                          credits
+                          url
+                          media {
+                            ... on ImageRecord {
+                              file {
+                                url
+                              }
+                              credits
+                              caption
+                            }
+                            ... on VideoRecord {
+                              credits
+                              caption
+                              file {
+                                url
+                                thumbnailUrl
+                              }
+                            }
+                            ... on GifRecord {
+                              credit
+                              caption
+                              file {
+                                url
+                              }
+                            }
+                          }
+                        }
+                        ... on InstagramPostRecord {
+                          title
+                          link
+                          alt
+                        }
                     }
                   }
                 }

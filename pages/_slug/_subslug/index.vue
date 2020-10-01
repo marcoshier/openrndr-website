@@ -97,8 +97,38 @@
                         size
                         linkType
                         url
+                        anchorpoint
+                        page {
+                          ... on PageRecord {
+                            slug
+                          }
+                          ... on PageChildRecord {
+                            slug
+                            parentPage {
+                              slug
+                            }
+                          }
+                        }
                       }
                       dynamicContent {
+                      ... on PageButtonRecord {
+                        title
+                        size
+                        linkType
+                        url
+                        anchorpoint
+                        page {
+                          ... on PageRecord {
+                            slug
+                          }
+                          ... on PageChildRecord {
+                            slug
+                            parentPage {
+                              slug
+                            }
+                          }
+                        }
+                      }
                       ... on ProjectRecord {
                         title
                         blurb

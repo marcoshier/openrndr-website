@@ -75,6 +75,18 @@
               size
               linkType
               url
+              anchorpoint
+              page {
+                ... on PageRecord {
+                  slug
+                }
+                ... on PageChildRecord {
+                  slug
+                  parentPage {
+                    slug
+                  }
+                }
+              }
             }
             dynamicContent {
               ... on ProjectRecord {
@@ -119,6 +131,18 @@
                 size
                 linkType
                 url
+                anchorpoint
+                page {
+                  ... on PageRecord {
+                    slug
+                  }
+                  ... on PageChildRecord {
+                    slug
+                    parentPage {
+                      slug
+                    }
+                  }
+                }
               }
             }
           }

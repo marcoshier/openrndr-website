@@ -15,6 +15,18 @@
       },
       {
         "kind": "UNION",
+        "name": "PageButtonModelPageField",
+        "possibleTypes": [
+          {
+            "name": "PageRecord"
+          },
+          {
+            "name": "PageChildRecord"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
         "name": "DynamicContentBlockModelDynamicContentField",
         "possibleTypes": [
           {
