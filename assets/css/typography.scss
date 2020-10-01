@@ -134,7 +134,12 @@ div > p.lead + * {
   color: $dark;
 }
 
-.navbar-nav > .nav-item > .nuxt-link-exact-active {
+.navbar-nav > div > li.nav-item > a.nav-link {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.navbar-nav > div > li.nav-item > a.nav-link.nuxt-link-active {
   border-bottom: 2px solid pink;
   font-weight: 500;
 }
