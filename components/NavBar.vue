@@ -1,15 +1,13 @@
 <template>
-  <div class="navbar-container" v-if="allMainNavigations">
-    <b-navbar toggleable="lg" type="light" class="border-bottom border-primary py-3">
+  <div class="navbar-container">
+    <b-navbar toggleable="lg" type="light" class="border-bottom border-primary p-3"  v-if="allMainNavigations">
       <div class="container">
         <b-navbar-brand to="/">
           <img class="logo" src="@/assets/images/openrndr-logo.png" alt="The OPENRNDR Logo">
         </b-navbar-brand>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-        <!-- <b-collapse id="nav-collapse" is-nav> -->
-          <b-navbar-nav class="ml-auto">
+        <!-- Desktop menu -->
+          <b-navbar-nav class="ml-auto d-none d-lg-flex">
             <template v-for="(page, index) in allMainNavigations">
 
               <menu-item
@@ -24,7 +22,15 @@
             </template>
 
           </b-navbar-nav>
-        <!-- </b-collapse> -->
+        <!-- /Desktop menu -->
+
+        <!-- Mobile menu -->
+        <div class="ml-auto d-lg-none">
+          <mobile-menu
+            :items="allMainNavigations"
+          />
+        </div>
+        <!-- /Mobile menu -->
       </div>
     </b-navbar>
   </div>
@@ -33,6 +39,7 @@
 <script>
   import gql from 'graphql-tag'
   import MenuItem from '~/components/MenuItem.vue'
+  import MobileMenu from '~/components/MobileMenu.vue'
 
   export default {
     apollo: {
@@ -74,6 +81,7 @@
       }`
     },
     components: {
+      MobileMenu,
       MenuItem
     }
     // computed: {
@@ -85,14 +93,6 @@
 
 
 <style scoped>
-  .logo {
-    max-width: 150px;
-  }
-
-  .navbar-container {
-    height: 110px;
-  }
-
   .navbar {
     position: fixed;
     z-index: 999;

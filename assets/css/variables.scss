@@ -10,3 +10,10 @@ $textHead: 'Noto sans JP', sans-serif;
 $textButton: 'Noto sans JP', sans-serif;
 $textNav: 'Noto sans JP', sans-serif;
 $textBody: 'Jost', sans-serif;
+
+// Navbar height
+$navbarHeight: 95px;
+
+@media (min-width: 768px) {
+  $navbarHeight: 110px;
+}

@@ -6,9 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "graphql-codegen"
+    "dev:host": "nuxt --hostname 0.0.0.0 --port 8000"
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
@@ -17,7 +15,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
-    "nuxt": "^2.14.4",
+    "nuxt": "^2.14.6",
     "vue-gallery": "^2.0.1"
   },
   "devDependencies": {

@@ -1,0 +1,24 @@
+.navbar-brand > img.logo {
+  max-width: 115px;
+}
+
+#menu-toggle {
+  font-size: 2.5rem;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  /* Navbar */
+  .navbar-brand > img.logo {
+    max-width: 150px;
+  }
+
+  #menu-toggle {
+    font-size: 3rem;
+  }
+}
