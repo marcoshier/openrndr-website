@@ -86,7 +86,7 @@ export default {
 
   #menu-toggle {
     transform: rotate(0);
-    transition: all 0.5s;
+    transition: all 0.35s;
   }
 
   .mobile-menu-wrapper {
@@ -98,7 +98,7 @@ export default {
     background: white;
     height: 100vh;
     width: 0%;
-    transition: 0.5s;
+    transition: 0.35s;
     display: block;
   }
 

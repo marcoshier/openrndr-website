@@ -101,7 +101,7 @@
   }
 
   #openrndr-logo > .logo {
-    transition: all .5s;
+    transition: all .35s;
   }
-  
+
 </style>
