@@ -2,7 +2,7 @@
   <div class="navbar-container">
     <b-navbar toggleable="lg" type="light" class="border-bottom border-primary p-3"  v-if="allMainNavigations">
       <div class="container">
-        <b-navbar-brand to="/">
+        <b-navbar-brand to="/" :id="'openrndr-logo'">
           <img class="logo" src="@/assets/images/openrndr-logo.png" alt="The OPENRNDR Logo">
         </b-navbar-brand>
 
@@ -25,7 +25,7 @@
         <!-- /Desktop menu -->
 
         <!-- Mobile menu -->
-        <div class="ml-auto d-lg-none">
+        <div class="ml-auto d-lg-none" :id="'mobile-button-wrapper'">
           <mobile-menu
             :items="allMainNavigations"
           />
@@ -99,4 +99,9 @@
     width: 100%;
     background-color: white;
   }
+
+  #openrndr-logo > .logo {
+    transition: all .5s;
+  }
+  
 </style>

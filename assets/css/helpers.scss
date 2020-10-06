@@ -21,6 +21,19 @@
   text-decoration: none;
 }
 
+// Z-index
+.z-forward {
+  z-index: 999999;
+}
+
+.z-backward {
+  z-index: -1;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
 // Extra spacing classes
 // $sizeUnit: rem;
 // $marginKey: 'm';

@@ -7,8 +7,10 @@
      ref="menuIcon"
     />
 
-    <div ref="mobileMenu" class="mobile-menu-wrapper bg-primary" >
+    <div ref="mobileMenu" class="mobile-menu-wrapper bg-primary z-backward" >
       <b-navbar-nav id="mobile-menu-container" class="" v-bind:class="{'d-none': !isMenuOpen}">
+        <li id="mobile-menu-header" class="border-bottom border-white">
+        </li>
         <template v-for="(page, index) in items">
           <menu-item
             :title="page.menuItem.title"
@@ -43,7 +45,8 @@ export default {
   data: function() {
     return {
       isMenuOpen: false,
-      iconClass: ''
+      iconClass: '',
+      logo: null
     }
   },
   methods: {
@@ -57,13 +60,23 @@ export default {
     open() {
       this.isMenuOpen = true
       //this.$refs.mobileMenu.style.display = "block"
+      this.logo.style.transform = "scale(1.5)"
+      this.logo.style.marginLeft = "1rem"
+      this.$refs.menuIcon.style.transform = 'rotate(90deg)'
       this.$refs.mobileMenu.style.width = "100%"
     },
     close() {
       this.isMenuOpen = false
+
+      this.logo.style.transform = "scale(1)"
+      this.logo.style.marginLeft = "0"
+      this.$refs.menuIcon.style.transform = 'rotate(0)'
       this.$refs.mobileMenu.style.width = "0%"
       //this.$refs.mobileMenu.style.display = "none"
     }
+  },
+  mounted() {
+    this.logo = document.querySelector('#openrndr-logo > .logo')
   }
 }
 </script>
@@ -71,9 +84,14 @@ export default {
 <style lang="scss">
   @import '~/assets/css/variables.scss';
 
+  #menu-toggle {
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+
   .mobile-menu-wrapper {
     position: absolute;
-    top: $navbarHeight;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -84,8 +102,12 @@ export default {
     display: block;
   }
 
-  #mobile-menu-container {
-    transition: 0.5s;
+  #mobile-menu-container > li {
+    transition: all 0.5s;
+  }
+
+  #mobile-menu-container > #mobile-menu-header {
+    height: $navbarHeight;
   }
 
   #mobile-menu-container > div > li.nav-item > a.nav-link {
