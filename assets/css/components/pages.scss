@@ -1,0 +1,14 @@
+@import '~/assets/css/variables.scss';
+
+.sidebar {
+  padding: 3rem;
+  border-right: 1px solid $primary;
+  border-bottom: 1px solid $primary;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    border-right: none;
+    border-bottom: none;
+  }
+}
