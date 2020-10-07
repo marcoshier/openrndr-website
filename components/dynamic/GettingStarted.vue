@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="d-flex justify-content-between p-5">
+  <div id="getting-started-area" class="d-flex justify-content-between p-5">
     <template v-for="(button, index) in items">
       <vue-button
         :title="button.title"
@@ -63,16 +63,27 @@ export default {
   }
 
   @media only screen and (max-width: 991px) {
+    #getting-started-area {
+      flex-direction: column;
+    }
+
     .arrow-next {
       height: 43px;
       width: 30px;
+      transform: rotate(90deg);
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .getting-started-link {
       font-size: 17px;
       min-width: 150px;
-      padding-top: 8px;
-      padding-bottom: 8px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      display: block;
+      width: 100%;
      }
   }
 </style>
