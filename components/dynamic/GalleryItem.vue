@@ -18,7 +18,7 @@
         <h4 class="mb-0">{{title}}</h4>
       </b-card-header>
 
-      <b-card-body>
+      <b-card-body class="py-3 pl-3 pr-0">
         <div class="card-text" v-if="blurb && blurb != ''" v-html="blurb">
         </div>
       </b-card-body>
