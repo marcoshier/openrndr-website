@@ -6,6 +6,7 @@
 @import 'bootstrap-vue/src/index.scss';
 
 // Import custom css
+@import 'mixins.scss';
 @import 'overrides.scss';
 @import 'typography.scss';
 @import 'components.scss';

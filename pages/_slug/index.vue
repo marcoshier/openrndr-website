@@ -4,21 +4,26 @@
     <page-header v-if="page.title" :title="page.title" :description="page.description" />
     <!-- END PageHeader -->
 
-    <div class="p-4 container border-left border-right border-primary"></div>
+    <div class="w-100 border-top border-bottom border-primary">
+      <div class="container-fluid px-2 px-sm-4 px-lg-5">
+        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+        </div>
+      </div>
+    </div>
 
     <!-- BEGIN PageBody -->
-    <div class="w-100 border-top border-bottom border-primary">
-      <div class="container">
-        <div class="row row-eq-height">
+    <div class="w-100 border-primary">
+      <div class="container-fluid px-2 px-sm-4 px-lg-5">
+        <div class="row row-eq-height m-0">
 
           <template v-if="hasSidebar">
             <!-- BEGIN Sidebar -->
-            <div class="sidebar col-12 col-lg-4 col-xl-3 border-left border-primary">
+            <div class="sidebar col-12 col-lg-4 col-xxl-3 border-left border-primary p-4 p-lg-5">
               <sidebar :title="page.title" :contentBlocks="page.dynamicContentBlocks" />
             </div>
             <!-- END Sidebar -->
 
-            <div class="col-12 col-lg-8 col-xl-9 px-0 border-left border-right border-primary">
+            <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-right border-primary">
               <template v-for="(block, index) in page.dynamicContentBlocks">
                 <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                 :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -39,7 +44,11 @@
       </div>
     </div>
 
-    <div class="p-4 container border-left border-right border-primary">
+    <div class="w-100 border-top border-bottom border-primary">
+      <div class="container-fluid px-2 px-sm-4 px-lg-5">
+        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+        </div>
+      </div>
     </div>
     <!-- END PageBody -->
   </div>

@@ -5,21 +5,26 @@
       <page-header v-if="pageChild.title" :title="pageChild.title" :description="pageChild.description" />
       <!-- END PageHeader -->
 
-      <div class="p-4 container border-left border-right border-primary"></div>
+      <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-fluid px-2 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-lg-4">
+          </div>
+        </div>
+      </div>
 
       <!-- BEGIN PageBody -->
-      <div class="w-100 border-top border-bottom border-primary">
-        <div class="container">
-          <div class="row row-eq-height">
+      <div class="w-100">
+        <div class="container-fluid px-2 px-lg-5">
+          <div class="row row-eq-height m-0">
 
             <template v-if="hasSidebar">
               <!-- BEGIN Sidebar -->
-              <div class="sidebar col-12 col-lg-3 pt-4 border-left border-primary">
+              <div class="sidebar col-12 col-xl-4 col-xxl-3 border-left border-primary p-4 p-lg-5">
                 <sidebar :title="pageChild.title" :contentBlocks="pageChild.dynamicContentBlocks" />
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-9 px-0 border-left border-right border-primary">
+              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-right border-primary">
                 <template v-for="(block, index) in pageChild.dynamicContentBlocks">
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -40,7 +45,11 @@
         </div>
       </div>
 
-      <div class="p-4 container border-left border-right border-primary">
+      <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-fluid px-2 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-lg-4">
+          </div>
+        </div>
       </div>
       <!-- END PageBody -->
     </template>

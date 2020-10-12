@@ -8,12 +8,15 @@
     </header>
     <!-- END Video background -->
 
-    <div class="w-100 border-top border-primary"></div>
-    <div class="container py-4 border-left border-right border-primary">
+    <div class="w-100 border-top border-bottom border-primary">
+      <div class="container-xl px-2 px-sm-4 px-lg-5">
+        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+        </div>
+      </div>
     </div>
 
-    <div class="w-100 border-top border-bottom border-primary">
-      <div class="container px-0">
+    <div class="w-100">
+      <div class="container-xl px-2 px-sm-4 px-lg-5">
         <div class="row row-eq-height p-0 m-0">
           <div class="col-12 px-0 border-left border-right border-primary">
             <template v-for="(block, index) in landing.dynamicContentBlocks">
@@ -25,7 +28,11 @@
       </div>
     </div>
 
-    <div class="container p-4 border-left border-right border-primary">
+    <div class="w-100 border-top border-primary">
+      <div class="container-xl px-2 px-sm-4 px-lg-5">
+        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+        </div>
+      </div>
     </div>
   </div>
 
