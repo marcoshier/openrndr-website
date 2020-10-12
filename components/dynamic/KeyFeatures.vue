@@ -1,5 +1,5 @@
 <template lang="html">
-  <div v-if="allFeatures" class="row px-5 pt-5 m-0">
+  <div v-if="allFeatures" class="row px-4 pt-4 px-lg-5 pt-lg-5 m-0">
     <key-feature-item v-for="(feature, index) in allFeatures"
       :title="feature.title"
       :description="feature.description"

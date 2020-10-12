@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5">
+  <div class="p-4 p-lg-5">
     <div class="row row-eq-height">
       <template v-for="(item, index) in items" v-if="index < 4">
         <gallery-item

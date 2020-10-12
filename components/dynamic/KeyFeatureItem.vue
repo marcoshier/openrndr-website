@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="col-12 col-lg-6 mb-5 d-flex px-0" v-bind:class="{'first-item': isFirstInRow, 'last-item': !isFirstInRow}">
+  <div class="col-12 col-lg-6 mb-4 mb-lg-5 d-flex px-0" v-bind:class="{'first-item': isFirstInRow, 'last-item': !isFirstInRow}">
     <div class="feature-number mr-4 mr-md-5">
       <img class="img-fluid" src="@/assets/images/key-feature-circle.png">
       <h1 class="mb-0 feature-number-text">{{index + 1}}</h1>
@@ -59,12 +59,12 @@ export default {
 
 .feature-number {
   position: relative;
-  min-width: 75px;
-  min-height: 75px;
+  min-width: 60px;
+  min-height: 60px;
   height: fit-content;
 
   & > img {
-    max-width: 75px;
+    max-width: 60px;
   }
 
   & > {

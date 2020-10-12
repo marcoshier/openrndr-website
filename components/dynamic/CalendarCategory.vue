@@ -1,8 +1,8 @@
 <template>
-  <div class="row m-0 px-5 pt-5">
-    <div class="col-12 mb-5" v-if="!hasCurrentItems">
-      <div class="card p-5 d-flex flex-row align-items-center">
-        <h1 class="display-1 mb-0 mr-5">
+  <div class="row m-0 px-4 px-lg-5 pt-4 pt-lg-5">
+    <div class="col-12 px-0 mb-4 mb-lg-5" v-if="!hasCurrentItems">
+      <div class="card p-3 p-lg-5 d-block d-lg-flex flex-row align-items-center">
+        <h1 class="display-1 text-center text-lg-left mb-3 mb-lg-0 mr-0 mr-lg-5">
           <font-awesome-icon icon="calendar-times" />
         </h1>
         <div>
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="col-12" v-for="(item, index) in calendarItems">
+    <div class="col-12 px-0" v-for="(item, index) in calendarItems">
       <calendar-item
         :type="item.type"
         :dateStart="item.dateStart"
@@ -26,7 +26,7 @@
     </div>
 
     <template v-if="hasPastItems">
-      <div class="ml-3 mb-5 mt-2">
+      <div class="mb-4 mb-lg-5 mt-2">
         <button class="btn btn-primary btn-lg" @click="togglePastItems()">{{buttonText}} past {{type}}</button>
       </div>
     </template>

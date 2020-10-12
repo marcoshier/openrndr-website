@@ -1,6 +1,6 @@
 <template>
   <div v-if="allGuides">
-    <div v-if="allGuides.length > 0" class="px-5 pt-5">
+    <div v-if="allGuides.length > 0" class="px-4 px-lg-5 pt-4 pt-lg-5">
       <div class="row row-eq-height">
         <template v-for="(item, index) in allGuides">
           <guide-item

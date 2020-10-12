@@ -1,6 +1,6 @@
 <template>
-  <div class="container p-0" :id="anchorpoint ? anchorpoint : ''">
-    <div class="p-5 border-primary" v-bind:class="{ 'border-top': borderTop }" v-if="title || subtext">
+  <div class="container-fluid p-0" :id="anchorpoint ? anchorpoint : ''">
+    <div class="p-4 p-lg-5 border-primary" v-bind:class="{ 'border-top': borderTop }" v-if="title || subtext">
       <h1 v-if="title" v-bind:class="{ 'mb-0': !subtext }">{{title}}</h1>
       <p v-if="subtext" class="lead">
         {{subtext}}
@@ -23,7 +23,7 @@
 
     <hr v-if="bodyTextDivider && bodyText" class="my-0 border-primary">
 
-    <div v-if="bodyText" class="p-5">
+    <div v-if="bodyText" class="p-4 p-lg-5">
       <div v-html="bodyText" class="wizywig">
       </div>
     </div>

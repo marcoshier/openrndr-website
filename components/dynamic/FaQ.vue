@@ -1,5 +1,5 @@
 <template lang="html">
-  <div v-if="allFaqs" role="tablist" class="px-5 pt-5 faq">
+  <div v-if="allFaqs" role="tablist" class="px-4 px-lg-5 pt-4 pt-lg-5 faq">
     <div v-for="(question, index) in allFaqs" :key="index" class="mb-5">
       <div role="tab">
         <a class="question" v-b-toggle :href="'#accordion-'+index"><h4 class="mb-2">{{question.question}}</h4></a>

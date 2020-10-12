@@ -59,20 +59,35 @@ export default {
     },
     open() {
       this.isMenuOpen = true
-      //this.$refs.mobileMenu.style.display = "block"
-      this.logo.style.transform = "scale(1.5)"
-      this.logo.style.marginLeft = "1rem"
-      this.$refs.menuIcon.style.transform = 'rotate(90deg)'
-      this.$refs.mobileMenu.style.width = "100%"
+
+      if(this.logo) {
+        this.logo.style.transform = "scale(1.5)"
+        this.logo.style.marginLeft = "1rem"
+      }
+
+      if(this.$refs.menuIcon) {
+        this.$refs.menuIcon.style.transform = 'rotate(90deg)'
+      }
+
+      if(this.$refs.mobileMenu) {
+        this.$refs.mobileMenu.style.width = "100%"
+      }
     },
     close() {
       this.isMenuOpen = false
 
-      this.logo.style.transform = "scale(1)"
-      this.logo.style.marginLeft = "0"
-      this.$refs.menuIcon.style.transform = 'rotate(0)'
-      this.$refs.mobileMenu.style.width = "0%"
-      //this.$refs.mobileMenu.style.display = "none"
+      if(this.logo) {
+        this.logo.style.transform = "scale(1)"
+        this.logo.style.marginLeft = "0"
+      }
+
+      if(this.$refs.menuIcon) {
+        this.$refs.menuIcon.style.transform = 'rotate(0)'
+      }
+
+      if(this.$refs.mobileMenu) {
+        this.$refs.mobileMenu.style.width = "0%"
+      }
     }
   },
   mounted() {

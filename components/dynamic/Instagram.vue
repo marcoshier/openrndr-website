@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5">
+  <div class="px-4 pt-4 px-lg-5 pt-lg-5">
     <div class="row row-eq-height">
       <template v-for="(item, index) in items" v-if="index < 4">
         <instagram-item
@@ -10,7 +10,7 @@
 
     <div v-if="items.length > 4">
       <!-- <modal :items="items" :title="this.name" /> -->
-      <b-button v-b-modal="'instagram-modal-' + this.id" class="btn btn-primary btn-lg" variant="primary">
+      <b-button v-b-modal="'instagram-modal-' + this.id" class="btn btn-primary btn-lg mb-4 mb-lg-5" variant="primary">
         See all items
       </b-button>
 

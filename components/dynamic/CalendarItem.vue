@@ -1,7 +1,7 @@
 <template>
-  <div class="card calendar-card mb-5" v-if="isActive">
+  <div class="card calendar-card mb-4 mb-lg-5" v-if="isActive">
     <div class="row m-0">
-      <div class="col-md-4 card-body bg-primary d-flex justify-content-center align-items-center" v-bind:class="{ clickable: link}" @click="goToCardUrl()">
+      <div class="col-md-4 card-header-alt card-body bg-primary d-flex justify-content-center align-items-center" v-bind:class="{ clickable: link}" @click="goToCardUrl()">
         <div>
           <!-- template for single date calendar items -->
           <template v-if="dateStart == dateEnd">

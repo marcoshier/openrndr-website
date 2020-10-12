@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5 px-4">
+  <div class="pt-4 pt-lg-5 px-3 px-lg-4">
     <div class="row row-eq-height py-0 px-3">
       <template v-for="(item, index) in allProjects">
         <gallery-item

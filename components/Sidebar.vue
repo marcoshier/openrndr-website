@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasSidebar" id="sidebar" class="p-3">
+  <div v-if="hasSidebar" id="sidebar" class="p-0 p-lg-3">
     <ul class="list-group rounded-0 p-3 border">
       <li v-if="pageTitle" class="list-group-item border-0">
         <span class="sidebar-title">{{this.title}}</span>

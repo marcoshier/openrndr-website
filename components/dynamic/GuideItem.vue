@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 col-md-6 mb-5">
+  <div class="col-12 col-md-6 mb-4 mb-lg-5">
     <b-card
     no-body
     tag="article"

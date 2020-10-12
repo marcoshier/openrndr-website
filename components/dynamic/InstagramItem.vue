@@ -1,5 +1,5 @@
 <template>
-  <div :class="this.size +  ' mb-5'" v-if="image.url">
+  <div :class="this.size +  ' mb-4 mb-lg-5'" v-if="image.url">
     <b-card
     no-body
     :img-src="image.url"

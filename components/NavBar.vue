@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <b-navbar toggleable="lg" type="light" class="border-bottom border-primary p-3"  v-if="allMainNavigations">
-      <div class="container">
+      <div class="container-fluid px-0 px-lg-5">
         <b-navbar-brand to="/" :id="'openrndr-logo'">
           <img class="logo" src="@/assets/images/openrndr-logo.png" alt="The OPENRNDR Logo">
         </b-navbar-brand>

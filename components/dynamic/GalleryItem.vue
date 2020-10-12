@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes + ' mb-5'">
+  <div :class="classes + ' mb-4 mb-lg-5'">
     <v-gallery :id="'blue-imp-gallery-' + id" :images="gallery" :index="index" @close="close()"></v-gallery>
     <b-card
       no-body

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div v-if="allEcosystems" class="row row-eq-height px-5 pt-5 m-0">
+  <div v-if="allEcosystems" class="row row-eq-height px-4 pt-4 px-lg-5 pt-lg-5 m-0">
     <ecosystem-item v-for="(item, index) in allEcosystems"
       :title="item.title"
       :description="item.description"
