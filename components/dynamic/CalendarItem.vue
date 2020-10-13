@@ -1,7 +1,7 @@
 <template>
   <div class="card calendar-card mb-4 mb-lg-5" v-if="isActive">
     <div class="row m-0">
-      <div class="col-md-4 card-header-alt card-body bg-primary d-flex justify-content-center align-items-center" v-bind:class="{ clickable: link}" @click="goToCardUrl()">
+      <div class="col-12 col-md-4 col-lg-12 col-xl-4 card-header-alt card-body bg-primary d-flex justify-content-center align-items-center" v-bind:class="{ clickable: link}" @click="goToCardUrl()">
         <div>
           <!-- template for single date calendar items -->
           <template v-if="dateStart == dateEnd">
@@ -17,7 +17,7 @@
           <!-- template for multiple dates calendar items -->
           <template v-else>
             <div class="d-flex">
-              <h1 class="calendar-icon-lg text-center mr-3" style="font-size: 4rem;"><font-awesome-icon icon="calendar-day" /></h1>
+              <h1 class="calendar-icon-lg text-center mr-3"><font-awesome-icon icon="calendar-day" /></h1>
 
               <div class="d-flex">
                 <div class="d-inline-block">
@@ -28,7 +28,7 @@
                 <h1 class="mx-2 mb-0">-</h1>
 
                 <div>
-                  <h2 class="date-day text-center fw-black mb-0" style="font-size: 2.4rem">{{dateToDay(dateEnd)}}</h2>
+                  <h2 class="date-day text-center fw-black mb-0">{{dateToDay(dateEnd)}}</h2>
                   <h3 class="date-month text-center text-uppercase mb-0 fw-black">{{dateToMonth(dateEnd)}}</h3>
                 </div>
               </div>
@@ -37,7 +37,7 @@
           </template>
         </div>
       </div>
-      <div class="col-md-8 card-body">
+      <div class="col-12 col-md-8 col-lg-12 col-xl-8 card-body">
         <p class="date-top mb-2">
           <span>
             <font-awesome-icon icon="calendar-alt" />

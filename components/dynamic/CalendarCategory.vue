@@ -172,15 +172,15 @@
 
 <style>
   .calendar-card .calendar-icon-lg {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 
   .calendar-card .date-day {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .calendar-card .date-month {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .calendar-card .date-top {
