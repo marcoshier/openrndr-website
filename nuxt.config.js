@@ -18,7 +18,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: false,
   /*
   ** Global CSS
   */
@@ -29,7 +29,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~plugins/vue-gallery.client.js'
+    '~plugins/vue-gallery.client.js',
+    '~plugins/vue-progress.js'
   ],
   /*
   ** Nuxt.js dev-modules

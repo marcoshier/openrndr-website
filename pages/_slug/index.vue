@@ -1,64 +1,68 @@
 <template>
-  <div v-if="page">
-    <!-- BEGIN PageHeader -->
-    <page-header v-if="page.title" :title="page.title" :description="page.description" />
-    <!-- END PageHeader -->
+  <div>
+    <loading-bar ref="loadingBar" @loaded="hideLoadingBar" />
 
-    <div class="w-100 border-top border-bottom border-primary">
-      <div class="container-fluid px-2 px-sm-4 px-lg-5">
-        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+    <div v-if="page && !loading">
+      <!-- BEGIN PageHeader -->
+      <page-header v-if="page.title" :title="page.title" :description="page.description" />
+      <!-- END PageHeader -->
+
+      <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-fluid px-2 px-sm-4 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- BEGIN PageBody -->
-    <div class="w-100 border-primary">
-      <div class="container-fluid px-2 px-sm-4 px-lg-5">
-        <div class="row row-eq-height m-0">
+      <!-- BEGIN PageBody -->
+      <div class="w-100 border-primary">
+        <div class="container-fluid px-2 px-sm-4 px-lg-5">
+          <div class="row row-eq-height m-0">
 
-          <template v-if="hasSidebar">
-            <!-- BEGIN Sidebar -->
-            <div class="sidebar col-12 col-lg-4 col-xxl-3 border-left border-primary p-4 p-lg-5">
-              <sidebar :title="page.title" :contentBlocks="page.dynamicContentBlocks" />
-            </div>
-            <!-- END Sidebar -->
+            <template v-if="hasSidebar">
+              <!-- BEGIN Sidebar -->
+              <div class="sidebar col-12 col-lg-4 col-xxl-3 border-left border-primary p-4 p-lg-5">
+                <sidebar :title="page.title" :contentBlocks="page.dynamicContentBlocks" />
+              </div>
+              <!-- END Sidebar -->
 
-            <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-right border-primary">
-              <template v-for="(block, index) in page.dynamicContentBlocks">
-                <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
-              </template>
-            </div>
-          </template>
+              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-right border-primary">
+                <template v-for="(block, index) in page.dynamicContentBlocks">
+                  <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                  :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+                </template>
+              </div>
+            </template>
 
-          <template v-else>
-            <div class="col-12 border-left border-right border-primary px-0">
-              <template v-for="(block, index) in page.dynamicContentBlocks">
-                <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
-              </template>
-            </div>
-          </template>
+            <template v-else>
+              <div class="col-12 border-left border-right border-primary px-0">
+                <template v-for="(block, index) in page.dynamicContentBlocks">
+                  <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                  :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+                </template>
+              </div>
+            </template>
 
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="w-100 border-top border-bottom border-primary">
-      <div class="container-fluid px-2 px-sm-4 px-lg-5">
-        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+      <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-fluid px-2 px-sm-4 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+          </div>
         </div>
       </div>
+      <!-- END PageBody -->
     </div>
-    <!-- END PageBody -->
-  </div>
 
-  <div v-else-if="$apollo.loading">
-    Loading...
-  </div>
+    <div v-else-if="$apollo.loading && test">
+      <loading-bar />
+    </div>
 
-  <div v-else>
-    <h1>Page not found</h1>
+    <!-- <div v-else>
+      <h1>Page not found</h1>
+    </div> -->
   </div>
 </template>
 
@@ -67,13 +71,15 @@
   import PageHeader from '~/components/PageHeader.vue'
   import Sidebar from '~/components/Sidebar.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
+  import LoadingBar from '~/components/LoadingBar.vue'
 
   export default {
     layout: 'sidebar',
     components: {
       PageHeader,
       Sidebar,
-      ContentBlock
+      ContentBlock,
+      LoadingBar
     },
     apollo: {
       page: {
@@ -189,7 +195,10 @@
       return {
           hasSidebar: false,
           pageInfo: null,
-          loading: null
+          loading: null,
+          test: null,
+          loadingBar: null,
+          loadingBarDone: false
       }
     },
     watch: {
@@ -202,6 +211,16 @@
       }
     },
     methods: {
+      // Setup the loadingBar
+      setupLoadingBar() {
+        this.loadingBar = this.$refs.loadingBar
+
+        if(this.page && !this.loading) {
+          // Page is already loaded
+          // Don't display loading bar
+          this.loadingBar.hideLoadingBar()
+        }
+      },
       // Loads al initial data in the page component
       initialSetup() {
         this.setSidebar()
@@ -227,6 +246,8 @@
       }
     },
     mounted() {
+      this.setupLoadingBar()
+
       if(this.page) {
         this.initialSetup()
       }

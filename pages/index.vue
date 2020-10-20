@@ -177,7 +177,7 @@
         }
       }
     },
-    mounted() {
+    mounted() {    
       this.initialSetup()
     }
   }
