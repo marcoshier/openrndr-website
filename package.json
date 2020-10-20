@@ -9,20 +9,20 @@
     "dev:host": "nuxt --hostname 0.0.0.0 --port 8000"
   },
   "dependencies": {
-    "@fortawesome/free-regular-svg-icons": "^5.14.0",
-    "@nuxtjs/apollo": "^4.0.1-rc.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@nuxtjs/apollo": "^4.0.1-rc.4",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
-    "bootstrap": "^4.5.2",
-    "bootstrap-vue": "^2.17.3",
-    "nuxt": "^2.14.6",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.18.0",
+    "nuxt": "^2.14.7",
     "vue-gallery": "^2.0.1",
     "vue-progress": "^0.2.1"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@graphql-codegen/cli": "^1.17.10",
+    "@graphql-codegen/cli": "^1.18.0",
     "@graphql-codegen/fragment-matcher": "^1.17.8",
     "@nuxtjs/fontawesome": "^1.1.2",
     "node-sass": "^4.14.1",
