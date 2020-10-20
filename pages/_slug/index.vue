@@ -56,9 +56,9 @@
       <!-- END PageBody -->
     </div>
 
-    <div v-else-if="$apollo.loading && test">
+    <!-- <div v-else-if="$apollo.loading && test">
       <loading-bar />
-    </div>
+    </div> -->
 
     <!-- <div v-else>
       <h1>Page not found</h1>
@@ -196,7 +196,6 @@
           hasSidebar: false,
           pageInfo: null,
           loading: null,
-          test: null,
           loadingBar: null,
           loadingBarDone: false
       }
