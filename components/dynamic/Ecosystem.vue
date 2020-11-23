@@ -4,6 +4,7 @@
       :title="item.title"
       :description="item.description"
       :image="item.image"
+      :url="item.link"
       :index="index"
       :key="index"
     />
@@ -20,6 +21,7 @@ export default {
       allEcosystems {
         title
         description
+        link
         image {
           url
           alt
