@@ -1,10 +1,27 @@
 <template>
-  <div v-if="hasSidebar" id="sidebar" class="p-0 p-lg-3">
-    <ul class="list-group rounded-0 p-3 border">
-      <li v-if="pageTitle" class="list-group-item border-0">
+  <div v-if="hasSidebar" id="sidebar" class="p-0 p-lg-3 ">
+    <ul class="list-group rounded-0 p-3 border d-none d-lg-flex">
+      <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3">
         <span class="sidebar-title">{{this.title}}</span>
       </li>
       <li v-for="(item, index) in items" :key="index" class="list-group-item border-0">
+        <a class="" :href="'#' + item.anchorpoint">
+          {{item.title}}
+        </a>
+      </li>
+    </ul>
+
+    <ul class="list-group rounded-0 p-3 border d-lg-none">
+      <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3">
+        <span class="sidebar-title">{{this.title}}</span>
+        <span class="d-lg-none float-right">
+          <button @click="toggleSidebar()" class="btn btn-link py-0">
+            <font-awesome-icon v-if="collapsed" icon="chevron-down" />
+            <font-awesome-icon v-else icon="chevron-up" />
+          </button>
+        </span>
+      </li>
+      <li v-for="(item, index) in items" :key="index" v-if="!collapsed" class="list-group-item border-0">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
@@ -27,7 +44,13 @@
       return {
         items: [],
         hasSidebar: false,
-        pageTitle: null
+        pageTitle: null,
+        collapsed: true
+      }
+    },
+    methods: {
+      toggleSidebar() {
+        this.collapsed = !this.collapsed
       }
     },
     mounted() {
