@@ -54,6 +54,8 @@ export default {
       solid: [
         'faBars',
         'faTimes',
+        'faChevronDown',
+        'faChevronUp',
         'faCalendarTimes',
         'faCalendarDay',
         'faCalendarAlt',
