@@ -6,7 +6,7 @@
           {{item.title}}
         </b-dropdown-item>
 
-        <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="'//' + item.value" target="_blank">
+        <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="item.value" target="_blank">
           {{item.title}}
         </b-dropdown-item>
 
@@ -24,7 +24,7 @@
       {{ title }}
     </b-nav-item>
 
-    <b-nav-item v-else-if="type == 'extern'" :href="'//' + value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
+    <b-nav-item v-else-if="type == 'extern'" :href="value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
       {{title}}
     </b-nav-item>
 
