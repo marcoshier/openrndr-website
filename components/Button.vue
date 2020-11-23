@@ -115,7 +115,7 @@ export default {
       // If true, check if url value is not empty and check if type is extern
       if(this.url != '' && this.type == 'extern') {
         // If true, create extern url
-        this.action = '//' + this.url
+        this.action = this.url
       }
     }
   }
