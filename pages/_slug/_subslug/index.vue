@@ -59,7 +59,7 @@
     </div>
 
     <div v-else>
-      404
+      <error-message />
     </div>
   </div>
 </template>
@@ -70,6 +70,7 @@
   import Sidebar from '~/components/Sidebar.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
   import LoadingBar from '~/components/LoadingBar.vue'
+  import ErrorMessage from '~/components/404.vue'
 
   export default {
     layout: 'sidebar',
@@ -77,7 +78,8 @@
       PageHeader,
       Sidebar,
       ContentBlock,
-      LoadingBar
+      LoadingBar,
+      ErrorMessage
     },
     apollo: {
       pageChild: {

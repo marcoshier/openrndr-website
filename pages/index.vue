@@ -40,7 +40,7 @@
     </div>
 
     <div v-else>
-      404
+      <error-message />
     </div>
   </div>
 </template>
@@ -50,13 +50,15 @@
   import VideoBackground from '~/components/Video.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
   import LoadingBar from '~/components/LoadingBar.vue'
+  import ErrorMessage from '~/components/404.vue'
 
   export default {
     layout: 'home',
     components: {
       VideoBackground,
       ContentBlock,
-      LoadingBar
+      LoadingBar,
+      ErrorMessage
     },
     apollo: {
       landing: gql`{
@@ -185,7 +187,7 @@
       setupLoadingBar() {
         this.loadingBar = this.$refs.loadingBar
 
-        if(this.page && !this.loading) {
+        if(this.loading && !this.loading) {
           // Page is already loaded
           // Don't display loading bar
           this.loadingBar.hideLoadingBar()
@@ -205,6 +207,7 @@
       if(this.landing) {
         this.initialSetup()
       }
+
     }
   }
 </script>

@@ -56,7 +56,7 @@
       <!-- END PageBody -->
     </div>
     <div v-else>
-      404
+      <error-message />
     </div>
 
     <!-- <div v-else-if="$apollo.loading && test">
@@ -75,6 +75,7 @@
   import Sidebar from '~/components/Sidebar.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
   import LoadingBar from '~/components/LoadingBar.vue'
+  import ErrorMessage from '~/components/404.vue'
 
   export default {
     layout: 'sidebar',
@@ -82,7 +83,8 @@
       PageHeader,
       Sidebar,
       ContentBlock,
-      LoadingBar
+      LoadingBar,
+      ErrorMessage
     },
     apollo: {
       page: {
