@@ -43,7 +43,7 @@
 
 <script>
   import gql from 'graphql-tag'
-  import VideoBackground from '~/components/VideoBackground.vue'
+  import VideoBackground from '~/components/Video.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
 
   export default {
@@ -177,7 +177,7 @@
         }
       }
     },
-    mounted() {    
+    mounted() {
       this.initialSetup()
     }
   }
