@@ -1,43 +1,47 @@
 <template>
-  <div v-if="landing">
-    <!-- BEGIN Video background -->
-    <header v-if="landing.banner.media" class="">
-      <video-background v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
-      <div v-else>
-      </div>
-    </header>
-    <!-- END Video background -->
+  <div>
+    <loading-bar ref="loadingBar" />
 
-    <div class="w-100 border-top border-bottom border-primary">
-      <div class="container-xl px-2 px-sm-4 px-lg-5">
-        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+    <div v-if="landing && !loading">
+      <!-- BEGIN Video background -->
+      <header v-if="landing.banner.media" class="">
+        <video-background v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
+        <div v-else>
+        </div>
+      </header>
+      <!-- END Video background -->
+
+      <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-xl px-2 px-sm-4 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="w-100">
-      <div class="container-xl px-2 px-sm-4 px-lg-5">
-        <div class="row row-eq-height p-0 m-0">
-          <div class="col-12 px-0 border-left border-right border-primary">
-            <template v-for="(block, index) in landing.dynamicContentBlocks">
-              <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-              :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
-            </template>
+      <div class="w-100">
+        <div class="container-xl px-2 px-sm-4 px-lg-5">
+          <div class="row row-eq-height p-0 m-0">
+            <div class="col-12 px-0 border-left border-right border-primary">
+              <template v-for="(block, index) in landing.dynamicContentBlocks">
+                <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-100 border-top border-primary">
+        <div class="container-xl px-2 px-sm-4 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
           </div>
         </div>
       </div>
     </div>
 
-    <div class="w-100 border-top border-primary">
-      <div class="container-xl px-2 px-sm-4 px-lg-5">
-        <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
-        </div>
-      </div>
+    <div v-else>
+      404
     </div>
-  </div>
-
-  <div v-else>
-    Loading
   </div>
 </template>
 
@@ -45,12 +49,14 @@
   import gql from 'graphql-tag'
   import VideoBackground from '~/components/Video.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
+  import LoadingBar from '~/components/LoadingBar.vue'
 
   export default {
     layout: 'home',
     components: {
       VideoBackground,
-      ContentBlock
+      ContentBlock,
+      LoadingBar
     },
     apollo: {
       landing: gql`{
@@ -158,17 +164,33 @@
     },
     data: function() {
       return {
-        pageInfo: null
+        hasSidebar: false,
+        pageInfo: null,
+        loading: null,
+        loadingBar: null,
+        loadingBarDone: false
       }
     },
     watch: {
-      landing: function() {
-        if(this.landing) {
-          this.initialSetup()
+      loading: function() {
+        if(!this.loading) {
+          if(this.landing) {
+            this.initialSetup()
+          }
         }
       }
     },
     methods: {
+      // Setup the loadingBar
+      setupLoadingBar() {
+        this.loadingBar = this.$refs.loadingBar
+
+        if(this.page && !this.loading) {
+          // Page is already loaded
+          // Don't display loading bar
+          this.loadingBar.hideLoadingBar()
+        }
+      },
       initialSetup() {
         this.pageInfo = {
           title: 'home',
@@ -178,7 +200,11 @@
       }
     },
     mounted() {
-      this.initialSetup()
+      this.setupLoadingBar()
+
+      if(this.landing) {
+        this.initialSetup()
+      }
     }
   }
 </script>

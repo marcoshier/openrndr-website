@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading-bar ref="loadingBar" @loaded="hideLoadingBar" />
+    <loading-bar ref="loadingBar" />
 
     <div v-if="page && !loading">
       <!-- BEGIN PageHeader -->
@@ -54,6 +54,9 @@
         </div>
       </div>
       <!-- END PageBody -->
+    </div>
+    <div v-else>
+      404
     </div>
 
     <!-- <div v-else-if="$apollo.loading && test">
