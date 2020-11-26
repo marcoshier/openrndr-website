@@ -2,7 +2,7 @@
   <div v-if="allFaqs" role="tablist" class="px-4 px-lg-5 pt-4 pt-lg-5 faq">
     <div v-for="(question, index) in allFaqs" :key="index" class="mb-5">
       <div role="tab">
-        <a class="question" v-b-toggle :href="'#accordion-'+index"><h4 class="mb-2">{{question.question}}</h4></a>
+        <a class="question" v-b-toggle :href="'#accordion-'+index" @click.prevent><h4 class="mb-2">{{question.question}}</h4></a>
       </div>
       <b-collapse :id="'accordion-'+index" accordion="faq">
         <div v-html="question.answer">
