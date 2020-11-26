@@ -5,7 +5,7 @@
       <p class="max-p-width mx-auto">
         Uh oh, we can't seem to find the page you're looking for :(. Try going back to the previous page or go back to the home page.
       </p>
-      <a class="btn btn-primary btn-lg mt-2" href="/">Return back home</a>
+      <a class="btn btn-primary mt-2" href="/">Return back home</a>
     </div>
   </div>
 </template>
