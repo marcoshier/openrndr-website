@@ -82,12 +82,6 @@
 </script>
 
 <style>
-  /* Set scrolling to smooth and use nav height as offset */
-  html {
-    scroll-padding: 109px 0 0 0;
-    scroll-behavior: smooth;
-  }
-
   #sidebar {
     position: sticky;
     top: 140px;

@@ -1,5 +1,11 @@
 @import '~/assets/css/variables.scss';
 
+  /* Set scrolling to smooth and use nav height as offset */
+  html {
+    scroll-padding: 109px 0 0 0;
+    scroll-behavior: smooth;
+  }
+
 .sidebar {
   padding: 3rem;
   border-right: 1px solid $primary;
