@@ -84,7 +84,7 @@
         }
 
         // Build new thumbnail url based on the first 4 array items
-        this.image.url = url[0] + '/' + url[1] + '/' + url[2] + '/' + url[3] + '/media/?size=l'
+        this.image.url = url[0] + '//' + url[1] + '/' + url[2] + '/' + url[3] + '/media/?size=l'
       },
       shortenTitle(title) {
         let newTitle = title.substring(0, 24)
