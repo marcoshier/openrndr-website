@@ -7,7 +7,7 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 
 export default ({req, app}) => {
     return {
-      httpEndpoint: process.env.ENDPOINT || "<Your GraphQL Endpoint URI>",
+      httpEndpoint: process.env.ENDPOINT,
       getAuth: () => process.env.AUTH_TOKEN,
       cache: new InMemoryCache({ fragmentMatcher })
     }
