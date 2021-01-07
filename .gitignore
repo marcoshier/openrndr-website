@@ -59,6 +59,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# todo list
+Todo/
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
@@ -79,6 +82,9 @@ dist
 
 # IDE / Editor
 .idea
+
+# Terminal
+config
 
 # Service worker
 sw.*
