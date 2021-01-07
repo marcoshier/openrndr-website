@@ -1,6 +1,56 @@
+// import dynamicRoutes from '~plugins/dynamicRoutes.js'
+import 'cross-fetch/polyfill'
+import { createHttpLink } from "apollo-link-http"
+import {execute, makePromise} from 'apollo-link'
+import gql from 'graphql-tag'
 
 export default {
   mode: 'universal',
+  target: 'static', // default is 'server'
+  generate: {
+    routes: async (callback) => {
+      // 1. Get the list of posts
+      const uri = process.env.ENDPOINT
+      const link = new createHttpLink({ uri: uri, fetch: this.$fetch })
+      const operation = {
+          query: gql`
+          {
+              allPages {
+                  slug
+              }
+              allPageChildren {
+                parentPage {
+                  slug
+                }
+                slug
+              }
+          }`,
+          context: {
+              headers: {
+                  authorization: process.env.AUTH_TOKEN
+              }
+          }
+      }
+      let data = await makePromise(execute(link, operation))
+
+      // 2. Build the list of routes for Nuxt
+      var pageRoutes = [];
+
+      data.data.allPages.forEach(function(item) {
+          pageRoutes.push('/' + item.slug)
+      })
+
+      data.data.allPageChildren.forEach(function(item) {
+          pageRoutes.push('/' + item.parentPage.slug + '/' + item.slug)
+      })
+
+      // Register the routes
+      callback(null, pageRoutes)
+    },
+    exclude: [
+      '/index (old)'
+    ]
+  },
   /*
   ** Headers of the page
   */
