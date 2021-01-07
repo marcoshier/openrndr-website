@@ -10,7 +10,7 @@ export default {
   generate: {
     routes: async (callback) => {
       // 1. Get the list of posts
-      const uri = 'https://graphql.datocms.com'
+      const uri = process.env.ENDPOINT
       const link = new createHttpLink({ uri: uri, fetch: fetch })
       const operation = {
           query: gql`
