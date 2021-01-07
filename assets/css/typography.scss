@@ -1,5 +1,6 @@
 // Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+// Import is not loading properly, changed to stylesheet in head -> see page layouts
+//@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 
 // Text elements
 h1, h2, h3, h4, h5, h6 {
@@ -31,7 +32,7 @@ h1.display-1 {
 
 p {
   font-family: $textBody;
-  color: $darkGray;
+  color: $dark;
   font-size: 1.5rem;
   line-height: 150%;
 }
@@ -44,7 +45,7 @@ p.lead {
   margin: 0;
   font-size: 1.875rem;
   font-weight: 400;
-  color: $gray;
+  color: $dark;
 }
 
 a {
@@ -80,6 +81,7 @@ a.dropdown-item:focus {
   font-size: 1.25rem;
   color: $dark;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .btn-lg {
@@ -135,12 +137,12 @@ div > p.lead + * {
 }
 
 .navbar-nav > div > li.nav-item > a.nav-link {
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
+  border-top: 2px solid $primary;
+  border-bottom: 2px solid $primary;
 }
 
 .navbar-nav > div > li.nav-item > a.nav-link.nuxt-link-active {
-  border-bottom: 2px solid pink;
+  border-bottom: 2px solid white;
   // font-weight: 500;
 }
 

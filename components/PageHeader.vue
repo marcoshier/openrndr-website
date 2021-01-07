@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron jumbotron-fluid bg-primary mb-0">
+  <div class="jumbotron jumbotron-fluid bg-white mb-0">
     <div class="container text-center px-0 py-5">
       <div class="col-12 col-md-8 mx-auto">
         <h1 class="display-1" v-bind:class="{ 'mb-3': description, 'mb-0': !description }">{{title}}</h1>

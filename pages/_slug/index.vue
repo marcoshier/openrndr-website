@@ -1,32 +1,33 @@
 <template>
   <div>
+    <dynamic />
     <loading-bar ref="loadingBar" />
 
-    <div v-if="page && !loading">
+    <div v-if="page && !loading" class="bg-primary">
       <!-- BEGIN PageHeader -->
       <page-header v-if="page.title" :title="page.title" :description="page.description" />
       <!-- END PageHeader -->
 
-      <div class="w-100 border-top border-bottom border-primary">
+      <!-- <div class="w-100 border-top border-bottom border-primary bg-primary">
         <div class="container-fluid px-2 px-sm-4 px-lg-5">
           <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- BEGIN PageBody -->
       <div class="w-100 border-primary">
-        <div class="container-fluid px-2 px-sm-4 px-lg-5">
+        <div class="container-fluid px-0">
           <div class="row row-eq-height m-0">
 
             <template v-if="hasSidebar">
               <!-- BEGIN Sidebar -->
-              <div class="sidebar col-12 col-lg-4 col-xxl-3 border-left border-primary p-4 p-lg-5">
+              <div class="sidebar col-12 col-lg-4 col-xxl-3 p-4 p-lg-5">
                 <sidebar :title="page.title" :contentBlocks="page.dynamicContentBlocks" />
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-right border-primary">
+              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-white">
                 <template v-for="(block, index) in page.dynamicContentBlocks">
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -47,12 +48,12 @@
         </div>
       </div>
 
-      <div class="w-100 border-top border-bottom border-primary">
+      <!-- <div class="w-100 border-top border-bottom border-primary bg-primary">
         <div class="container-fluid px-2 px-sm-4 px-lg-5">
           <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- END PageBody -->
     </div>
     <div v-else>
@@ -77,6 +78,8 @@
   import LoadingBar from '~/components/LoadingBar.vue'
   import ErrorMessage from '~/components/404.vue'
 
+  import Dynamic from '~/components/dynamic/DynamicPagesTest.vue'
+
   export default {
     layout: 'sidebar',
     components: {
@@ -84,7 +87,8 @@
       Sidebar,
       ContentBlock,
       LoadingBar,
-      ErrorMessage
+      ErrorMessage,
+      Dynamic
     },
     apollo: {
       page: {

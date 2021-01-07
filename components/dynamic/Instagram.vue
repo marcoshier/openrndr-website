@@ -10,7 +10,7 @@
 
     <div v-if="items.length > 4">
       <!-- <modal :items="items" :title="this.name" /> -->
-      <b-button v-b-modal="'instagram-modal-' + this.id" class="btn btn-primary btn-lg mb-4 mb-lg-5" variant="primary">
+      <b-button v-b-modal="'instagram-modal-' + this.id" class="btn btn-light btn-lg mb-4 mb-lg-5" variant="primary">
         See all items
       </b-button>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="col-12 col-md-6 mb-4 d-flex">
     <div class="feature-number mr-4">
-      <img class="img-fluid" src="@/assets/images/key-feature-circle.png">
+      <img class="img-fluid" src="@/assets/images/circle-90px.svg">
       <h1 class="mb-0 feature-number-text">{{index + 1}}</h1>
     </div>
 
@@ -32,7 +32,7 @@
   .feature-number {
     position: relative;
   }
-  
+
   .feature-number-text {
     position: absolute;
     top: 50%;

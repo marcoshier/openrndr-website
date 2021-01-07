@@ -4,22 +4,22 @@
 
     <div v-if="landing && !loading">
       <!-- BEGIN Video background -->
-      <header v-if="landing.banner.media" class="">
+      <header v-if="landing.banner.media" class="bg-primary">
         <video-background v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
         <div v-else>
         </div>
       </header>
       <!-- END Video background -->
 
-      <div class="w-100 border-top border-bottom border-primary">
+      <!-- <div class="w-100 border-bottom border-primary bg-primary">
         <div class="container-xl px-2 px-sm-4 px-lg-5">
           <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="w-100">
-        <div class="container-xl px-2 px-sm-4 px-lg-5">
+      <div class="w-100 bg-primary">
+        <div class="container-fluid px-0 mx-0">
           <div class="row row-eq-height p-0 m-0">
             <div class="col-12 px-0 border-left border-right border-primary">
               <template v-for="(block, index) in landing.dynamicContentBlocks">
@@ -31,12 +31,12 @@
         </div>
       </div>
 
-      <div class="w-100 border-top border-primary">
+      <!-- <div class="w-100 border-top border-primary bg-primary">
         <div class="container-xl px-2 px-sm-4 px-lg-5">
           <div class="w-100 border-left border-right border-primary py-2 py-sm-3 py-lg-4">
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div v-else>

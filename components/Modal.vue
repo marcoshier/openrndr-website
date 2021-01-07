@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <button class="btn btn-primary btn-lg" @click="open()">
+    <button class="btn btn-light btn-lg" @click="open()">
       See all items
     </button>
   </div>

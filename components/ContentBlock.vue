@@ -1,37 +1,41 @@
 <template>
-  <div class="container-fluid p-0" :id="anchorpoint ? anchorpoint : ''">
-    <div class="p-4 p-lg-5 border-primary" v-bind:class="{ 'border-top': borderTop }" v-if="title || subtext">
-      <h1 v-if="title" v-bind:class="{ 'mb-0': !subtext }">{{title}}</h1>
-      <p v-if="subtext" class="lead">
-        {{subtext}}
-      </p>
+  <div class="w-100 px-0 py-5 border-white" v-bind:class="{ 'border-top': borderTop }" :id="anchorpoint ? anchorpoint : ''">
+    <div class="container-xl">
 
-      <div v-if="buttons">
-        <template v-for="(button, index) in buttons">
-          <vue-button
-            :type="button.linkType"
-            :url="button.url"
-            :size="button.size"
-            :title="button.title"
-            :page="button.page"
-            :anchorpoint="button.anchorpoint"
-            :parentClasses="button.class"
-          />
-        </template>
+      <div class="px-4 pt-4 px-lg-5 pt-lg-5" v-if="title || subtext">
+        <h1 v-if="title" v-bind:class="{ 'mb-0': !subtext }">{{title}}</h1>
+        <p v-if="subtext" class="lead">
+          {{subtext}}
+        </p>
+
+        <div v-if="buttons">
+          <template v-for="(button, index) in buttons">
+            <vue-button
+              :type="button.linkType"
+              :url="button.url"
+              :size="button.size"
+              :title="button.title"
+              :page="button.page"
+              :anchorpoint="button.anchorpoint"
+              :parentClasses="button.class"
+            />
+          </template>
+        </div>
       </div>
-    </div>
 
-    <hr v-if="bodyTextDivider && bodyText" class="my-0 border-primary">
+      <!-- <hr v-if="bodyTextDivider && bodyText" class="my-0 mx-4 mx-lg-5 border-white"> -->
 
-    <div v-if="bodyText" class="p-4 p-lg-5">
-      <div v-html="bodyText" class="wizywig">
+      <div v-if="bodyText" class="p-4 p-lg-5">
+        <div v-html="bodyText" class="wizywig">
+        </div>
       </div>
-    </div>
 
-    <template v-if="blockType != 'normal'">
-      <hr v-if="dynamicContentDivider" class="m-0 border-primary">
-      <component v-bind:is="blockType" :items="dynamicContent" :page="page" :name="title" :type="blockType"/>
-    </template>
+      <template v-if="blockType != 'normal'">
+        <!-- <hr v-if="dynamicContentDivider" class="my-0 mx-4 mx-lg-5 border-white"> -->
+        <component v-bind:is="blockType" :items="dynamicContent" :page="page" :name="title" :type="blockType"/>
+      </template>
+
+    </div>
   </div>
 </template>
 

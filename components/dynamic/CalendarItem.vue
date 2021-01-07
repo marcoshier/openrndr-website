@@ -1,15 +1,15 @@
 <template>
   <div class="card calendar-card mb-4 mb-lg-5" v-if="isActive">
     <div class="row m-0">
-      <div class="col-12 col-md-4 col-lg-12 col-xl-4 card-header-alt card-body bg-primary d-flex justify-content-center align-items-center" v-bind:class="{ clickable: link}" @click="goToCardUrl()">
+      <div class="col-12 col-md-4 col-lg-12 col-xl-4 card-header-alt card-body bg-black d-flex justify-content-center align-items-center" v-bind:class="{ clickable: link}" @click="goToCardUrl()">
         <div>
           <!-- template for single date calendar items -->
           <template v-if="dateStart == dateEnd">
             <div class="d-flex">
-              <h1 class="calendar-icon-lg text-center mr-3"><font-awesome-icon icon="calendar-day" /></h1>
+              <h1 class="calendar-icon-lg text-center text-primary mr-3"><font-awesome-icon icon="calendar-day" /></h1>
               <div>
-                <h2 class="date-day text-center fw-black mb-0">{{dateToDay(dateStart)}}</h2>
-                <h3 class="date-month text-center text-uppercase mb-0 fw-black">{{dateToMonth(dateStart)}}</h3>
+                <h2 class="date-day text-center text-primary fw-black mb-0">{{dateToDay(dateStart)}}</h2>
+                <h3 class="date-month text-center text-primary text-uppercase mb-0 fw-black">{{dateToMonth(dateStart)}}</h3>
               </div>
             </div>
           </template>
@@ -17,19 +17,19 @@
           <!-- template for multiple dates calendar items -->
           <template v-else>
             <div class="d-flex">
-              <h1 class="calendar-icon-lg text-center mr-3"><font-awesome-icon icon="calendar-day" /></h1>
+              <h1 class="calendar-icon-lg text-primary text-center mr-3"><font-awesome-icon icon="calendar-day" /></h1>
 
               <div class="d-flex">
                 <div class="d-inline-block">
-                  <h2 class="date-day text-center fw-black mb-0">{{dateToDay(dateStart)}}</h2>
-                  <h3 class="date-month text-center text-uppercase mb-0 fw-black">{{dateToMonth(dateStart)}}</h3>
+                  <h2 class="date-day text-center text-primary fw-black mb-0">{{dateToDay(dateStart)}}</h2>
+                  <h3 class="date-month text-center text-primary text-uppercase mb-0 fw-black">{{dateToMonth(dateStart)}}</h3>
                 </div>
 
-                <h1 class="mx-2 mb-0">-</h1>
+                <h1 class="text-primary mx-2 mb-0">-</h1>
 
                 <div>
-                  <h2 class="date-day text-center fw-black mb-0">{{dateToDay(dateEnd)}}</h2>
-                  <h3 class="date-month text-center text-uppercase mb-0 fw-black">{{dateToMonth(dateEnd)}}</h3>
+                  <h2 class="date-day text-center text-primary fw-black mb-0">{{dateToDay(dateEnd)}}</h2>
+                  <h3 class="date-month text-center text-primary text-uppercase mb-0 fw-black">{{dateToMonth(dateEnd)}}</h3>
                 </div>
               </div>
             </div>
