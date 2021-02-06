@@ -58,7 +58,7 @@
       </template>
     </div>
     <div v-else-if="loading">
-    </div>  
+    </div>
     <div v-else>
       <error-message />
     </div>
@@ -174,6 +174,11 @@
                         title
                         link
                         alt
+                        thumbnail {
+                          url
+                          title
+                          alt
+                        }
                       }
                     }
                   }

@@ -179,6 +179,11 @@
                           title
                           link
                           alt
+                          thumbnail {
+                            url
+                            title
+                            alt
+                          }
                         }
                     }
                   }
