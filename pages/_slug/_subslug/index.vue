@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading-bar ref="loadingBar" />
+    <!-- <loading-bar ref="loadingBar" /> -->
 
     <div v-if="pageChild && !loading" class="bg-primary">
       <template v-if="pageChild.parentPage.slug == slug">
@@ -57,7 +57,8 @@
         <!-- END PageBody -->
       </template>
     </div>
-
+    <div v-else-if="loading">
+    </div>  
     <div v-else>
       <error-message />
     </div>
@@ -252,7 +253,7 @@
       }
     },
     mounted() {
-      this.setupLoadingBar()
+      // this.setupLoadingBar()
 
       if(this.pageChild) {
         this.initialSetup()

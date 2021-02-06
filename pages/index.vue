@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading-bar ref="loadingBar" />
+    <!-- <loading-bar ref="loadingBar" /> -->
 
     <div v-if="landing && !loading">
       <!-- BEGIN Video background -->
@@ -38,7 +38,8 @@
         </div>
       </div> -->
     </div>
-
+    <div v-else-if="loading">
+    </div>  
     <div v-else>
       <error-message />
     </div>
@@ -187,7 +188,7 @@
       setupLoadingBar() {
         this.loadingBar = this.$refs.loadingBar
 
-        if(this.loading && !this.loading) {
+        if(this.landing && !this.loading) {
           // Page is already loaded
           // Don't display loading bar
           this.loadingBar.hideLoadingBar()
@@ -202,7 +203,7 @@
       }
     },
     mounted() {
-      this.setupLoadingBar()
+      // this.setupLoadingBar()
 
       if(this.landing) {
         this.initialSetup()

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading-bar ref="loadingBar" />
+    <!-- <loading-bar ref="loadingBar" /> -->
 
     <div v-if="page && !loading" class="bg-primary">
       <!-- BEGIN PageHeader -->
@@ -54,6 +54,8 @@
         </div>
       </div> -->
       <!-- END PageBody -->
+    </div>
+    <div v-else-if="loading">
     </div>
     <div v-else>
       <error-message />
@@ -252,7 +254,7 @@
       }
     },
     mounted() {
-      this.setupLoadingBar()
+      // this.setupLoadingBar()
 
       if(this.page) {
         this.initialSetup()
