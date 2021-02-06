@@ -75,9 +75,9 @@ export default {
 
       // Check if page has parent
       if(this.page.__typename == 'PageChildRecord' && this.page.parentPage != undefined && this.page.parentPage != null) {
-        this.action = '/' + this.page.parentPage.slug + '/' + this.page.slug
+        this.action = '/' + this.page.parentPage.slug + '/' + this.page.slug + '/'
       } else {
-        this.action = '/' + this.page.slug
+        this.action = '/' + this.page.slug + '/'
       }
 
       // Check if anchorpoint is set

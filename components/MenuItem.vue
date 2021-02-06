@@ -90,9 +90,9 @@ export default {
         // Check if intern page has a parent
         if(intern.parentPage != undefined) {
           // if page has a parent, merge the slugs
-          intern.action = intern.parentPage.slug + '/' + intern.slug
+          intern.action = intern.parentPage.slug + '/' + intern.slug + '/'
         } else {
-          intern.action = intern.slug
+          intern.action = intern.slug + '/'
         }
 
         // return true because data is filled in properly
