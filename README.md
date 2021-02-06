@@ -5,6 +5,9 @@
 ## Build Setup
 
 ```bash
+# .env file
+Create an .env file and add the following variables: AUTH_TOKEN and ENDPOINT
+
 # install dependencies
 $ npm install
 
