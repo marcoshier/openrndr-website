@@ -3,7 +3,7 @@
     <div class="row row-eq-height">
       <template v-for="(item, index) in items" v-if="index < 4">
         <instagram-item
-        :title="item.title" :url="item.link" :alt="item.alt"
+        :title="item.title" :url="item.link" :thumbnail="item.thumbnail"
         />
       </template>
     </div>
@@ -30,7 +30,7 @@
         <div class="row row-eq-height p-3">
           <template v-for="(item, index) in items">
             <instagram-item
-            :title="item.title" :url="item.link" :alt="item.alt" initClass="col-12 col-md-6 col-lg-4" initSize="small"
+            :title="item.title" :url="item.link" :thumbnail="item.thumbnail" initClass="col-12 col-md-6 col-lg-4" initSize="small" popup
             />
           </template>
         </div>
