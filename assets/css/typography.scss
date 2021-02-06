@@ -51,7 +51,7 @@ p.lead {
 a {
   color: $darkGray;
   text-decoration: underline;
-  text-decoration-color: $primary;
+  text-decoration-color: $darkGray;
 }
 
 a.dropdown-item, a.nav-link, .list-group-item > a, a.question, a.eco-link {
@@ -59,7 +59,7 @@ a.dropdown-item, a.nav-link, .list-group-item > a, a.question, a.eco-link {
 }
 
 a:hover {
-  color: $primary;
+  color: $light;
 }
 
 a:focus {
