@@ -96,7 +96,6 @@
         this.parsedTitle = newTitle
       },
       goToCardUrl() {
-        console.log('foo')
         let cardUrl = this.url
         let win = window.open(cardUrl, '_blank')
         win.focus()
