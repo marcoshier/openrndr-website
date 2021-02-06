@@ -1,6 +1,5 @@
 <template>
   <div>
-    <dynamic />
     <loading-bar ref="loadingBar" />
 
     <div v-if="page && !loading" class="bg-primary">
@@ -78,7 +77,7 @@
   import LoadingBar from '~/components/LoadingBar.vue'
   import ErrorMessage from '~/components/404.vue'
 
-  import Dynamic from '~/components/dynamic/DynamicPagesTest.vue'
+  // import Dynamic from '~/components/dynamic/DynamicPagesTest.vue'
 
   export default {
     layout: 'sidebar',
@@ -87,8 +86,7 @@
       Sidebar,
       ContentBlock,
       LoadingBar,
-      ErrorMessage,
-      Dynamic
+      ErrorMessage
     },
     apollo: {
       page: {
