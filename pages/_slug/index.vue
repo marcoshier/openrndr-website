@@ -247,9 +247,6 @@
 
       // Check if at least one content block has sidebar enabled
       setSidebar () {
-        console.log('page: ' + this.page)
-        console.log('isLoading: ' + this.loading)
-
         let self = this
 
         self.page.dynamicContentBlocks.forEach(function(block, index) {
