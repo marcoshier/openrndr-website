@@ -27,7 +27,7 @@ export default {
           }`,
           context: {
               headers: {
-                  authorization: process.env.AUTH_TOKEN
+                  authorization: 'a062c88e12d211da4cc3c596601b03'
               }
           }
       }
