@@ -40,7 +40,7 @@
     </div>
     <div v-else-if="loading">
     </div>
-    <div v-else>
+    <div v-else-if="!landing && !loading">
       <error-message />
     </div>
   </div>
@@ -182,8 +182,10 @@
     watch: {
       loading: function() {
         if(!this.loading) {
-          if(this.landing) {
+          if(typeof this.landing != undefined) {
             this.initialSetup()
+          } else {
+            this.landing = false
           }
         }
       }
@@ -210,8 +212,10 @@
     mounted() {
       // this.setupLoadingBar()
 
-      if(this.landing) {
+      if(typeof this.landing != undefined) {
         this.initialSetup()
+      } else {
+        this.landing = false
       }
 
     }

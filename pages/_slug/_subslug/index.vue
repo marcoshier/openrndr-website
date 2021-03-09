@@ -216,8 +216,10 @@
     watch: {
       loading: function() {
         if(!this.loading) {
-          if(this.pageChild) {
+          if(typeof this.pageChild != undefined) {
             this.initialSetup()
+          } else {
+            this.pageChild = false
           }
         }
       }
@@ -259,9 +261,10 @@
     },
     mounted() {
       // this.setupLoadingBar()
-
-      if(this.pageChild) {
+      if(typeof this.pageChild != undefined) {
         this.initialSetup()
+      } else {
+        this.pageChild = false
       }
     }
   }
