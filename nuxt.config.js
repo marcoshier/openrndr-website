@@ -11,6 +11,7 @@ export default {
     routes: async (callback) => {
       // 1. Get the list of posts
       const uri = process.env.ENDPOINT
+      console.log(uri)
       const link = new createHttpLink({ uri: uri, fetch: fetch })
       const operation = {
           query: gql`
