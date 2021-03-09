@@ -207,6 +207,7 @@
     },
     data: function() {
       return {
+          page: false,
           hasSidebar: false,
           pageInfo: null,
           loading: null,
@@ -217,10 +218,8 @@
     watch: {
       loading: function() {
         if(!this.loading) {
-          if(typeof this.page != undefined) {
+          if(this.page) {
             this.initialSetup()
-          } else {
-            this.page = false
           }
         }
       }
@@ -248,6 +247,9 @@
 
       // Check if at least one content block has sidebar enabled
       setSidebar () {
+        console.log('page: ' + this.page)
+        console.log('isLoading: ' + this.loading)
+
         let self = this
 
         self.page.dynamicContentBlocks.forEach(function(block, index) {
@@ -262,10 +264,8 @@
     },
     mounted() {
       // this.setupLoadingBar()
-      if(typeof this.page != undefined) {
+      if(this.page) {
         this.initialSetup()
-      } else {
-        this.page = false
       }
     }
   }
