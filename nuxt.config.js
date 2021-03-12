@@ -5,7 +5,6 @@ import {execute, makePromise} from 'apollo-link'
 import gql from 'graphql-tag'
 
 export default {
-  mode: 'universal',
   target: 'static', // default is 'server'
   generate: {
     routes: async (callback) => {
