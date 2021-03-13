@@ -7,8 +7,8 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 
 export default ({req, app}) => {
     return {
-      httpEndpoint: 'https://graphql.datocms.com',
-      getAuth: () => 'a062c88e12d211da4cc3c596601b03',
+      httpEndpoint: process.env.ENDPOINT,
+      getAuth: () => process.env.AUTH_TOKEN,
       cache: new InMemoryCache({ fragmentMatcher })
     }
 }
