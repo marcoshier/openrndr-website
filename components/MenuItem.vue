@@ -118,18 +118,15 @@ export default {
 
 
       window.addEventListener("load", function(event) {
-        console.log(elements.length)
 
         Array.from(document.getElementsByClassName(className)).forEach(
             function(element, index, array) {
-              console.log(element)
             }
         )
       });
 
       Array.prototype.forEach.call(elements, function(el) {
           // Do stuff here
-          console.log(el)
           el.style.transition = "all 275ms " + (175 + (self.index * 50)) + "ms"
       })
 

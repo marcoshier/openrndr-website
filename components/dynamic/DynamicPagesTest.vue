@@ -16,7 +16,6 @@ export default {
   },
   mounted() {
     foreach(this.allPages)
-    console.log(this.allPages)
   }
 }
 </script>

@@ -132,7 +132,6 @@
       },
       togglePastItems: function() {
         this.showPastItems = !this.showPastItems
-        console.log(this.showPastItems)
       }
     },
     watch: {
