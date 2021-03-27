@@ -1,0 +1,6 @@
+query allFaqs {
+  allFaqs {
+    question
+    answer
+  }
+}

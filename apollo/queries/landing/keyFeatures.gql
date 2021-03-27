@@ -1,0 +1,6 @@
+query allFeatures {
+  allFeatures {
+    title
+    description
+  }
+}

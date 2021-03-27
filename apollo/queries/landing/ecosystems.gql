@@ -1,0 +1,12 @@
+query allEcosystems {
+  allEcosystems {
+    title
+    description
+    link
+    image {
+      url
+      alt
+      title
+    }
+  }
+}
