@@ -1,0 +1,11 @@
+query allCalendars {
+  allCalendars {
+    eventType
+    dateStart
+    dateEnd
+    link
+    note
+    title
+    address
+  }
+}

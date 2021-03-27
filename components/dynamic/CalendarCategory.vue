@@ -35,50 +35,10 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import { mapState } from "vuex"
   import CalendarItem from '~/components/dynamic/CalendarItem.vue'
 
   export default {
-    apollo: {
-      allCalendars: {
-        query: gql`query AllCalendars($newType: String!){
-          allCalendars(
-            filter: {
-              eventType: { eq: $newType }
-            },
-            orderBy: [dateStart_ASC]
-          ) {
-            dateStart
-            dateEnd
-            link
-            note
-            title
-            address
-          }
-        }`,
-       variables: function() {
-         switch(this.type) {
-           case 'events':
-             this.calendarType = "event"
-             break
-
-           case 'workshops':
-             this.calendarType = "workshop"
-             break
-
-           case 'exhibitions':
-             this.calendarType = "exhibition"
-             break
-           default:
-             this.calendarType = "event"
-         }
-
-         return {
-           newType: this.calendarType
-         }
-       }
-      }
-    },
     components: {
       CalendarItem
     },
@@ -132,15 +92,13 @@
       },
       togglePastItems: function() {
         this.showPastItems = !this.showPastItems
-      }
-    },
-    watch: {
-      allCalendars: function() {
-        if(this.allCalendars) {
-          let now = new Date()
-          let self = this
+      },
+      sortCalendarItems() {
+        let now = new Date()
+        let self = this
 
-          this.allCalendars.forEach(function(item, index) {
+        this.allCalendars.forEach(function(item, index) {
+          if(self.calendarType == item.eventType) {
             let date = new Date(item.dateStart)
 
             if(date < now) {
@@ -151,13 +109,15 @@
               self.hasCurrentItems = true
             }
             self.calendarItems.push(item)
-          })
+          }
+        })
 
-          // Sort the calendarItems array
-          this.calendarItems.sort()
-          this.calendarItems.reverse()
-        }
-      },
+        // Sort the calendarItems array
+        this.calendarItems.sort()
+        this.calendarItems.reverse()
+      }
+    },
+    watch: {
       showPastItems: function() {
         if(this.showPastItems) {
           this.buttonText = 'Hide '
@@ -165,6 +125,30 @@
           this.buttonText = 'View '
         }
       }
+    },
+    computed: {
+      ...mapState({
+        allCalendars: (state) => state.dynamic.allCalendars
+      })
+    },
+    mounted() {
+      switch(this.type) {
+        case 'events':
+          this.calendarType = "event"
+          break
+
+        case 'workshops':
+          this.calendarType = "workshop"
+          break
+
+        case 'exhibitions':
+          this.calendarType = "exhibition"
+          break
+        default:
+          this.calendarType = "event"
+      }
+
+      this.sortCalendarItems()
     }
   }
 </script>
