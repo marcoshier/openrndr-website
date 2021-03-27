@@ -1,4 +1,4 @@
-<template lang="html">
+\<template lang="html">
   <div v-if="allFeatures" class="row px-4 pt-4 px-lg-5 pt-lg-5 m-0">
     <key-feature-item v-for="(feature, index) in allFeatures"
       :title="feature.title"
@@ -10,18 +10,10 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
 import KeyFeatureItem from '~/components/dynamic/KeyFeatureItem.vue'
+import { mapState } from "vuex"
 
 export default {
-  apollo: {
-    allFeatures: gql`{
-      allFeatures {
-        title
-        description
-      }
-    }`
-  },
   components: {
     KeyFeatureItem
   },
@@ -32,6 +24,11 @@ export default {
     page: {
       type: Object
     }
+  },
+  computed: {
+   ...mapState({
+     allFeatures: (state) => state.landingPage.allKeyFeatures
+   })
   }
 }
 </script>

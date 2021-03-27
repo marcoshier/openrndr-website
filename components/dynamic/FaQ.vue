@@ -13,17 +13,9 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import { mapState } from "vuex"
 
 export default {
-  apollo: {
-    allFaqs: gql`{
-      allFaqs {
-        question
-        answer
-      }
-    }`
-  },
   props: {
     name: {
       type: String
@@ -31,6 +23,11 @@ export default {
     page: {
       type: Object
     }
+  },
+  computed: {
+   ...mapState({
+     allFaqs: (state) => state.landingPage.allFaqs
+   })
   }
 }
 </script>

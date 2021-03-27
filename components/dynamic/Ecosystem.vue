@@ -12,24 +12,10 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
 import EcosystemItem from '~/components/dynamic/EcosystemItem.vue'
+import { mapState } from "vuex"
 
 export default {
-  apollo: {
-    allEcosystems: gql`{
-      allEcosystems {
-        title
-        description
-        link
-        image {
-          url
-          alt
-          title
-        }
-      }
-    }`
-  },
   components: {
     EcosystemItem
   },
@@ -40,6 +26,11 @@ export default {
     page: {
       type: Object
     }
+  },
+  computed: {
+   ...mapState({
+     allEcosystems: (state) => state.landingPage.allEcosystems
+   })
   }
 }
 </script>
