@@ -1,64 +1,60 @@
 <template>
   <div>
     <!-- <loading-bar ref="loadingBar" /> -->
-
     <div v-if="pageChild && !loading" class="bg-primary">
-      <template v-if="pageChild.parentPage.slug == slug">
-        <!-- BEGIN PageHeader -->
-        <page-header v-if="pageChild.title" :title="pageChild.title" :description="pageChild.description" />
-        <!-- END PageHeader -->
+      <!-- BEGIN PageHeader -->
+      <page-header v-if="pageChild.title" :title="pageChild.title" :description="pageChild.description" />
+      <!-- END PageHeader -->
 
-        <!-- <div class="w-100 border-top border-bottom border-primary">
-          <div class="container-fluid px-2 px-lg-5">
-            <div class="w-100 border-left border-right border-primary py-2 py-lg-4">
-            </div>
-          </div>
-        </div> -->
-
-        <!-- BEGIN PageBody -->
-        <div class="w-100 border-primary">
-          <div class="container-fluid px-0">
-            <div class="row row-eq-height m-0">
-
-              <template v-if="hasSidebar">
-                <!-- BEGIN Sidebar -->
-                <div class="sidebar col-12 col-lg-4 col-xxl-3 p-4 p-lg-5">
-                  <sidebar :title="pageChild.title" :contentBlocks="pageChild.dynamicContentBlocks" />
-                </div>
-                <!-- END Sidebar -->
-
-                <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-white">
-                  <template v-for="(block, index) in pageChild.dynamicContentBlocks">
-                    <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
-                  </template>
-                </div>
-              </template>
-
-              <template v-else>
-                <div class="col-12 border-left border-right border-primary px-0">
-                  <template v-for="(block, index) in pageChild.dynamicContentBlocks">
-                    <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
-                  </template>
-                </div>
-              </template>
-
-            </div>
+      <!-- <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-fluid px-2 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-lg-4">
           </div>
         </div>
+      </div> -->
 
-        <!-- <div class="w-100 border-top border-bottom border-primary">
-          <div class="container-fluid px-2 px-lg-5">
-            <div class="w-100 border-left border-right border-primary py-2 py-lg-4">
-            </div>
+      <!-- BEGIN PageBody -->
+      <div class="w-100 border-primary">
+        <div class="container-fluid px-0">
+          <div class="row row-eq-height m-0">
+
+            <template v-if="hasSidebar">
+              <!-- BEGIN Sidebar -->
+              <div class="sidebar col-12 col-lg-4 col-xxl-3 p-4 p-lg-5">
+                <sidebar :title="pageChild.title" :contentBlocks="pageChild.dynamicContentBlocks" />
+              </div>
+              <!-- END Sidebar -->
+
+              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-white">
+                <template v-for="(block, index) in pageChild.dynamicContentBlocks">
+                  <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                  :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+                </template>
+              </div>
+            </template>
+
+            <template v-else>
+              <div class="col-12 border-left border-right border-primary px-0">
+                <template v-for="(block, index) in pageChild.dynamicContentBlocks">
+                  <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                  :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+                </template>
+              </div>
+            </template>
+
           </div>
-        </div> -->
-        <!-- END PageBody -->
-      </template>
+        </div>
+      </div>
+
+      <!-- <div class="w-100 border-top border-bottom border-primary">
+        <div class="container-fluid px-2 px-lg-5">
+          <div class="w-100 border-left border-right border-primary py-2 py-lg-4">
+          </div>
+        </div>
+      </div> -->
+      <!-- END PageBody -->
     </div>
-    <div v-else-if="loading">
-    </div>
+    <div v-if="loading"></div>
     <div v-else>
       <error-message />
     </div>
@@ -66,11 +62,11 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import { mapGetters } from "vuex"
   import PageHeader from '~/components/PageHeader.vue'
   import Sidebar from '~/components/Sidebar.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
-  import LoadingBar from '~/components/LoadingBar.vue'
+  // import LoadingBar from '~/components/LoadingBar.vue'
   import ErrorMessage from '~/components/404.vue'
 
   export default {
@@ -79,162 +75,44 @@
       PageHeader,
       Sidebar,
       ContentBlock,
-      LoadingBar,
+      // LoadingBar,
       ErrorMessage
-    },
-    apollo: {
-      pageChild: {
-        query: gql`query PageChild($subSlug: String!){
-                pageChild(filter: {
-                   slug: {
-                      eq: $subSlug
-                }}) {
-                    title
-                    description
-                    slug
-                    parentPage {
-                      slug
-                    }
-                    dynamicContentBlocks {
-                      title
-                      subtext
-                      bodyText
-                      anchorpoint
-                      blockType
-                      sidebar
-                      buttons {
-                        title
-                        size
-                        linkType
-                        url
-                        anchorpoint
-                        page {
-                          ... on PageRecord {
-                            slug
-                          }
-                          ... on PageChildRecord {
-                            slug
-                            parentPage {
-                              slug
-                            }
-                          }
-                        }
-                      }
-                      dynamicContent {
-                      ... on PageButtonRecord {
-                        title
-                        size
-                        linkType
-                        url
-                        anchorpoint
-                        page {
-                          ... on PageRecord {
-                            slug
-                          }
-                          ... on PageChildRecord {
-                            slug
-                            parentPage {
-                              slug
-                            }
-                          }
-                        }
-                      }
-                      ... on ProjectRecord {
-                        title
-                        blurb
-                        techSpecs
-                        credits
-                        url
-                        media {
-                          ... on ImageRecord {
-                            file {
-                              url
-                            }
-                            credits
-                            caption
-                          }
-                          ... on VideoRecord {
-                            credits
-                            caption
-                            file {
-                              url
-                              thumbnailUrl
-                            }
-                          }
-                          ... on GifRecord {
-                            credit
-                            caption
-                            file {
-                              url
-                            }
-                          }
-                        }
-                      }
-                      ... on InstagramPostRecord {
-                        title
-                        link
-                        alt
-                        thumbnail {
-                          url
-                          title
-                          alt
-                        }
-                      }
-                    }
-                  }
-                }
-            }`,
-        prefetch({route}) {
-            return {
-                slug: route.params.slug,
-                subSlug: route.params.subslug
-            }
-        },
-        variables() {
-            return {
-                slug: this.$route.params.slug,
-                subSlug: this.$route.params.subslug
-            }
-        },
-        loadingKey: 'this.loading',
-        watchLoading (isLoading, countModifier) {
-          this.loading = isLoading
-        },
-      }
     },
     data: function() {
       return {
+          pageChild: false,
           hasSidebar: false,
           pageInfo: null,
-          loading: null,
+          loading: true,
           loadingBar: null,
           loadingBarDone: false,
           slug: this.$route.params.slug,
           subSlug: this.$route.params.subslug
       }
     },
+    computed: {
+     ...mapGetters(
+       ['currentPageChild']
+     ),
+    },
     watch: {
-      loading: function() {
-        if(!this.loading) {
-          if(typeof this.pageChild != undefined) {
-            this.initialSetup()
-          } else {
-            this.pageChild = false
-          }
+      pageChild: function() {
+        if(this.pageChild || typeof this.pageChild === 'undefined') {
+          this.loading = false
         }
       }
     },
     methods: {
       // Setup the loadingBar
-      setupLoadingBar() {
-        this.loadingBar = this.$refs.loadingBar
-
-        if(this.pageChild && !this.loading) {
-          // Page is already loaded
-          // Don't display loading bar
-          this.loadingBar.hideLoadingBar()
-        }
-      },
+      // setupLoadingBar() {
+      //   this.loadingBar = this.$refs.loadingBar
+      //
+      //   if(this.pageChild && !this.loading) {
+      //     // Page is already loaded
+      //     // Don't display loading bar
+      //     this.loadingBar.hideLoadingBar()
+      //   }
+      // },
       // Loads al initial data in the page component
       initialSetup() {
         this.setSidebar()
@@ -260,11 +138,9 @@
       }
     },
     mounted() {
-      // this.setupLoadingBar()
-      if(typeof this.pageChild != undefined) {
+      this.pageChild = this.currentPageChild(this.subSlug)
+      if(this.pageChild) {
         this.initialSetup()
-      } else {
-        this.pageChild = false
       }
     }
   }
