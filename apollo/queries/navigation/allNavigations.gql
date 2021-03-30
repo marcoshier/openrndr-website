@@ -1,0 +1,75 @@
+query allNavigations {
+  allMainNavigations {
+    menuItem {
+      title
+      navType
+      value
+      internLink {
+        ... on PageRecord {
+          slug
+        }
+        ... on PageChildRecord {
+          slug
+          parentPage {
+            slug
+          }
+        }
+      }
+      dropdownItems {
+        title
+        linkType
+        value
+        internLink {
+          ... on PageRecord {
+            slug
+          }
+          ... on PageChildRecord {
+            slug
+            parentPage {
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+  allFooterNavigations {
+    title
+    menuItems {
+      menuItem {
+        ... on MenuItemRecord {
+          title
+          navType
+          value
+          internLink {
+            ... on PageRecord {
+              slug
+            }
+            ... on PageChildRecord {
+              slug
+              parentPage {
+                slug
+              }
+            }
+          }
+          dropdownItems {
+            title
+            linkType
+            value
+            internLink {
+              ... on PageRecord {
+                slug
+              }
+              ... on PageChildRecord {
+                slug
+                parentPage {
+                  slug
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

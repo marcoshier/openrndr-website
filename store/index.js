@@ -1,19 +1,21 @@
+import getAllContentData from "~/apollo/queries/allContentData.gql"
+
 import getLandingQuery from "~/apollo/queries/landing/landing.gql"
-import getFeaturesQuery from "~/apollo/queries/landing/keyFeatures.gql"
-import getEcosystemsQuery from "~/apollo/queries/landing/ecosystems.gql"
-import getFaqsQuery from "~/apollo/queries/landing/faqs.gql"
-
-import getMainNavigationsQuery from "~/apollo/queries/navigation/allMainNavigations.gql"
-import getFooterNavigationsQuery from "~/apollo/queries/navigation/allFooterNavigations.gql"
-
-import getAllPagesQuery from "~/apollo/queries/pages/allPages.gql"
-import getAllPageChildren from "~/apollo/queries/pages/allPageChildren.gql"
-
-import getAllGuides from "~/apollo/queries/dynamic/allGuides.gql"
-import getAllTutorials from "~/apollo/queries/dynamic/allTutorials.gql"
-import getAllNews from "~/apollo/queries/dynamic/allNews.gql"
-import getAllProjects from "~/apollo/queries/dynamic/allProjects.gql"
-import getAllCalendars from "~/apollo/queries/dynamic/allCalendars.gql"
+// import getFeaturesQuery from "~/apollo/queries/landing/keyFeatures.gql"
+// import getEcosystemsQuery from "~/apollo/queries/landing/ecosystems.gql"
+// import getFaqsQuery from "~/apollo/queries/landing/faqs.gql"
+//
+// import getMainNavigationsQuery from "~/apollo/queries/navigation/allMainNavigations.gql"
+// import getFooterNavigationsQuery from "~/apollo/queries/navigation/allFooterNavigations.gql"
+//
+// import getAllPagesQuery from "~/apollo/queries/pages/allPages.gql"
+// import getAllPageChildren from "~/apollo/queries/pages/allPageChildren.gql"
+//
+// import getAllGuides from "~/apollo/queries/dynamic/allGuides.gql"
+// import getAllTutorials from "~/apollo/queries/dynamic/allTutorials.gql"
+// import getAllNews from "~/apollo/queries/dynamic/allNews.gql"
+// import getAllProjects from "~/apollo/queries/dynamic/allProjects.gql"
+// import getAllCalendars from "~/apollo/queries/dynamic/allCalendars.gql"
 
 export const state = () => ({
   landingPage: {
@@ -103,188 +105,208 @@ export const mutations = {
 
 
 export const actions = {
-  nuxtServerInit({ commit }, { error }) {
+  async nuxtServerInit({ commit }, { error }) {
    const clientApollo = this.app.apolloProvider.defaultClient
    const obj = {}
 
-   // Landing
-   obj.landing =  new Promise((resolve, reject) => {
+   console.log(obj)
+   obj.all = await new Promise((resolve, reject) => {
      clientApollo
        .query({
-         query: getLandingQuery
+         query: getAllContentData
        })
        .then(resp => {
+         // Landing
          commit("set_landing_page", resp.data.landing)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allFeatures =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getFeaturesQuery
-       })
-       .then(resp => {
          commit("set_landing_features", resp.data.allFeatures)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allEcosystems =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getEcosystemsQuery
-       })
-       .then(resp => {
          commit("set_landing_ecosystems", resp.data.allEcosystems)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allFaqs =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getFaqsQuery
-       })
-       .then(resp => {
          commit("set_landing_faqs", resp.data.allFaqs)
+         //
+         // // Navigation
+         commit("set_main_nav", resp.data.allMainNavigations)
+         commit("set_footer_nav", resp.data.allFooterNavigations)
+         //
+         // // Pages
+         commit("set_pages_all", resp.data.allPages)
+         commit("set_pages_children", resp.data.allPageChildren)
+         //
+         // // Dynamic
+         commit("set_guides", resp.data.allGuides)
+         commit("set_tutorials", resp.data.allTutorials)
+         commit("set_news", resp.data.allNews)
+         commit("set_projects", resp.data.allProjects)
+         commit("set_calendars", resp.data.allCalendars)
+
          resolve(resp)
        })
        .catch(err => {
          resolve(err)
        })
    })
+   // obj.allFeatures =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getFeaturesQuery
+   //     })
+   //     .then(resp => {
+   //       commit("set_landing_features", resp.data.allFeatures)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allEcosystems =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getEcosystemsQuery
+   //     })
+   //     .then(resp => {
+   //       commit("set_landing_ecosystems", resp.data.allEcosystems)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allFaqs =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getFaqsQuery
+   //     })
+   //     .then(resp => {
+   //       commit("set_landing_faqs", resp.data.allFaqs)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
 
    // Navigation
-   obj.allMainNavigations =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getMainNavigationsQuery
-       })
-       .then(resp => {
-         commit("set_main_nav", resp.data.allMainNavigations)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allFooterNavigations =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getFooterNavigationsQuery
-       })
-       .then(resp => {
-         commit("set_footer_nav", resp.data.allFooterNavigations)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
+   // obj.allMainNavigations =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getMainNavigationsQuery
+   //     })
+   //     .then(resp => {
+   //       commit("set_main_nav", resp.data.allMainNavigations)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allFooterNavigations =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getFooterNavigationsQuery
+   //     })
+   //     .then(resp => {
+   //       commit("set_footer_nav", resp.data.allFooterNavigations)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
 
    // Pages
-   obj.allPages =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllPagesQuery
-       })
-       .then(resp => {
-         commit("set_pages_all", resp.data.allPages)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allPageChildren =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllPageChildren
-       })
-       .then(resp => {
-         commit("set_pages_children", resp.data.allPageChildren)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
+   // obj.allPages =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllPagesQuery
+   //     })
+   //     .then(resp => {
+   //       commit("set_pages_all", resp.data.allPages)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allPageChildren =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllPageChildren
+   //     })
+   //     .then(resp => {
+   //       commit("set_pages_children", resp.data.allPageChildren)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
 
    // Dynamic
-   obj.allGuides =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllGuides
-       })
-       .then(resp => {
-         commit("set_guides", resp.data.allGuides)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allTutorials =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllTutorials
-       })
-       .then(resp => {
-         commit("set_tutorials", resp.data.allTutorials)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allNews =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllNews
-       })
-       .then(resp => {
-         commit("set_news", resp.data.allNews)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allProjects =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllProjects
-       })
-       .then(resp => {
-         commit("set_projects", resp.data.allProjects)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
-   obj.allCalendars =  new Promise((resolve, reject) => {
-     clientApollo
-       .query({
-         query: getAllCalendars
-       })
-       .then(resp => {
-         commit("set_calendars", resp.data.allCalendars)
-         resolve(resp)
-       })
-       .catch(err => {
-         resolve(err)
-       })
-   })
+   // obj.allGuides =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllGuides
+   //     })
+   //     .then(resp => {
+   //       commit("set_guides", resp.data.allGuides)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allTutorials =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllTutorials
+   //     })
+   //     .then(resp => {
+   //       commit("set_tutorials", resp.data.allTutorials)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allNews =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllNews
+   //     })
+   //     .then(resp => {
+   //       commit("set_news", resp.data.allNews)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allProjects =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllProjects
+   //     })
+   //     .then(resp => {
+   //       commit("set_projects", resp.data.allProjects)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
+   // obj.allCalendars =  new Promise((resolve, reject) => {
+   //   clientApollo
+   //     .query({
+   //       query: getAllCalendars
+   //     })
+   //     .then(resp => {
+   //       commit("set_calendars", resp.data.allCalendars)
+   //       resolve(resp)
+   //     })
+   //     .catch(err => {
+   //       resolve(err)
+   //     })
+   // })
 
-   return obj.landing
+   return obj.all
 
  }
 }

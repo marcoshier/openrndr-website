@@ -104,4 +104,22 @@ query landing {
       }
     }
   }
+  allFeatures {
+    title
+    description
+  }
+  allEcosystems {
+    title
+    description
+    link
+    image {
+      url
+      alt
+      title
+    }
+  }
+  allFaqs {
+    question
+    answer
+  }
 }
