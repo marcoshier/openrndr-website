@@ -47,7 +47,6 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
   import { mapState } from "vuex"
   import VideoBackground from '~/components/Video.vue'
   import ContentBlock from '~/components/ContentBlock.vue'
@@ -62,115 +61,6 @@
       LoadingBar,
       ErrorMessage
     },
-    // apollo: {
-    //   landing: gql`{
-    //     landing {
-    //       banner {
-    //         media {
-    //           ... on VideoRecord {
-    //             id
-    //             file {
-    //               height
-    //               provider
-    //               providerUid
-    //               thumbnailUrl
-    //               title
-    //               url
-    //               width
-    //             }
-    //           }
-    //         }
-    //       }
-    //       dynamicContentBlocks {
-    //         title
-    //         subtext
-    //         bodyText
-    //         anchorpoint
-    //         blockType
-    //         buttons {
-    //           title
-    //           size
-    //           linkType
-    //           url
-    //           anchorpoint
-    //           page {
-    //             ... on PageRecord {
-    //               slug
-    //             }
-    //             ... on PageChildRecord {
-    //               slug
-    //               parentPage {
-    //                 slug
-    //               }
-    //             }
-    //           }
-    //         }
-    //         dynamicContent {
-    //           ... on ProjectRecord {
-    //             id
-    //             title
-    //             blurb
-    //             techSpecs
-    //             credits
-    //             url
-    //             media {
-    //               ... on ImageRecord {
-    //                 file {
-    //                   url
-    //                 }
-    //                 credits
-    //                 caption
-    //               }
-    //               ... on GifRecord {
-    //                 credit
-    //                 caption
-    //                 file {
-    //                   url
-    //                 }
-    //               }
-    //               ... on VideoRecord {
-    //                 file {
-    //                   url
-    //                   thumbnailUrl
-    //                 }
-    //                 credits
-    //                 caption
-    //               }
-    //             }
-    //           }
-    //           ... on InstagramPostRecord {
-    //                 title
-    //                 link
-    //                 alt
-    //                 thumbnail {
-    //                   url
-    //                   title
-    //                   alt
-    //                 }
-    //         	}
-    //           ... on PageButtonRecord {
-    //             title
-    //             size
-    //             linkType
-    //             url
-    //             anchorpoint
-    //             page {
-    //               ... on PageRecord {
-    //                 slug
-    //               }
-    //               ... on PageChildRecord {
-    //                 slug
-    //                 parentPage {
-    //                   slug
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }`
-    // },
     data: function() {
       return {
         hasSidebar: false,

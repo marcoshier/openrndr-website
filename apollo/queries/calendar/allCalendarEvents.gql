@@ -1,0 +1,15 @@
+query AllCalendarEvents(){
+  AllCalendarEvents(
+    filter: {
+      eventType: { eq: "event" }
+    },
+    orderBy: [dateStart_ASC]
+  ) {
+    dateStart
+    dateEnd
+    link
+    note
+    title
+    address
+  }
+}

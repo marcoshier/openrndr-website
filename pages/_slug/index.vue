@@ -78,8 +78,6 @@
   // import LoadingBar from '~/components/LoadingBar.vue'
   import ErrorMessage from '~/components/404.vue'
 
-  // import Dynamic from '~/components/dynamic/DynamicPagesTest.vue'
-
   export default {
     layout: 'sidebar',
     components: {

@@ -1,0 +1,36 @@
+query allMainNavigations {
+  allMainNavigations {
+    menuItem {
+      title
+      navType
+      value
+      internLink {
+        ... on PageRecord {
+          slug
+        }
+        ... on PageChildRecord {
+          slug
+          parentPage {
+            slug
+          }
+        }
+      }
+      dropdownItems {
+        title
+        linkType
+        value
+        internLink {
+          ... on PageRecord {
+            slug
+          }
+          ... on PageChildRecord {
+            slug
+            parentPage {
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}

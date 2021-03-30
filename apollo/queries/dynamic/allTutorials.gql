@@ -1,0 +1,13 @@
+query allTutorials {
+  allTutorials {
+    title
+    description
+    estimatedTime
+    url
+    image {
+      url
+      title
+      alt
+    }
+  }
+}

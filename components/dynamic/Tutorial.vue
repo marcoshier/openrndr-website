@@ -13,25 +13,10 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import { mapState } from "vuex"
   import TutorialItem from '~/components/dynamic/TutorialItem.vue'
 
   export default {
-    apollo: {
-      allTutorials: gql`{
-        allTutorials {
-          title
-          description
-          estimatedTime
-          url
-          image {
-            url
-            title
-            alt
-          }
-        }
-      }`
-    },
     components: {
       TutorialItem
     },
@@ -42,6 +27,11 @@
       page: {
         type: Object
       }
+    },
+    computed: {
+      ...mapState({
+        allTutorials: (state) => state.dynamic.allTutorials
+      })
     }
   }
 </script>

@@ -13,25 +13,10 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import { mapState } from "vuex"
   import GuideItem from '~/components/dynamic/GuideItem.vue'
 
   export default {
-    apollo: {
-      allGuides: gql`{
-        allGuides {
-          title
-          description
-          estimatedTime
-          url
-          image {
-            url
-            title
-            alt
-          }
-        }
-      }`
-    },
     components: {
       GuideItem
     },
@@ -42,6 +27,11 @@
       page: {
         type: Object
       }
+    },
+    computed: {
+      ...mapState({
+        allGuides: (state) => state.dynamic.allGuides
+      })
     }
   }
 </script>

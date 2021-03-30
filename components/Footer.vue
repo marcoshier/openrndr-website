@@ -29,53 +29,10 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import { mapState } from "vuex"
 import MenuItem from '~/components/MenuItem.vue'
 
 export default {
-  apollo: {
-    allFooterNavigations: gql`{
-      allFooterNavigations {
-        title
-        menuItems {
-          menuItem {
-            ... on MenuItemRecord {
-              title
-              navType
-              value
-              internLink {
-                ... on PageRecord {
-                  slug
-                }
-                ... on PageChildRecord {
-                  slug
-                  parentPage {
-                    slug
-                  }
-                }
-              }
-              dropdownItems {
-                title
-                linkType
-                value
-                internLink {
-                  ... on PageRecord {
-                    slug
-                  }
-                  ... on PageChildRecord {
-                    slug
-                    parentPage {
-                      slug
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }`
-  },
   components: {
     MenuItem
   },
@@ -83,6 +40,11 @@ export default {
     return {
       showFooter: true
     }
+  },
+  computed: {
+    ...mapState({
+      allFooterNavigations: (state) => state.navigation.allFooterNavigations
+    })
   }
 }
 </script>

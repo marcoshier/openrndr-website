@@ -3,9 +3,16 @@ import getFeaturesQuery from "~/apollo/queries/landing/keyFeatures.gql"
 import getEcosystemsQuery from "~/apollo/queries/landing/ecosystems.gql"
 import getFaqsQuery from "~/apollo/queries/landing/faqs.gql"
 
+import getMainNavigationsQuery from "~/apollo/queries/navigation/allMainNavigations.gql"
+import getFooterNavigationsQuery from "~/apollo/queries/navigation/allFooterNavigations.gql"
+
 import getAllPagesQuery from "~/apollo/queries/pages/allPages.gql"
 import getAllPageChildren from "~/apollo/queries/pages/allPageChildren.gql"
 
+import getAllGuides from "~/apollo/queries/dynamic/allGuides.gql"
+import getAllTutorials from "~/apollo/queries/dynamic/allTutorials.gql"
+import getAllNews from "~/apollo/queries/dynamic/allNews.gql"
+import getAllProjects from "~/apollo/queries/dynamic/allProjects.gql"
 import getAllCalendars from "~/apollo/queries/dynamic/allCalendars.gql"
 
 export const state = () => ({
@@ -15,12 +22,20 @@ export const state = () => ({
     allEcosystems: {},
     allFaqs: {}
   },
+  navigation: {
+    allMainNavigations: [],
+    allFooterNavigations: []
+  },
   pages: {
     allPages: [],
     allPageChildren: [],
     current: {}
   },
   dynamic: {
+    allGuides: [],
+    allTutorials: [],
+    allNews: [],
+    allProjects: [],
     allCalendars: [],
   }
 })
@@ -52,6 +67,14 @@ export const mutations = {
     state.landingPage.allFaqs = faqs
   },
 
+  // Navigation
+  set_main_nav: function(state, items) {
+    state.navigation.allMainNavigations = items
+  },
+  set_footer_nav: function(state, items) {
+    state.navigation.allFooterNavigations = items
+  },
+
   // Pages
   set_pages_all: function(state, pages) {
     state.pages.allPages = pages
@@ -61,6 +84,18 @@ export const mutations = {
   },
 
   // Dynamic
+  set_guides: function(state, items) {
+    state.dynamic.allGuides = items
+  },
+  set_tutorials: function(state, items) {
+    state.dynamic.allTutorials = items
+  },
+  set_news: function(state, items) {
+    state.dynamic.allNews = items
+  },
+  set_projects: function(state, items) {
+    state.dynamic.allProjects = items
+  },
   set_calendars: function(state, items) {
     state.dynamic.allCalendars = items
   }
@@ -126,6 +161,34 @@ export const actions = {
        })
    })
 
+   // Navigation
+   obj.allMainNavigations =  new Promise((resolve, reject) => {
+     clientApollo
+       .query({
+         query: getMainNavigationsQuery
+       })
+       .then(resp => {
+         commit("set_main_nav", resp.data.allMainNavigations)
+         resolve(resp)
+       })
+       .catch(err => {
+         resolve(err)
+       })
+   })
+   obj.allFooterNavigations =  new Promise((resolve, reject) => {
+     clientApollo
+       .query({
+         query: getFooterNavigationsQuery
+       })
+       .then(resp => {
+         commit("set_footer_nav", resp.data.allFooterNavigations)
+         resolve(resp)
+       })
+       .catch(err => {
+         resolve(err)
+       })
+   })
+
    // Pages
    obj.allPages =  new Promise((resolve, reject) => {
      clientApollo
@@ -154,6 +217,59 @@ export const actions = {
        })
    })
 
+   // Dynamic
+   obj.allGuides =  new Promise((resolve, reject) => {
+     clientApollo
+       .query({
+         query: getAllGuides
+       })
+       .then(resp => {
+         commit("set_guides", resp.data.allGuides)
+         resolve(resp)
+       })
+       .catch(err => {
+         resolve(err)
+       })
+   })
+   obj.allTutorials =  new Promise((resolve, reject) => {
+     clientApollo
+       .query({
+         query: getAllTutorials
+       })
+       .then(resp => {
+         commit("set_tutorials", resp.data.allTutorials)
+         resolve(resp)
+       })
+       .catch(err => {
+         resolve(err)
+       })
+   })
+   obj.allNews =  new Promise((resolve, reject) => {
+     clientApollo
+       .query({
+         query: getAllNews
+       })
+       .then(resp => {
+         commit("set_news", resp.data.allNews)
+         resolve(resp)
+       })
+       .catch(err => {
+         resolve(err)
+       })
+   })
+   obj.allProjects =  new Promise((resolve, reject) => {
+     clientApollo
+       .query({
+         query: getAllProjects
+       })
+       .then(resp => {
+         commit("set_projects", resp.data.allProjects)
+         resolve(resp)
+       })
+       .catch(err => {
+         resolve(err)
+       })
+   })
    obj.allCalendars =  new Promise((resolve, reject) => {
      clientApollo
        .query({

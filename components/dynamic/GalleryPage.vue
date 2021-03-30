@@ -11,45 +11,10 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import { mapState } from "vuex"
   import GalleryItem from '~/components/dynamic/GalleryItem.vue'
 
   export default {
-    apollo: {
-      allProjects: gql`{
-        allProjects {
-          title
-          blurb
-          techSpecs
-          credits
-          url
-          media {
-            ... on ImageRecord {
-              file {
-                url
-              }
-              credits
-              caption
-            }
-            ... on VideoRecord {
-              credits
-              caption
-              file {
-                url
-                thumbnailUrl
-              }
-            }
-            ... on GifRecord {
-              credit
-              caption
-              file {
-                url
-              }
-            }
-          }
-        }
-      }`
-    },
     components: {
       GalleryItem
     },
@@ -60,6 +25,11 @@
       page: {
         type: Object
       }
+    },
+    computed: {
+      ...mapState({
+        allProjects: (state) => state.dynamic.allProjects
+      })
     }
 
   }

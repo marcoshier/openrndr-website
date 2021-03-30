@@ -37,57 +37,20 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import { mapState } from "vuex"
   import MenuItem from '~/components/MenuItem.vue'
   import MobileMenu from '~/components/MobileMenu.vue'
 
   export default {
-    apollo: {
-      allMainNavigations: gql`{
-        allMainNavigations {
-          menuItem {
-            title
-            navType
-            value
-            internLink {
-              ... on PageRecord {
-                slug
-              }
-              ... on PageChildRecord {
-                slug
-                parentPage {
-                  slug
-                }
-              }
-            }
-            dropdownItems {
-              title
-              linkType
-              value
-              internLink {
-                ... on PageRecord {
-                  slug
-                }
-                ... on PageChildRecord {
-                  slug
-                  parentPage {
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        }
-      }`
-    },
     components: {
       MobileMenu,
       MenuItem
+    },
+    computed: {
+      ...mapState({
+        allMainNavigations: (state) => state.navigation.allMainNavigations
+      })
     }
-    // computed: {
-    //   console: () => console,
-    //   window: () => window,
-    // }
   }
 </script>
 

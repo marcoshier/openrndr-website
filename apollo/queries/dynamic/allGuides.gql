@@ -1,0 +1,13 @@
+query allGuides {
+  allGuides {
+    title
+    description
+    estimatedTime
+    url
+    image {
+      url
+      title
+      alt
+    }
+  }
+}

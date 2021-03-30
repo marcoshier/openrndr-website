@@ -1,0 +1,15 @@
+query allNews {
+  allNews {
+    title
+    description
+    url
+    image {
+      url
+      title
+      alt
+    }
+    category {
+      title
+    }
+  }
+}
