@@ -6,6 +6,7 @@ import gql from 'graphql-tag'
 
 export default {
   target: 'static', // default is 'server'
+  devtools: true,
   generate: {
     routes: async (callback) => {
       // 1. Get the list of posts
@@ -30,12 +31,14 @@ export default {
               }
           }
       }
+      console.log('generating routes')
       let data = await makePromise(execute(link, operation))
 
       // 2. Build the list of routes for Nuxt
       var pageRoutes = [];
 
       data.data.allPages.forEach(function(item) {
+        console.log('routes generated.')
           pageRoutes.push('/' + item.slug)
       })
 

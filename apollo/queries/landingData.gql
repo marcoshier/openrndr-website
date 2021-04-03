@@ -1,4 +1,4 @@
-query landing {
+query landingData {
   landing {
     banner {
       media {

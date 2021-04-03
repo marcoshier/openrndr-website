@@ -1,4 +1,4 @@
-query allNavigations {
+query navigationData {
   allMainNavigations {
     menuItem {
       title

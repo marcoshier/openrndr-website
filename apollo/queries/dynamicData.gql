@@ -1,0 +1,77 @@
+query dynamicData {
+  allGuides {
+    title
+    description
+    estimatedTime
+    url
+    image {
+      url
+      title
+      alt
+    }
+  }
+  allTutorials {
+    title
+    description
+    estimatedTime
+    url
+    image {
+      url
+      title
+      alt
+    }
+  }
+  allNews {
+    title
+    description
+    url
+    image {
+      url
+      title
+      alt
+    }
+    category {
+      title
+    }
+  }
+  allProjects {
+    title
+    blurb
+    techSpecs
+    credits
+    url
+    media {
+      ... on ImageRecord {
+        file {
+          url
+        }
+        credits
+        caption
+      }
+      ... on VideoRecord {
+        credits
+        caption
+        file {
+          url
+          thumbnailUrl
+        }
+      }
+      ... on GifRecord {
+        credit
+        caption
+        file {
+          url
+        }
+      }
+    }
+  }
+  allCalendars {
+    eventType
+    dateStart
+    dateEnd
+    link
+    note
+    title
+    address
+  }
+}

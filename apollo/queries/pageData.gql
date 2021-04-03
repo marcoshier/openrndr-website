@@ -1,4 +1,96 @@
-query allPageChildren {
+query pageData {
+  allPages {
+    title
+    description
+    slug
+    dynamicContentBlocks {
+      title
+      subtext
+      bodyText
+      anchorpoint
+      blockType
+      sidebar
+      buttons {
+        title
+        size
+        linkType
+        url
+        anchorpoint
+        page {
+          ... on PageRecord {
+            slug
+          }
+          ... on PageChildRecord {
+            slug
+            parentPage {
+              slug
+            }
+          }
+        }
+      }
+      dynamicContent {
+        ... on PageButtonRecord {
+          title
+          size
+          linkType
+          url
+          anchorpoint
+          page {
+            ... on PageRecord {
+              slug
+            }
+            ... on PageChildRecord {
+              slug
+              parentPage {
+                slug
+              }
+            }
+          }
+        }
+        ... on ProjectRecord {
+          title
+          blurb
+          techSpecs
+          credits
+          url
+          media {
+            ... on ImageRecord {
+              file {
+                url
+              }
+              credits
+              caption
+            }
+            ... on VideoRecord {
+              credits
+              caption
+              file {
+                url
+                thumbnailUrl
+              }
+            }
+            ... on GifRecord {
+              credit
+              caption
+              file {
+                url
+              }
+            }
+          }
+        }
+        ... on InstagramPostRecord {
+          title
+          link
+          alt
+          thumbnail {
+            url
+            title
+            alt
+          }
+        }
+      }
+    }
+  }
   allPageChildren {
       title
       description

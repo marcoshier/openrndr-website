@@ -3,7 +3,7 @@ import introspectionResult from '~/fragmentTypes.json';
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
     introspectionQueryResultData: introspectionResult,
-  });
+});
 
 export default ({req, app}) => {
     return {
