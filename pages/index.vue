@@ -4,7 +4,7 @@
 
     <div v-if="landing && !loading">
       <!-- BEGIN Video background -->
-      <header v-if="landing.banner.media" class="bg-primary">
+      <header v-if="landing.banner && landing.banner.media" class="bg-primary">
         <video-background v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
         <div v-else>
         </div>
