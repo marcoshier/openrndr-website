@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style>
+
   .getting-started-link {
     font-size: 22px;
     min-width: 330px;
