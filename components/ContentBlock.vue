@@ -1,10 +1,12 @@
 <template>
-  <div class="w-100 px-0 py-5 border-white" v-bind:class="{ 'border-top': borderTop }" :id="anchorpoint ? anchorpoint : ''">
+  <div class="w-100 px-0 py-5 border-white  bg-primary" v-bind:class="[{ 'border-top': borderTop }, {'bg-dark': isDark}]" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
+      <!-- icon (make sub-comp if accepted) -->
+      <img class="icon" src="@/assets/images/icons/GettingStarted.svg" />
 
       <div class="px-4 pt-4 px-lg-5 pt-lg-5" v-if="title || subtext">
-        <h1 v-if="title" v-bind:class="{ 'mb-0': !subtext }">{{title}}</h1>
-        <p v-if="subtext" class="lead">
+        <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }, {'text-light': isDark}]">{{title}}</h1>
+        <p v-if="subtext" class="lead" v-bind:class="{'text-light': isDark}">
           {{subtext}}
         </p>
 
@@ -115,7 +117,8 @@
         buttons: null,
         buttonClass: null,
         index: null,
-        borderTop: true
+        borderTop: true,
+        isDark: false
       }
     },
     mounted() {
@@ -150,6 +153,7 @@
 
       if (this.initType != undefined) {
         this.blockType = this.initType
+        if (this.blockType == "GettingStarted") this.isDark = true
       }
 
       // Set buttons array and classList for buttons
@@ -182,3 +186,12 @@
     }
   }
 </script>
+<style>
+
+.icon {
+  width: 40px;
+  box-sizing: content-box;
+  padding-left: 3rem;
+}
+
+</style>

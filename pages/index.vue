@@ -18,10 +18,10 @@
         </div>
       </div> -->
 
-      <div class="w-100 bg-primary">
+      <div class="w-100">
         <div class="container-fluid px-0 mx-0">
           <div class="row row-eq-height p-0 m-0">
-            <div class="col-12 px-0 border-left border-right border-primary">
+            <div class="col-12 px-0 border-primary">
               <template v-for="(block, index) in landing.dynamicContentBlocks">
                 <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                 :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -117,45 +117,3 @@
     }
   }
 </script>
-
-<style>
-  .getting-started-link {
-    font-size: 22px;
-    min-width: 330px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-   }
-
-  .arrow-next {
-    width: 40px;
-    height: 59px;
-  }
-
-  @media only screen and (max-width: 1199px) {
-    .arrow-next {
-      height: 50px;
-      width: 30px;
-    }
-
-    .getting-started-link {
-      font-size: 20px;
-      min-width: 260px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-     }
-  }
-
-  @media only screen and (max-width: 991px) {
-    .arrow-next {
-      height: 43px;
-      width: 30px;
-    }
-
-    .getting-started-link {
-      font-size: 17px;
-      min-width: 150px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-     }
-  }
-</style>

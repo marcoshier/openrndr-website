@@ -36,13 +36,23 @@ export default {
 </script>
 
 <style>
+  #getting-started-area {
+    margin-top: 100px;
+  }
 
   .getting-started-link {
     font-size: 22px;
     min-width: 330px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    transform: scale(1);
+    transition: all 0.1s ease;
    }
+
+  .getting-started-link:hover {
+    transform: scale(0.99);
+    transition: all 0.2s ease;
+  }
 
   .arrow-next {
     width: 40px;
@@ -81,8 +91,8 @@ export default {
     .getting-started-link {
       font-size: 17px;
       min-width: 150px;
-      padding-top: 12px;
-      padding-bottom: 12px;
+      padding-top: 22px;
+      padding-bottom: 22px;
       display: block;
       width: 100%;
      }

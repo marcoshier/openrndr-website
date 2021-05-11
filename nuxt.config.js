@@ -6,6 +6,10 @@ import gql from 'graphql-tag'
 
 export default {
   target: 'static', // default is 'server'
+  server: {
+    port: 8000,
+    host: '0.0.0.0'
+  },
   devtools: true,
   generate: {
     routes: async (callback) => {

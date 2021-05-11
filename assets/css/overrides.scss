@@ -8,6 +8,10 @@ html, body, #__nuxt, #__layout, #app {
   padding-bottom: 10px;
 }
 
+.p-lg-5 {
+  padding-top: 160px;
+}
+
 @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
       max-width: 1400px;

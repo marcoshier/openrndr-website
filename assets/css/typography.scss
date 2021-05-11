@@ -6,11 +6,12 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: $textHead;
   color: $dark;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.75rem;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -43,7 +44,7 @@ p.lead-header {
 
 p.lead {
   margin: 0;
-  font-size: 1.875rem;
+  font-size: 1.45rem;
   font-weight: 400;
   color: $dark;
 }
