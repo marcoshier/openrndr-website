@@ -3,9 +3,26 @@ html, body, #__nuxt, #__layout, #app {
   height: 100%;
 }
 
+.py-5 {
+  padding-top: 8rem !important;
+  padding-bottom: 8rem !important;
+}
+
 .mb-5 {
   margin-bottom: unset !important;
   padding-bottom: 10px;
+}
+
+.btn-light {
+  background-color: #0C120C;
+  border-color: #e6e6e6;
+  color: white !important;
+
+}
+
+.btn-light:hover {
+  color: #212529 !important;
+  background-color: pink;
 }
 
 .p-lg-5 {

@@ -1,8 +1,7 @@
 <template lang="html">
   <div class="col-12 col-lg-6 mb-4 mb-lg-5 d-flex px-0" v-bind:class="{'first-item': isFirstInRow, 'last-item': !isFirstInRow}">
     <div class="feature-number mr-4 mr-md-5">
-      <img class="img-fluid" src="@/assets/images/circle-90px.svg">
-      <h1 class="mb-0 feature-number-text">{{index + 1}}</h1>
+      <img class="img-fluid" :src="getImgUrl()">
     </div>
 
     <div>
@@ -29,6 +28,11 @@ export default {
     return {
       isFirstInRow: null
     }
+  },
+  methods: {
+    getImgUrl() {
+        return require("../../assets/images/icons/keyFeatures/" + this.title.toLowerCase().replace(/\s/g, '') + ".gif");
+      }
   },
   mounted() {
     if(this.index != undefined) {

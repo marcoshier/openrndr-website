@@ -37,14 +37,15 @@ export default {
 
 <style>
   #getting-started-area {
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 70px;
   }
 
   .getting-started-link {
     font-size: 22px;
     min-width: 330px;
-    padding-top: 22px;
-    padding-bottom: 22px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     transform: scale(1);
     transition: all 0.1s ease;
    }
@@ -56,7 +57,7 @@ export default {
 
   .arrow-next {
     width: 40px;
-    height: 59px;
+    height: 90px;
   }
 
   @media only screen and (max-width: 1199px) {
