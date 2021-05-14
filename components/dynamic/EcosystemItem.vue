@@ -57,9 +57,6 @@ export default {
   color: inherit;
 }
 
-.eco-img {
-}
-
 .eco-img-wrapper {
   width: 65px;
   overflow: hidden;
