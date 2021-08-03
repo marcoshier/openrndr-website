@@ -25,7 +25,7 @@
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-white">
+              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-dark">
                 <template v-for="(block, index) in pageChild.dynamicContentBlocks">
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />

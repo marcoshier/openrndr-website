@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <!-- <hr v-if="bodyTextDivider && bodyText" class="my-0 mx-4 mx-lg-5 border-white"> -->
+      <!-- <hr v-if="bodyTextDivider && bodyText" class="my-0 mx-4 mx-lg-5 border-dark"> -->
 
       <div v-if="bodyText" class="p-4 p-lg-5">
         <div v-html="bodyText" class="wizywig">
@@ -33,7 +33,7 @@
       </div>
 
       <template v-if="blockType != 'normal'">
-        <!-- <hr v-if="dynamicContentDivider" class="my-0 mx-4 mx-lg-5 border-white"> -->
+        <!-- <hr v-if="dynamicContentDivider" class="my-0 mx-4 mx-lg-5 border-dark"> -->
         <component v-bind:is="blockType" :items="dynamicContent" :page="page" :name="title" :type="blockType"/>
       </template>
 
