@@ -20,7 +20,7 @@
 
             <template v-if="hasSidebar">
               <!-- BEGIN Sidebar -->
-              <div class="sidebar col-12 col-lg-4 col-xxl-3 p-4 p-lg-5">
+              <div class="sidebar col-12 col-lg-2 col-xxl-2 p-4 p-lg-2">
                 <sidebar :title="pageChild.title" :contentBlocks="pageChild.dynamicContentBlocks" />
               </div>
               <!-- END Sidebar -->

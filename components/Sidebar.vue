@@ -1,6 +1,6 @@
 <template>
-  <div v-if="hasSidebar" id="sidebar" class="p-0 p-lg-3 bg-primary">
-    <ul class="list-group rounded-0 p-3 d-none d-lg-flex bg-primary">
+  <div v-if="hasSidebar" id="sidebar" class="p-0 bg-primary">
+    <ul class="list-group rounded-0 p-0 d-none d-lg-flex bg-primary">
       <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3 bg-primary">
         <span class="sidebar-title">{{this.title}}</span>
       </li>
@@ -11,7 +11,7 @@
       </li>
     </ul>
 
-    <ul class="list-group rounded-0 p-3 d-lg-none bg-primary">
+    <ul class="list-group rounded-0 p-0 d-lg-none bg-primary">
       <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3 bg-primary">
         <span class="sidebar-title">{{this.title}}</span>
         <span class="d-lg-none float-right">
@@ -85,8 +85,6 @@
   #sidebar {
     position: sticky;
     top: 140px;
-    border: 1px solid black;
-    border-radius: 5px;
   }
 
 </style>
