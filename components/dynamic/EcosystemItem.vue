@@ -48,10 +48,10 @@ export default {
   transform: scale(1);
   transition: all 0.1s ease;
   background-color: transparent !important;
+  height: 120px
 }
 
 .card:hover {
-  background-color: #ffb8c5 !important;
   transform: scale(0.97);
   transition: all 0.2s ease;
 }
