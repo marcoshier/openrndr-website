@@ -1,12 +1,21 @@
 .btn {
-  padding: .35rem 2rem;
+    padding: .35rem 2rem;
+    border: 1px solid black;
+    transform: scale(1);
+    transition: all 0.2 ease;
+}
+
+.btn:hover {
+    transform: scale(0.99);
+    transition: all 0.2 ease;
+    border: 1px solid black;
 }
 
 .btn-sm {
-  padding: 0.25rem 1.25rem;
-  font-size: 1.1rem;
+    padding: 0.25rem 1.25rem;
+    font-size: 1.1rem;
 }
 
 .btn-lg {
-  padding: .65rem 2rem;
+    padding: .65rem 2rem;
 }

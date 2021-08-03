@@ -1,11 +1,11 @@
 <template lang="html">
   <div v-if="action" :class="'d-inline-block ' + parentClasses">
 
-    <nuxt-link v-if="type == 'intern'" :to="action" :class="'btn btn-light ' + sizeClass + ' ' + buttonClasses">
+    <nuxt-link v-if="type == 'intern'" :to="action" :class="'btn btn-primary border-dark' + sizeClass + ' ' + buttonClasses">
       {{title}}
     </nuxt-link>
 
-    <a v-else-if="type == 'extern'" :href="action" :class="'btn btn-light ' + sizeClass + ' ' + buttonClasses" target="_blank">
+    <a v-else-if="type == 'extern'" :href="action" :class="'btn btn-primary border-dark' + sizeClass + ' ' + buttonClasses" target="_blank">
       {{title}}
     </a>
   </div>
@@ -121,3 +121,4 @@ export default {
   }
 }
 </script>
+

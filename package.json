@@ -20,6 +20,7 @@
     "bootstrap-vue": "^2.18.0",
     "nuxt": "^2.14.7",
     "vue-gallery": "^2.0.1",
+    "vue-observe-visibility": "^1.0.0",
     "vue-progress": "^0.2.1"
   },
   "devDependencies": {

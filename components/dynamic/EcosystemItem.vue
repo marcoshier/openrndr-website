@@ -1,25 +1,17 @@
 <template lang="html">
-  <div class="col-12 col-lg-6 col-xl-4 mb-4 mb-lg-5 px-0 px-lg-3 d-flex">
-    <div class="card w-100">
+   <div class="mb-4 mb-lg-5 px-0 px-lg-3">
+    <div class="card">
       <a v-if="url" class="eco-link h-100" href="#">
-        <div class="card-body d-flex h-100 p-3 align-items-center row mb-4 mb-sm-0">
-          <div class="col-12 col-sm-4 eco-img-wrapper text-center px-3">
+        <div class="card-body d-flex h-100 p-3 align-items-center mb-4 mb-sm-0">
+          <div class="col-12 eco-img-wrapper text-center px-3">
             <img class="eco-img img-fluid d-inline" :src="image.url">
-          </div>
-          <div class="col-12 col-sm-8 px-3 px-sm-0">
-            <h4 class="eco-title mb-1 pr-3">{{title}}</h4>
-            <p class="eco-description mb-0 pr-3">{{description}}</p>
           </div>
         </div>
       </a>
-      <div class="h-100" v-else>
-        <div class="card-body d-flex h-100 p-3 align-items-center row mb-4 mb-sm-0">
-          <div class="col-12 col-sm-4 eco-img-wrapper text-center px-3">
+      <div v-else>
+        <div class="card-body h-100 p-3 align-items-center mb-4 mb-sm-0">
+          <div class="col-12 eco-img-wrapper text-center px-3">
             <img class="eco-img img-fluid d-inline" :src="image.url">
-          </div>
-          <div class="col-12 col-sm-8 px-3 px-sm-0">
-            <h4 class="eco-title mb-1 pr-3">{{title}}</h4>
-            <p class="eco-description mb-0 pr-3">{{description}}</p>
           </div>
         </div>
       </div>
@@ -48,9 +40,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  display: inline-block;
+}
+
+.card {
+  transform: scale(1);
+  transition: all 0.1s ease;
+  background-color: transparent !important;
+}
+
+.card:hover {
+  background-color: #ffb8c5 !important;
+  transform: scale(0.97);
+  transition: all 0.2s ease;
+}
+
+.eco-img {
+  max-width: 100px;
+}
+
 .eco-link {
   color: inherit;
 }
+
+.eco-description {
+  font-size: 1.2rem;
+  }
+
+.eco-item {
+  padding-left: 2rem;
+  }
 
 .eco-link:hover{
   text-decoration: none;
@@ -58,7 +78,7 @@ export default {
 }
 
 .eco-img-wrapper {
-  width: 65px;
+  width: 100px;
   overflow: hidden;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="w-100 px-0 py-5 border-white  bg-primary" v-bind:class="[{ 'border-top': borderTop }, {'bg-dark': isDark}, {'bg-light': isLight}]" :id="anchorpoint ? anchorpoint : ''">
+  <div class="w-100 px-0 py-5 border-dark bg-primary" v-bind:class="{ 'border-top': borderTop }" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
       <img class="icon" src="@/assets/images/icons/GettingStarted.svg" />
 
       <div class="px-4 pt-4 px-lg-5 pt-lg-5 pb-5" v-if="title || subtext">
-        <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }, {'text-light': isDark}]">{{title}}</h1>
-        <p v-if="subtext" class="lead" v-bind:class="{'text-light': isDark}">
+        <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }]">{{title}}</h1>
+        <p v-if="subtext" class="lead">
           {{subtext}}
         </p>
 
@@ -117,9 +117,7 @@
         buttons: null,
         buttonClass: null,
         index: null,
-        borderTop: true,
-        isDark: false,
-        isLight: false
+        borderTop: true
       }
     },
     mounted() {

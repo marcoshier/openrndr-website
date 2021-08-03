@@ -1,18 +1,18 @@
 <template>
-  <div v-if="hasSidebar" id="sidebar" class="p-0 p-lg-3 bg-white">
-    <ul class="list-group rounded-0 p-3 d-none d-lg-flex">
-      <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3">
+  <div v-if="hasSidebar" id="sidebar" class="p-0 p-lg-3 bg-primary">
+    <ul class="list-group rounded-0 p-3 d-none d-lg-flex bg-primary">
+      <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3 bg-primary">
         <span class="sidebar-title">{{this.title}}</span>
       </li>
-      <li v-for="(item, index) in items" :key="index" class="list-group-item border-0">
+      <li v-for="(item, index) in items" :key="index" class="list-group-item border-0 bg-primary">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
       </li>
     </ul>
 
-    <ul class="list-group rounded-0 p-3 d-lg-none">
-      <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3">
+    <ul class="list-group rounded-0 p-3 d-lg-none bg-primary">
+      <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3 bg-primary">
         <span class="sidebar-title">{{this.title}}</span>
         <span class="d-lg-none float-right">
           <button @click="toggleSidebar()" class="btn btn-link py-0">
@@ -21,7 +21,7 @@
           </button>
         </span>
       </li>
-      <li v-for="(item, index) in items" :key="index" v-if="!collapsed" class="list-group-item border-0">
+      <li v-for="(item, index) in items" :key="index" v-if="!collapsed" class="list-group-item border-0 bg-primary">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
@@ -85,6 +85,8 @@
   #sidebar {
     position: sticky;
     top: 140px;
+    border: 1px solid black;
+    border-radius: 5px;
   }
 
 </style>

@@ -1,19 +1,20 @@
 // All of your custom SCSS variables go first
-$primary:       #ffc0cb;
-$light:         #ffffff;
-$dark:          #0c120c;
-$gray:          #757575;
-$darkGray:      #333333;
-
+$primary: #ffc0cb;
+$light: #ffffff;
+$dark: #0c120c;
+$gray: #757575;
+$darkGray: #333333;
 // typography
-$textHead: 'IBM Plex Mono', sans-serif;
-$textButton: 'IBM Plex Mono', sans-serif;
-$textNav: 'IBM Plex Mono', sans-serif;
-$textBody: 'Jost', sans-serif;
-
+$textHead: 'IBM Plex Mono',
+sans-serif;
+$textButton: 'IBM Plex Mono',
+sans-serif;
+$textNav: 'IBM Plex Mono',
+sans-serif;
+$textBody: 'Jost',
+sans-serif;
 // Navbar height
-$navbarHeight: 95px;
-
+$navbarHeight: 75px;
 @media (min-width: 768px) {
-  $navbarHeight: 110px;
+    $navbarHeight: 90px;
 }

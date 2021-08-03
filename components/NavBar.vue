@@ -1,6 +1,6 @@
 <template>
   <div class="navbar-container">
-    <b-navbar toggleable="lg" type="light" class="border-bottom border-white p-3 bg-primary"  v-if="allMainNavigations">
+    <b-navbar toggleable="lg" type="light" class="border-bottom border-dark p-0 bg-primary"  v-if="allMainNavigations">
       <div class="container-fluid px-0 px-lg-5">
         <b-navbar-brand to="/" :id="'openrndr-logo'">
           <img class="logo" src="@/assets/images/openrndr-logo.png" alt="The OPENRNDR Logo">
