@@ -43,10 +43,10 @@ export default {
             "a b c d" 
             ". e f g" 
             "h i j k";
-    grid-gap:20px;
+    grid-gap: 20px;
     align-items: center;
-    align-content:center;
-    justify-content:center;
+    align-content: center;
+    justify-content: space-around;
   }
 
   .ecosystem-cnt div:nth-child(1) {

@@ -4,8 +4,8 @@
 
     <div v-if="landing && !loading">
       <!-- BEGIN Video background -->
-      <header v-if="landing.banner && landing.banner.media" class="bg-primary">
-        <video-background v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
+      <header id="video-cnt" v-if="landing.banner && landing.banner.media" class="bg-primary">
+        <video-background  v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
         <div v-else>
         </div>
       </header>
@@ -24,7 +24,7 @@
             <div class="col-12 px-0 border-primary">
               <template v-for="(block, index) in landing.dynamicContentBlocks">
                 <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+                :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index"/>
               </template>
             </div>
           </div>
@@ -104,6 +104,10 @@
           description: null
         }
       },
+      toggleBorder() {
+        let videocnt = document.getElementById("video-cnt").getBoundingClientRect()
+        this.$store.dispatch("toggleBorder", videocnt.y)
+      }
     },
     mounted() {
       // this.setupLoadingBar()
@@ -114,6 +118,12 @@
         this.landing = false
       }
 
+    },
+    beforeMount () {
+      window.addEventListener('scroll', this.toggleBorder);
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.toggleBorder);
     }
   }
 </script>

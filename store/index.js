@@ -26,7 +26,8 @@ export const state = () => ({
         allProjects: [],
         allCalendars: [],
     },
-    currentBlock: ""
+    currentBlock: "",
+    borderStatus: 0
 })
 
 export const getters = {
@@ -92,6 +93,9 @@ export const mutations = {
     // Scroll event
     set_current_block: function(state, block) {
         state.currentBlock = block
+    },
+    toggle_border: function(state, videoY) {
+        state.borderStatus = videoY
     }
 }
 
@@ -186,6 +190,10 @@ export const actions = {
     // Scroll event
     blockChange(state, block) {
         state.commit("set_current_block", block)
+    },
+
+    toggleBorder(state, videoY) {
+        state.commit("toggle_border", videoY)
     }
 
 }

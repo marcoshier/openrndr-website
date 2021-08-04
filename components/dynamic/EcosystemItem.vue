@@ -1,7 +1,7 @@
 <template lang="html">
-   <div class="mb-4 mb-lg-5 px-0 px-lg-3">
-    <div class="card">
-      <a v-if="url" class="eco-link h-100" href="#">
+   <div class="mb-1 mb-lg-1 px-0 px-lg-3">
+    <div class="card border-0">
+      <a v-if="url" class="eco-link h-100" :href="url">
         <div class="card-body d-flex h-100 p-3 align-items-center mb-4 mb-sm-0">
           <div class="col-12 eco-img-wrapper text-center px-3">
             <img class="eco-img img-fluid d-inline" :src="image.url">

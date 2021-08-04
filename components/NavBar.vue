@@ -1,6 +1,6 @@
 <template>
   <div class="navbar-container">
-    <b-navbar toggleable="lg" type="light" class="border-bottom border-dark p-0 bg-primary"  v-if="allMainNavigations">
+    <b-navbar toggleable="lg" type="light" class="p-0 bg-primary" :class="{'border-bottom border-dark': borderactive}" v-if="allMainNavigations">
       <div class="container-fluid px-0 px-lg-5">
         <b-navbar-brand to="/" :id="'openrndr-logo'">
           <span id="logo"></span>
@@ -48,9 +48,22 @@
       MenuItem
     },
     computed: {
+      borderStatus() {
+        return this.$store.state.borderStatus
+      },
       ...mapState({
         allMainNavigations: (state) => state.navigation.allMainNavigations
-      })
+      }),
+      
+    },
+    watch: {
+      borderStatus(videoY) {
+        if(videoY && videoY <= -100) {
+          this.borderactive = true
+        } else {
+          this.borderactive = false
+        }
+      }
     },
     methods: {
         logoAnim() {
@@ -61,7 +74,7 @@
               skipAddStyles: true,
               deleteSpeed: 30,
               wrapperClassName: "logo_typewriter",
-              delay: 2,
+              delay: 50,
             });
 
             let clearReplace = (el , newString) => {
@@ -71,7 +84,7 @@
 
             tw.pauseFor(550)
               .typeString("‎‎‎ ‎OPENRNDR")
-              .pauseFor(2500)
+              .pauseFor(1500)
               .callFunction((e) => {
                 clearReplace(e, 'OPENRNDR')
               })
@@ -141,6 +154,11 @@
               .start()
         }
     },
+    data: function() {
+      return {
+        borderactive: false
+      }
+    },
     mounted() {
       this.logoAnim()
     }
@@ -163,6 +181,9 @@
 
   #openrndr-logo, .logo_typewriter{
     text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none;
   }
 
   #logo {
@@ -170,8 +191,16 @@
     align-items: center;
     height: 75px;
     text-decoration: none !important;
+    border: none !important;
     font-weight: 600;
   }
+
+    #openrndr-logo:active, .logo_typewriter:active, #logo:active {
+      text-decoration: none !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none;
+    }
 
 
 

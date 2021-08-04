@@ -1,5 +1,5 @@
 <template>
-  <div class="content-block-cnt w-100 px-0 py-5 border-dark bg-primary" v-bind:class="{ 'border-top': borderTop }" :id="anchorpoint ? anchorpoint : ''">
+  <div class="content-block-cnt w-100 px-0 py-5 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'nopadding': noPadding }" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
 
@@ -116,7 +116,8 @@
         buttons: null,
         buttonClass: null,
         index: null,
-        borderTop: true
+        borderTop: true,
+        noPadding: false
       }
     },
     mounted() {
@@ -125,6 +126,7 @@
 
         if(this.index == 0) {
           this.borderTop = false
+          this.noPadding = true
         }
       }
 
@@ -187,6 +189,11 @@
   }
 </script>
 <style>
+
+.nopadding {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important
+}
 
 .icon {
   width: 40px;

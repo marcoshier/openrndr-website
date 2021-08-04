@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="padding:46.88% 0 0 0;position:relative;">
+    <div style="padding:36.88% 0 0 0;position:relative;">
       <iframe
         :src="videoUrl"
         style="position:absolute;top:0;left:0;width:100%;height:100%;"

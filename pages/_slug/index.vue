@@ -145,6 +145,7 @@
         })
       },
       handleScroll() {
+
         let contentBlockCnts = this.$el.querySelectorAll(".content-block-cnt")
 
         contentBlockCnts.forEach(contentBlock => {
