@@ -4,7 +4,7 @@
       <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3 bg-primary">
         <span class="sidebar-title">{{this.title}}</span>
       </li>
-      <li v-for="(item, index) in items" :key="index" class="list-group-item border-0 bg-primary">
+      <li :id="'menu-' + item.anchorpoint" v-for="(item, index) in items" :key="index" class="list-group-item border-0 bg-primary">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
@@ -21,7 +21,7 @@
           </button>
         </span>
       </li>
-      <li v-for="(item, index) in items" :key="index" v-if="!collapsed" class="list-group-item border-0 bg-primary">
+      <li :id="'menu-' + item.anchorpoint" v-for="(item, index) in items" :key="index" v-if="!collapsed" class="list-group-item border-0 bg-primary">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
@@ -38,6 +38,28 @@
       },
       contentBlocks: {
         type: Array
+      }
+    },
+    computed: {
+      currentBlock () {
+        return this.$store.state.currentBlock
+      }
+    },
+    watch: {
+      currentBlock (currentBlock, previousBlock) {
+
+        this.items.forEach(item => {
+          let firstElem = document.getElementById('menu-' + this.items[0].anchorpoint)
+          let currentElem = document.getElementById('menu-' + currentBlock)
+          let previousElem = document.getElementById('menu-' + previousBlock)
+
+          if (currentElem != "" && currentElem && previousElem && currentBlock == item.anchorpoint) {
+              currentElem.classList.add("current-block")
+              previousElem.classList.remove("current-block")
+          } else if (currentElem == "" || !currentElem || currentElem && !previousElem || previousElem == "") {
+              firstElem.classList.add("current-block")
+          }
+        })
       }
     },
     data: function() {
@@ -86,5 +108,22 @@
     position: sticky;
     top: 140px;
   }
+
+  .current-block {
+    color: white !important;
+    font-weight: 600 !important;
+  }
+
+  /*.current-block::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-51%);
+    left: 0;
+    width: 10px;
+    height: 3px;
+    background-color: black;
+  }*/
 
 </style>

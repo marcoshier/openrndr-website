@@ -103,7 +103,7 @@
           slug: '/',
           description: null
         }
-      }
+      },
     },
     mounted() {
       // this.setupLoadingBar()

@@ -1,10 +1,9 @@
 <template>
-  <div class="w-100 px-0 py-5 border-dark bg-primary" v-bind:class="{ 'border-top': borderTop }" :id="anchorpoint ? anchorpoint : ''">
+  <div class="content-block-cnt w-100 px-0 py-5 border-dark bg-primary" v-bind:class="{ 'border-top': borderTop }" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
-      <img class="icon" src="@/assets/images/icons/GettingStarted.svg" />
 
-      <div class="px-4 pt-4 px-lg-5 pt-lg-5 pb-5" v-if="title || subtext">
+      <div class="px-4 pt-4 px-lg-5 pt-lg-5 pb-0" v-if="title || subtext">
         <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }]">{{title}}</h1>
         <p v-if="subtext" class="lead">
           {{subtext}}

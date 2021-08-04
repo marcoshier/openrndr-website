@@ -1,169 +1,180 @@
 // Google fonts
 // Import is not loading properly, changed to stylesheet in head -> see page layouts
 //@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
-
 // Text elements
-h1, h2, h3, h4, h5, h6 {
-  font-family: $textHead;
-  color: $dark;
-  font-weight: 500;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $textHead;
+    color: $dark;
+    font-weight: 500;
 }
 
 h1 {
-  font-size: 3.75rem;
-  margin-bottom: 30px;
+    font-size: 3.75rem;
+    margin-bottom: 30px;
 }
 
 h2 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 h3 {
-  font-size: 1.65rem;
+    font-size: 1.65rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 h1.display-1 {
-  font-size: 3.5rem;
-  font-weight: 900;
+    font-size: 3.5rem;
+    font-weight: 900;
 }
 
 p {
-  font-family: $textBody;
-  color: $dark;
-  font-size: 1.5rem;
-  line-height: 150%;
+    font-family: $textBody;
+    color: $dark;
+    font-size: 1.5rem;
+    line-height: 150%;
 }
 
 p.lead-header {
-  color: $dark;
+    color: $dark;
 }
 
 p.lead {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: 400;
-  color: $dark;
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: $dark;
 }
 
 a {
-  color: $darkGray;
-  text-decoration: underline;
-  text-decoration-color: $darkGray;
+    color: $darkGray;
+    text-decoration: underline;
+    text-decoration-color: $darkGray;
 }
 
-a.dropdown-item, a.nav-link, .list-group-item > a, a.question, a.eco-link {
-  text-decoration: none;
+a.dropdown-item,
+a.nav-link,
+.list-group-item>a,
+a.question,
+a.eco-link {
+    text-decoration: none;
 }
 
 a:hover {
-  color: $light;
+    color: $light;
 }
 
 a:focus {
-  outline: solid;
-  outline-width: 2px;
-  outline-color: $primary;
-  outline-offset: 3px;
+    outline: solid;
+    outline-width: 2px;
+    outline-color: $primary;
+    outline-offset: 3px;
 }
 
 a.dropdown-item:focus {
-  outline: dotted;
-  outline-width: 1px;
-  outline-color: $primary;
-  outline-offset: 0;
+    outline: dotted;
+    outline-width: 1px;
+    outline-color: $primary;
+    outline-offset: 0;
 }
 
 .btn {
-  font-family: $textButton;
-  font-size: 1.25rem;
-  color: $dark;
-  font-weight: 500;
-  text-decoration: none;
+    font-family: $textButton;
+    font-size: 1.25rem;
+    color: $dark;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 .btn-lg {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 // Add margin for p.lead whenever there is an element after it
-div > p.lead + * {
-  margin-top: 1rem;
+div>p.lead+* {
+    margin-top: 1rem;
 }
 
 // Remove all margin from all elements inside the wizywig div
-.wizywig > * {
-  margin: 0;
+.wizywig>* {
+    margin: 0;
 }
 
-.wizywig > * + * {
-  margin-top: 1rem;
+.wizywig>*+* {
+    margin-top: 1rem;
 }
 
 // Cards
-.card-img-middle .card-title, .calendar-card .card-title {
-  font-size: 1.5rem;
+.card-img-middle .card-title,
+.calendar-card .card-title {
+    font-size: 1.5rem;
 }
 
 .card-img-middle .card-subtitle {
-  font-size: 1.125rem;
+    font-size: 1.125rem;
 }
 
-.card-img-middle .card-text, .card-overflow .card-text p, .news-card .card-text, .calendar-card .card-text p {
-  font-size: 1.25rem;
-  line-height: 1.5;
+.card-img-middle .card-text,
+.card-overflow .card-text p,
+.news-card .card-text,
+.calendar-card .card-text p {
+    font-size: 1.25rem;
+    line-height: 1.5;
 }
 
 .card .card-category {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
-
 
 // Navigation
 .navbar-light .navbar-nav .nav-link {
-  font-family: $textNav;
-  font-size: 1.25rem;
-  color: $dark;
-  padding: 0;
-  margin-right: 1.25rem;
+    font-family: $textNav;
+    font-size: 1.25rem;
+    color: $dark;
+    padding: 0;
+    margin-right: 1.25rem;
 }
 
 .dropdown-item {
-  font-family: $textNav;
-  font-size: 1.1rem;
-  color: $dark;
+    font-family: $textNav;
+    font-size: 1.1rem;
+    color: $dark;
 }
 
-.navbar-nav > div > li.nav-item > a.nav-link {
-  border-top: 2px solid $primary;
-  border-bottom: 2px solid $primary;
+.navbar-nav>div>li.nav-item>a.nav-link {
+    border-top: 2px solid $primary;
+    border-bottom: 2px solid $primary;
 }
 
-.navbar-nav > div > li.nav-item > a.nav-link.nuxt-link-active {
-  border-bottom: 2px solid white;
-  // font-weight: 500;
+.navbar-nav>div>li.nav-item>a.nav-link.nuxt-link-active {
+    border-bottom: 2px solid white;
+    // font-weight: 500;
 }
 
 .dropdown-menu .dropdown-item.nuxt-link-exact-active {
-  background-color: rgba($primary, .75);
+    background-color: rgba($primary, .75);
 }
 
 // Sidebar
 #sidebar .sidebar-title {
-  font-family: $textHead;
-  font-size: 1rem;
-  color: $gray;
+    font-family: $textHead;
+    font-size: 1rem;
+    color: $dark;
 }
 
-#sidebar > .list-group > .list-group-item > a {
-  font-family: $textNav;
-  font-size: 1.25rem;
-  color: $dark;
+#sidebar>.list-group>.list-group-item>a {
+    font-family: $textNav;
+    font-size: 1.25rem;
+    color: $dark;
 }
 
-#sidebar > .list-group > .list-group-item > a:hover {
-  text-decoration: none;
+#sidebar>.list-group>.list-group-item>a:hover {
+    text-decoration: none;
 }

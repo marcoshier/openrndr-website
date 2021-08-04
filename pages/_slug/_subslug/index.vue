@@ -20,12 +20,12 @@
 
             <template v-if="hasSidebar">
               <!-- BEGIN Sidebar -->
-              <div class="sidebar col-12 col-lg-2 col-xxl-2 p-4 p-lg-2">
+              <div class="sidebar col-12 col-lg-2 col-xxl-2 p-4 p-lg-0">
                 <sidebar :title="pageChild.title" :contentBlocks="pageChild.dynamicContentBlocks" />
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-dark">
+              <div class="col-12 col-lg-10 col-xxl-10 px-0 border-left border-dark">
                 <template v-for="(block, index) in pageChild.dynamicContentBlocks">
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />

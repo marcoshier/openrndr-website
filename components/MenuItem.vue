@@ -1,6 +1,6 @@
 <template lang="html">
   <div v-if="isActive" class="menu-item">
-    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
+    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes + 'shadow-none border-0 rounded-0'" :data-animation-base="animationBase" v-bind="dataOffset">
       <template v-for="(item, index) in items">
         <b-dropdown-item v-if="item.isActive && item.linkType == 'intern'" :to="'/' + item.internLink.action">
           {{item.title}}
@@ -29,11 +29,11 @@
     </b-nav-item>
 
     <b-nav-item v-else-if="type == 'mail'" :href="'mailto:' + value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
-      <font-awesome-icon :icon="['fas', 'envelope']" class="mr-1" /> {{title}}
+     {{title}}
     </b-nav-item>
 
     <b-nav-item v-else-if="type == 'phone'" :href="'tel:' + value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
-      <font-awesome-icon :icon="['fas', 'phone-alt']" class="mr-1" /> {{title}}
+      {{title}}
     </b-nav-item>
   </div>
 </template>

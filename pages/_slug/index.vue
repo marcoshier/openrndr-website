@@ -21,12 +21,12 @@
 
             <template v-if="hasSidebar">
               <!-- BEGIN Sidebar -->
-              <div class="sidebar col-12 col-lg-2 col-xxl-2 p-4 p-lg-2">
+              <div class="sidebar col-12 col-lg-2 col-xxl-2 p-4 p-lg-0">
                 <sidebar :title="page.title" :contentBlocks="page.dynamicContentBlocks" />
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-8 col-xxl-9 px-0 border-left border-dark">
+              <div class="col-12 col-lg-10 col-xxl-10 px-0 border-left border-dark">
                 <template v-for="(block, index) in page.dynamicContentBlocks">
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -143,6 +143,23 @@
             self.hasSidebar = false
           }
         })
+      },
+      handleScroll() {
+        let contentBlockCnts = this.$el.querySelectorAll(".content-block-cnt")
+
+        contentBlockCnts.forEach(contentBlock => {
+          let rect = contentBlock.getBoundingClientRect()
+          let headerHeight = 75
+          let debounce = 100
+
+          let topDistance = (window.innerHeight - headerHeight) - rect.y - debounce
+
+          if(topDistance > 0 && topDistance < window.innerHeight) {
+            // pass to sidebar
+            this.$store.dispatch("blockChange", contentBlock.id)
+          }
+
+        })
       }
     },
     mounted() {
@@ -150,6 +167,12 @@
       if(this.page) {
         this.initialSetup()
       }
+    },
+    beforeMount () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 </script>
