@@ -6,7 +6,7 @@
           <!-- template for single date calendar items -->
           <template v-if="dateStart == dateEnd">
             <div class="d-flex">
-              <h1 class="calendar-icon-lg text-center text-primary mr-3"><font-awesome-icon icon="calendar-day" /></h1>
+              <h1 class="calendar-icon-lg text-center text-primary mr-3"></h1>
               <div>
                 <h2 class="date-day text-center text-primary fw-black mb-0">{{dateToDay(dateStart)}}</h2>
                 <h3 class="date-month text-center text-primary text-uppercase mb-0 fw-black">{{dateToMonth(dateStart)}}</h3>
@@ -17,7 +17,7 @@
           <!-- template for multiple dates calendar items -->
           <template v-else>
             <div class="d-flex">
-              <h1 class="calendar-icon-lg text-primary text-center mr-3"><font-awesome-icon icon="calendar-day" /></h1>
+              <h1 class="calendar-icon-lg text-primary text-center mr-3"></h1>
 
               <div class="d-flex">
                 <div class="d-inline-block">
@@ -40,7 +40,6 @@
       <div class="col-12 col-md-8 col-lg-12 col-xl-8 card-body">
         <p class="date-top mb-2">
           <span>
-            <font-awesome-icon icon="calendar-alt" />
             {{dateToReadable(dateStart)}}
           </span>
           <span v-if="dateStart != dateEnd">- {{dateToReadable(dateEnd)}}</span>
@@ -48,7 +47,7 @@
         <h4 class="card-title">{{title}}</h4>
         <div class="card-text" v-if="description" v-html="description"></div>
         <div v-if="address" class="mt-2 mb-3">
-          <h5 class="mr-2"><font-awesome-icon icon="map-marker-alt" /> Location</h5>
+          <h5 class="mr-2"> Location</h5>
           <div class="card-text m-p-0" v-html="address"></div>
         </div>
         <button v-if="link" class="btn btn-primary" @click="goToCardUrl()">View event</button>

@@ -1,6 +1,6 @@
 <template lang="html">
   <div v-if="isActive" class="menu-item">
-    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes + 'shadow-none border-0 rounded-0'" :data-animation-base="animationBase" v-bind="dataOffset">
+    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
       <template v-for="(item, index) in items">
         <b-dropdown-item v-if="item.isActive && item.linkType == 'intern'" :to="'/' + item.internLink.action">
           {{item.title}}

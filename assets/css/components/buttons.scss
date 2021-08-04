@@ -3,12 +3,23 @@
     border: 1px solid black;
     background-color: transparent !important;
     transform: scale(1);
-    transition: all 0.2 ease;
+    transition: all 0.2s ease;
+}
+
+.btn-like {
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.2s ease;
+}
+
+.btn-like:hover {
+    transform: scale(0.99);
+    transition: all 0.2s ease;
 }
 
 .btn:hover {
     transform: scale(0.99);
-    transition: all 0.2 ease;
+    transition: all 0.2s ease;
     border: 1px solid black;
 }
 

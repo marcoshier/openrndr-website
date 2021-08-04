@@ -134,6 +134,12 @@ div>p.lead+* {
 }
 
 // Navigation
+#logo {
+    font-family: $textHead;
+    color: $dark;
+    font-weight: 700;
+}
+
 .navbar-light .navbar-nav .nav-link {
     font-family: $textNav;
     font-size: 1.25rem;

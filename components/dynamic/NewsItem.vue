@@ -3,27 +3,28 @@
     <b-card
     no-body
     tag="article"
-    class="h-100 news-card rounded"
+    class="h-100 news-card rounded clickable btn-like"
+    @click="goToCardUrl()"
+    img-top
     >
       <b-card-img
         v-if="image"
         :src="image.url"
-        :alt="image.alt"
-        @click="goToCardUrl()"
-        img-top
-        class="clickable">
+        :alt="image.alt">
       </b-card-img>
       <b-card-header class="bg-white border-0 px-35 py-35">
         <p class="card-category mb-1">{{category}}</p>
-        <h4 class="mb-0">{{title}}</h4>
+        <div class="title-icon-cnt" >
+          <img class="news-item-logo pb-2" src="@/assets/images/medium-logo.png">
+          <h4 class="mb-0">{{title}}</h4>
+        </div>
       </b-card-header>
 
       <b-card-body class="d-flex flex-column pt-0">
-        <b-card-text v-if="description">
+        <b-card-text v-if="description" class="pt-3">
           {{description}}
         </b-card-text>
 
-        <b-button :href="url" variant="primary" target="_blank" class="btn-block mt-auto">Read article</b-button>
       </b-card-body>
       <!-- <b-card-text v-if="credits && credits != ''" v-html="credits">
       </b-card-text> -->
@@ -67,3 +68,8 @@
     }
   }
 </script>
+<style>
+  .news-item-logo {
+    width: 26px;
+  }
+</style>

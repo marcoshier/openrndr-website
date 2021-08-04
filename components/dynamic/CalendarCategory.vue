@@ -2,9 +2,6 @@
   <div class="row m-0 px-4 px-lg-5 pt-4 pt-lg-5">
     <div class="col-12 px-0 mb-4 mb-lg-5" v-if="!hasCurrentItems">
       <div class="card p-3 p-lg-5 d-block d-lg-flex flex-row align-items-center">
-        <h1 class="display-1 text-center text-lg-left mb-3 mb-lg-0 mr-0 mr-lg-5">
-          <font-awesome-icon icon="calendar-times" />
-        </h1>
         <div>
           <h2 class="">No upcoming {{type}}</h2>
           <p class="mb-0">We're sorry there are currently no upcoming {{type}} planned.</p>
