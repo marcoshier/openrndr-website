@@ -74,7 +74,7 @@
               skipAddStyles: true,
               deleteSpeed: 30,
               wrapperClassName: "logo_typewriter",
-              delay: 50,
+              delay: 60,
             });
 
             let clearReplace = (el , newString) => {
@@ -138,6 +138,7 @@
               .callFunction((e) => {
                 clearReplace(e, 'RNDR')
               })
+              .pauseFor(400)
               .callFunction((e) => {
                 clearReplace(e, 'NRNDR')
               })
@@ -198,8 +199,15 @@
     #openrndr-logo:active, .logo_typewriter:active, #logo:active {
       text-decoration: none !important;
       border: none !important;
+      -moz-border: none !important;
+      -webkit-border: none !important;
       outline: none !important;
+      -moz-outline: none !important;
+      -webkit-outline: none !important;
       box-shadow: none;
+      -moz-outline-box-shadow: none;
+      -webkit-outline-box-shadow: none;
+
     }
 
 
