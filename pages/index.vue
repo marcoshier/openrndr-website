@@ -79,12 +79,12 @@
             this.landing = false
           }
         }
-      }
+      },
     },
     computed: {
      ...mapState({
        landing: (state) => state.landingPage.content
-     }),
+     })
     },
     methods: {
       // Setup the loadingBar

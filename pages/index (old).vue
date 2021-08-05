@@ -32,7 +32,6 @@
               <nuxt-link :to="button.link" :key="index" class="btn btn-lg btn-primary getting-started-link">
                 {{ button.title }}
               </nuxt-link>
-              <img v-if="index < landing.gettingStartedButtons.length -1" src="@/assets/images/arrow.svg" alt="Next step indicator" class="arrow-next">
             </template>
           </div>
         </div>

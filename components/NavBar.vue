@@ -11,6 +11,7 @@
             <template v-for="(page, index) in allMainNavigations">
 
               <menu-item
+                class="menu-btn"
                 :title="page.menuItem.title"
                 :type="page.menuItem.navType"
                 :intern="page.menuItem.internLink"
@@ -57,12 +58,28 @@
       
     },
     watch: {
-      borderStatus(videoY) {
-        if(videoY && videoY <= -100) {
-          this.borderactive = true
-        } else {
-          this.borderactive = false
-        }
+      'borderStatus': {
+        handler: function(yScroll){
+          if(this.currentRouteName == "index") {
+            if(yScroll && yScroll <= -100) {
+              this.borderactive = true
+            } else  {
+              this.borderactive = false
+            }
+          }
+      },
+      deep: true,
+      immediate: true
+      },
+      '$route.name': {
+        handler: function(routeChange) {
+          this.currentRouteName = routeChange
+          if(routeChange == "slug") {
+            this.borderactive = true
+          }
+        },
+        deep: true,
+        immediate: true
       }
     },
     methods: {
@@ -157,7 +174,9 @@
     },
     data: function() {
       return {
-        borderactive: false
+        yScroll: 0,
+        borderactive: false,
+        currentRouteName: ""
       }
     },
     mounted() {
@@ -169,6 +188,8 @@
 
 
 <style scoped>
+
+
   .navbar {
     position: fixed;
     z-index: 999;
@@ -189,12 +210,15 @@
 
   #logo {
     display: flex;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
     align-items: center;
     height: 75px;
     text-decoration: none !important;
     border: none !important;
     font-weight: 600;
   }
+
 
     #openrndr-logo:active, .logo_typewriter:active, #logo:active {
       text-decoration: none !important;

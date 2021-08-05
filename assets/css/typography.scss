@@ -140,14 +140,45 @@ div>p.lead+* {
     color: $dark;
 }
 
+
+/*
 .navbar-nav>div>li.nav-item>a.nav-link {
     border-top: 2px solid $primary;
     border-bottom: 2px solid $primary;
 }
+*/
 
-.navbar-nav>div>li.nav-item>a.nav-link.nuxt-link-active {
+
+/*.navbar-nav>div>li.nav-item>a.nav-link.nuxt-link-active {
     border-bottom: 2px solid white;
     // font-weight: 500;
+}*/
+
+.menu-btn>li.nav-item>a.nav-link {
+    display: block;
+    position: relative;
+}
+
+.menu-btn>li.nav-item>a.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    transform: scaleX(0.0);
+    transform-origin: left;
+    background: $dark;
+    transition: all 0.3s ease;
+}
+
+.menu-btn>li.nav-item>a.nav-link:hover::before {
+    transform: scale(1.0);
+    transition: all 0.3s ease;
+}
+
+.menu-btn>li.nav-item>a.nav-link.nuxt-link-active::before {
+    transform: scale(1.0);
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu .dropdown-item.nuxt-link-exact-active {

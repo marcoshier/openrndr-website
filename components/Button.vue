@@ -1,8 +1,18 @@
 <template lang="html">
   <div v-if="action" :class="'d-inline-block ' + parentClasses">
-
-    <nuxt-link v-if="type == 'intern'" :to="action" :class="'btn btn-primary border-dark' + sizeClass + ' ' + buttonClasses">
+    <nuxt-link v-if="type == 'intern' && !gettingStarted" :to="action" :class="'btn btn-primary border-dark' + sizeClass + ' ' + buttonClasses">
       {{title}}
+    </nuxt-link>
+
+    <nuxt-link v-else-if="type == 'intern' && gettingStarted == true" :to="action">
+      <svg class="getting-started-link-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 271 72.9" style="enable-background:new 0 0 271 72.9;" xml:space="preserve">
+
+          <path class="arrowbox" d="M246.6,72.2H3.9c-1.6,0-3-1.3-3-3V3.7c0-1.7,1.4-3,3-3h242.7c1.7,0,3.3,1.3,4.1,3l19.4,32.4l-19.4,33.1
+          C249.7,71,248.2,72.2,246.6,72.2z"/>
+          <text class="svg-text" x="45%" y="50%" dominant-baseline="middle" text-anchor="middle">{{ title }}</text>
+
+        </svg>
     </nuxt-link>
 
     <a v-else-if="type == 'extern'" :href="action" :class="'btn btn-primary border-dark' + sizeClass + ' ' + buttonClasses" target="_blank">
@@ -41,6 +51,9 @@ export default {
     },
     parentClasses: {
       type: String
+    },
+    gettingStarted: {
+      type: Boolean
     }
   },
   data: function() {
@@ -98,6 +111,7 @@ export default {
     }
   },
   mounted() {
+    
     // Check if button size prop has been passed
     if(this.size != undefined && this.size != null) {
       // If true, set button size
@@ -122,3 +136,28 @@ export default {
 }
 </script>
 
+<style>
+ .arrowbox{
+      fill:transparent;
+      stroke:#000000;
+      transition: all 0.2s ease;
+      cursor: pointer; 
+    }
+
+    .getting-started-link-svg {
+      box-sizing: content-box;
+      height: 95px;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+
+    .getting-started-link-svg:hover {
+      transform: scale(.99);
+      transition: all 0.2s ease;
+    }
+
+    .getting-started-link-svg:hover > .arrowbox{  
+      fill:white !important;
+      transition: all 0.2s ease;
+    }
+</style>

@@ -1,13 +1,15 @@
 <template lang="html">
   <div id="getting-started-area" class="d-flex justify-content-between p-3 p-lg-4">
     <template v-for="(button, index) in items">
-      <vue-button
+      
+    <vue-button
         :title="button.title"
         :url="button.url"
         :type="button.linkType"
         :page="button.page"
         :anchorpoint="button.anchorpoint"
-        :buttonClasses="'getting-started-link nr-' + index"
+        :buttonClasses="'border-0 getting-started-link nr-' + index"
+        :gettingStarted="true"
       />
     </template>
   </div>
@@ -36,29 +38,37 @@ export default {
 
 <style>
 
-  .getting-started-link {
+    #getting-started-area {
+      width: 100%;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+   
+
+
+
+  /*.getting-started-link {
+    position: relative;
+    transition: all 0.2s ease;
+    padding-bottom: 30px;
     padding-left: 0;
     padding-right: 10px;
     font-size: 22px;
     min-width: 330px;
     padding-top: 30px;
-    height: 94px;
-    padding-bottom: 30px;
+    height: 95px;
+    border: 1px solid black;
     transform: scale(1);
-    transition: all 0.2s ease;
-    position: relative;
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-right: 1px solid transparent !important;
-   }
+   }*/
 
-   .getting-started-link::after {
+   /*.getting-started-link::after {
      content: '';
      position: absolute;
      border-top: 47px solid transparent;
      border-bottom: 47px solid transparent;
      left: 100%;
-     top: 0;
+     top: -1px;
      border-left: 30px solid #ffc0cb;
      transition: all 0.2s ease;
    }
@@ -92,7 +102,7 @@ export default {
     border-left: 31px solid black;
     transition: all 0.2s ease;
      border-left: 30px solid #fff;
-  }
+  }*/
 
   @media only screen and (max-width: 1199px) {
 
