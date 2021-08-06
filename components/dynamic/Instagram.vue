@@ -1,7 +1,7 @@
 <template>
   <div class="px-4 pt-4 px-lg-5 pt-lg-5">
     <div class="row row-eq-height">
-      <template v-for="(item, index) in items" v-if="index < 4">
+      <template v-for="(item, index) in items" v-if="index < maxItems">
         <instagram-item
         :title="item.title" :url="item.link" :thumbnail="item.thumbnail"
         />
@@ -10,11 +10,11 @@
 
     <div v-if="items.length > 4">
       <!-- <modal :items="items" :title="this.name" /> -->
-      <b-button v-b-modal="'instagram-modal-' + this.id" class="btn btn-light btn-lg mb-4 mb-lg-5" variant="primary">
-        See all items
+      <b-button v-on:click="expand" class="btn btn-light btn-lg mb-4 mb-lg-5" variant="primary">
+        {{ buttonText }}
       </b-button>
 
-      <!-- The modal -->
+      <!-- The modal 
       <b-modal :id="'instagram-modal-' + this.id" size="xl" scrollable
       :header-bg-variant="'primary'"
       :header-text-variant="'dark'"
@@ -34,7 +34,7 @@
             />
           </template>
         </div>
-      </b-modal>
+      </b-modal>-->
     </div>
 
 
@@ -64,12 +64,25 @@
     },
     data: function() {
       return {
-        id: null
+        id: null,
+        expanded: false,
+        maxItems: 4,
+        buttonText: "See all"
       }
     },
     methods: {
-      close() {
+     /* close() {
         this.$root.$emit('bv::hide::modal', 'instagram-modal-' + this.id)
+      }*/
+      expand() {
+        this.expanded = !this.expanded 
+        if(this.expanded == true) {
+          this.buttonText = "Collapse"
+          this.maxItems = this.items.length
+        } else {
+          this.buttonText = "See all"
+          this.maxItems = 4
+        }
       }
     },
     mounted() {

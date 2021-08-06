@@ -3,7 +3,7 @@
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
 
-      <div class="px-4 pt-4 px-lg-5 pt-lg-5 pb-0" v-if="title || subtext">
+      <div ref="titlecnt" class="px-4 pt-4 px-lg-5 pt-lg-5 pb-0" v-if="title || subtext">
         <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }]">{{title}}</h1>
         <p v-if="subtext" class="lead">
           {{subtext}}
@@ -117,16 +117,22 @@
         buttonClass: null,
         index: null,
         borderTop: true,
-        noPadding: false
+        noPadding: false,
       }
     },
     mounted() {
+
+
       if(this.initIndex != undefined) {
         this.index = this.initIndex
 
         if(this.index == 0) {
           this.borderTop = false
           this.noPadding = true
+        }
+        if (this.initTitle == "Slack" || this.initTitle == "Github") {
+          this.borderTop = false;
+          this.noPadding = false;
         }
       }
 

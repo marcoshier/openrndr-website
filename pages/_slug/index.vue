@@ -4,7 +4,7 @@
 
     <div v-if="page && !loading" class="bg-primary">
       <!-- BEGIN PageHeader -->
-      <page-header v-if="page.title" :title="page.title" :description="page.description" />
+      <page-header v-if="page.title && page.title !='Articles'" :title="page.title" :description="page.description" />
       <!-- END PageHeader -->
 
       <!-- <div class="w-100 border-top border-bottom border-primary bg-primary">
@@ -31,6 +31,24 @@
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
                 </template>
+              </div>
+            </template>
+
+            <template v-else-if="isCommunity">
+              <div class="col-12 col-lg-12 col-xxl-12 px-0 border-left border-dark">
+                <div class="d-flex flex-row">
+                  <template v-for="(block, index) in page.dynamicContentBlocks" v-if="index < 3">
+                    <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" class="border-right"/>
+                  </template>
+                </div>
+                
+                <div>
+                <template v-for="(block, index) in page.dynamicContentBlocks" v-if="index == 3">
+                    <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
+                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
+                  </template>
+                </div>
               </div>
             </template>
 
@@ -91,11 +109,12 @@
       return {
           page: false,
           hasSidebar: false,
+          isCommunity: false,
           pageInfo: null,
           loading: true,
           loadingBar: null,
           loadingBarDone: false,
-          slug: this.$route.params.slug
+          slug: this.$route.params.slug,
       }
     },
     computed: {
@@ -123,12 +142,23 @@
       // },
       // Loads al initial data in the page component
       initialSetup() {
-        this.setSidebar()
+        this.checkCommunity()
+        if(this.isCommunity == false) {
+          this.setSidebar()
+        }
         this.pageInfo = {
           title: this.page.title,
           slug: this.page.slug,
           description: this.page.description
         }
+      },
+
+      checkCommunity() {
+        let self = this
+        if(self.page.title == "Community") {
+          self.isCommunity = true
+        }
+        
       },
 
       // Check if at least one content block has sidebar enabled

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes + ' mb-4 mb-lg-5'">
+  <div :class="classes + ' mb-4 mb-lg-5 gallery-item-full'">
     <v-gallery :id="'blue-imp-gallery-' + id" :images="gallery" :index="index" @close="close()"></v-gallery>
     <b-card
       no-body
@@ -93,7 +93,6 @@
       }
     },
     mounted() {
-
       this.id = this._uid
 
       let self = this

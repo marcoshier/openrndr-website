@@ -4,6 +4,12 @@
     background-color: transparent !important;
     transform: scale(1);
     transition: all 0.2s ease;
+    outline: none;
+    -webkit-outline: none;
+    -moz-outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadows: none;
 }
 
 .btn-like {
