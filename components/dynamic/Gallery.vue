@@ -40,14 +40,24 @@
     },
     methods: {
       expand() {
-        this.expanded = !this.expanded 
-        if(this.expanded == true) {
-          this.buttonText = "Collapse"
-          this.maxItems = this.items.length
-        } else {
-          this.buttonText = "See all"
-          this.maxItems = 4
-        }
+          let difference = this.items.length - this.maxItems
+          if(this.expanded == false) {
+            if(this.items.length > this.maxItems && difference >= 5) {
+              this.maxItems += 5
+              this.buttonText = "Show 5 more"
+            } else if (this.items.length > this.maxItems && difference < 5) {
+              this.maxItems += difference
+              this.buttonText = "Show " + difference + " more"
+            } else if(this.items.length <= this.maxItems && difference < 5) {
+              this.maxItems = this.items.length
+              this.expanded = true
+              this.buttonText = "Collapse"
+            }
+          } else {
+            this.maxItems = 4
+            this.buttonText = "Show 5 more"
+          }
+          
       }
     }
 

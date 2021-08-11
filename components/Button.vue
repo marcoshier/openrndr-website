@@ -151,13 +151,13 @@ export default {
       transition: all 0.2s ease;
     }
 
-    .getting-started-link-svg:hover {
-      transform: scale(.99);
+    .getting-started-link-svg:hover > text {
+      fill: white;
       transition: all 0.2s ease;
     }
 
     .getting-started-link-svg:hover > .arrowbox{  
-      fill:white !important;
+      stroke:white !important;
       transition: all 0.2s ease;
     }
 </style>

@@ -71,6 +71,15 @@ export default {
   bottom: 20px;
 }
 
+.links-modal span, .links-modal a  {
+  text-decoration: none;
+}
+
+.links-modal a {
+  display: inline-block;
+  text-decoration: underline;
+}
+
 .card {
   display: inline-block;
 }
@@ -110,7 +119,6 @@ export default {
 }
 
 .eco-img-wrapper {
-  width: 100px;
   overflow: hidden;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="padding:36.88% 0 0 0;position:relative;">
+    <div class="video-wrap">
       <iframe
         :src="videoUrl"
         style="position:absolute;top:0;left:0;width:100%;height:100%;"
@@ -52,6 +52,11 @@
 </script>
 
 <style>
+  .video-wrap {
+    position: unset;
+    height:73vh
+  }
+
   .video-wrapper {
     width: 100%;
     height: 650px;
@@ -69,5 +74,12 @@
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
+  }
+
+  @media screen and (max-width: 922px) {
+    .video-wrap {
+      height: 44vh;
+      position: relative;
+    }
   }
 </style>

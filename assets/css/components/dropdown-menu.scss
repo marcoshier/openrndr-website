@@ -1,8 +1,17 @@
-.dropdown-item {
-    padding: 1rem 1.5rem;
+.dropdown-menu {
+    background-color: $primary;
+    border: 1px solid $dark;
+    border-radius: 0;
 }
 
-.dropdown-menu {
-    border: none;
-    border-radius: 0;
+.dropdown-item {
+    padding: 1rem 1.5rem;
+    background-color: $primary;
+    font-family: $textNav;
+    font-size: 1.1rem;
+    color: $dark;
+}
+
+.dropdown-item:hover {
+    background-color: #e6a2ad !important;
 }

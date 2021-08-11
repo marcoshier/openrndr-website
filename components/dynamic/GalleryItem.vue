@@ -1,6 +1,6 @@
 <template>
   <div :class="classes + ' mb-4 mb-lg-5 gallery-item-full'">
-    <v-gallery :id="'blue-imp-gallery-' + id" :images="gallery" :index="index" @close="close()"></v-gallery>
+   <!-- <v-gallery :id="'blue-imp-gallery-' + id" :images="gallery" :index="index"></v-gallery>-->
     <b-card
       no-body
       img-top
@@ -11,7 +11,6 @@
         v-if="headerImage.url"
         :src="headerImage.url"
         :alt="headerImage.caption"
-        @click="open()"
         class="rounded-0 clickable">
       </b-card-img>
       <b-card-header class="bg-white py-35">
@@ -75,14 +74,14 @@
       }
     },
     methods: {
-      open() {
+      /*open() {
         this.index = 0
         this.toggleBodyClass('modal-is-open')
       },
       close() {
         this.index = null
         this.toggleBodyClass('modal-is-open')
-      },
+      },*/
       toggleBodyClass(className) {
         const body = document.body
         body.classList.toggle(className)

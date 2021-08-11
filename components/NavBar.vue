@@ -61,7 +61,7 @@
       'borderStatus': {
         handler: function(yScroll){
           if(this.currentRouteName == "index") {
-            if(yScroll && yScroll <= -100) {
+            if(yScroll && yScroll <= -1) {
               this.borderactive = true
             } else  {
               this.borderactive = false
@@ -99,7 +99,7 @@
                 return
             }
 
-            tw.pauseFor(550)
+            tw.pauseFor(10)
               .typeString("‎‎‎ ‎OPENRNDR")
               .pauseFor(1500)
               .callFunction((e) => {

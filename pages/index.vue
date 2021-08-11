@@ -4,7 +4,11 @@
 
     <div v-if="landing && !loading">
       <!-- BEGIN Video background -->
-      <header id="video-cnt" v-if="landing.banner && landing.banner.media" class="bg-primary">
+      <header id="video-cnt" v-if="landing.banner && landing.banner.media" class="bg-primary">  
+        <div class="video-text">
+          <h1>Playful for<br />prototypes. <br />Serious for<br />production.</h1>
+          <span>OPENRNDR is an open source framework for creative coding, written in Kotlin that simplifies writing real-time interactive software.</span>
+        </div>
         <video-background  v-if="landing.banner.media[0].__typename == 'VideoRecord'" :source="landing.banner.media[0].file.provider" :vidId="landing.banner.media[0].file.providerUid" />
         <div v-else>
         </div>
@@ -127,3 +131,29 @@
     }
   }
 </script>
+<style scoped> 
+    .video-text {
+      padding: 0 0 0 3rem;
+      position: absolute;
+      top: 160px;
+      max-width: 40vw;
+      z-index: 2;
+  }
+
+  h1, span {
+    color: white;
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.07;
+    font-size: 4.25rem;
+  }
+
+  span {
+    font-family: 'IBM Plex Mono';
+    display: block;
+    margin: 40px 0 0 0;
+    font-size: 1.025rem;
+  }
+</style>
