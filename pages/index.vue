@@ -132,10 +132,12 @@
   }
 </script>
 <style scoped> 
-    .video-text {
-      padding: 0 0 0 3rem;
+  .video-text {
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 0 3rem;
       position: absolute;
-      top: 160px;
+      top: 19vh;
       max-width: 40vw;
       z-index: 2;
   }
@@ -147,7 +149,7 @@
   h1 {
     font-family: 'Inter', sans-serif;
     line-height: 1.07;
-    font-size: 4.25rem;
+    font-size: 8.85vh;
   }
 
   span {
@@ -155,5 +157,50 @@
     display: block;
     margin: 40px 0 0 0;
     font-size: 1.025rem;
+  }
+
+
+  @media screen and (max-width: 1133px) {
+
+    .video-text { 
+       max-width: 90vw;
+       flex-direction: row;
+       justify-content: space-between;
+       margin: 7.5vh 0 0 5vw;
+    }
+
+    h1 {
+      font-size: 6.5vw;
+    }
+
+    span {
+      font-size: 2.1vh;
+      margin: 10px 0 0 100px;
+    }
+  }
+
+  @media screen and (max-width: 692px) {
+    .video-text { 
+       margin: 3vh 0 0 5vw;
+    }
+
+    span {
+      font-size: 2.8vw;
+      margin: 10px 0 0 50px;
+    }
+  }
+
+  @media screen and (max-height: 637px) {
+    .video-text { 
+       max-width: 70vw;
+       flex-direction: row;
+       justify-content: space-between;
+       margin: 7.5vh 0 0 12vw;
+    }
+
+    span {
+      font-size: 1.4vw;
+      margin: 10px 0 0 160px;
+    }
   }
 </style>

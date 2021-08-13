@@ -5,14 +5,14 @@
       <a v-if="url" class="eco-link h-100" :href="url">
         <div class="card-body d-flex h-100 p-3 align-items-center mb-4 mb-sm-0">
           <div class="col-12 eco-img-wrapper text-center px-3">
-            <img class="eco-img img-fluid d-inline" :src="image.url">
+            <img class="eco-img img-fluid d-inline" :src="image.url"  v-bind:title="title" :alt="title">
           </div>
         </div>
       </a>
       <div v-else>
         <div class="card-body h-100 p-3 align-items-center mb-4 mb-sm-0">
           <div class="col-12 eco-img-wrapper text-center px-3">
-            <img class="eco-img img-fluid d-inline" :src="image.url">
+            <img class="eco-img img-fluid d-inline" :src="image.url" v-bind:title="title" :alt="title">
           </div>
         </div>
       </div>
@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     showLinks() {
+      console.log(this.title)
       this.hovered = true
     },
     hideLinks() {

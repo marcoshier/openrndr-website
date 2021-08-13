@@ -76,7 +76,7 @@
      transform: translate(-50%, -50%);
   }
 
-  @media screen and (max-width: 922px) {
+  @media screen and (max-width: 692px) {
     .video-wrap {
       height: 44vh;
       position: relative;

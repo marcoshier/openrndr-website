@@ -60,8 +60,9 @@
     watch: {
       'borderStatus': {
         handler: function(yScroll){
+          console.log("LO SCROLLO", yScroll);
           if(this.currentRouteName == "index") {
-            if(yScroll && yScroll <= -1) {
+            if(yScroll && yScroll < 75) {
               this.borderactive = true
             } else  {
               this.borderactive = false

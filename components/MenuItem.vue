@@ -1,24 +1,26 @@
 <template lang="html">
   <div v-if="isActive" class="menu-item">
-    <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
-      <template v-for="(item, index) in items">
-        <b-dropdown-item v-if="item.isActive && item.linkType == 'intern'" :to="'/' + item.internLink.action">
-          {{item.title}}
-        </b-dropdown-item>
+    <div class="dd-wrapper">
+      <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
+        <template v-for="(item, index) in items" >
+          <b-dropdown-item v-if="item.isActive && item.linkType == 'intern'" :to="'/' + item.internLink.action">
+            {{item.title}}
+          </b-dropdown-item>
 
-        <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="item.value" target="_blank">
-          {{item.title}}
-        </b-dropdown-item>
+          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="item.value" target="_blank">
+            {{item.title}}
+          </b-dropdown-item>
 
-        <b-dropdown-item v-else-if="item.isActive && item.linkType == 'mail'" :href="'mailto:' + item.value" target="_blank">
-          {{item.title}}
-        </b-dropdown-item>
+          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'mail'" :href="'mailto:' + item.value" target="_blank">
+            {{item.title}}
+          </b-dropdown-item>
 
-        <b-dropdown-item v-else-if="item.isActive && item.linkType == 'phone'" :href="'tel:' + item.value" target="_blank">
-          {{item.title}}
-        </b-dropdown-item>
-      </template>
-    </b-nav-item-dropdown>
+          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'phone'" :href="'tel:' + item.value" target="_blank">
+            {{item.title}}
+          </b-dropdown-item>
+        </template>
+      </b-nav-item-dropdown>
+    </div>
 
     <b-nav-item v-if="type == 'intern'" :to="'/' + intern.action" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
       {{ title }}
@@ -84,6 +86,12 @@ export default {
     }
   },
   methods: {
+    showDropdown() {
+        this.$refs.dropdown.visible = true;
+    },
+    hideDropdown() {
+        this.$refs.dropdown.visible = false;
+    },
     isInternActive(intern) {
       // First check if intern is not undefined
       if (intern != undefined) {
@@ -187,25 +195,6 @@ export default {
       this.isActive = this.isValueActive(this.value)
     }
 
-    // document.onreadystatechange = () => {
-    //   if (document.readyState == "complete") {
-    //     // Check if transition is set
-    //     if(this.animationBase) {
-    //       // Set dynamic class name based on index
-    //       let transitionClass = 'menu-transition-' + this.index
-    //
-    //       // Check if classes from prop have been passed
-    //       if(this.classes != undefined) {
-    //         this.classes = this.classes + ' ' + transitionClass
-    //
-    //       } else {
-    //         this.classes = transitionClass
-    //       }
-    //
-    //       this.addTransition(transitionClass)
-    //     }
-    //   }
-    // }
   }
 }
 </script>

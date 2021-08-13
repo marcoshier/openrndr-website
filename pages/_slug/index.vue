@@ -27,6 +27,8 @@
               <!-- END Sidebar -->
 
               <div class="col-12 col-lg-10 col-xxl-10 px-0 border-left border-dark">
+                
+                <!--<div id="marker" style="position: absolute; width: 10vw; right: 0; background-color: red; z-index: 99"></div>-->
                 <template v-for="(block, index) in page.dynamicContentBlocks">
                   <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                   :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -37,16 +39,13 @@
             <template v-else-if="isCommunity">
               <div class="col-12 col-lg-12 col-xxl-12 px-0 border-left border-dark">
                 <div class="d-flex flex-row">
-                  
-                  <!-- DSG -->
                   <template v-for="(block, index) in page.dynamicContentBlocks" v-if="index < 3">
                     <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" class="border-right horiz-blocks"/>
+                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" class="border-right"/>
                   </template>
                 </div>
                 
                 <div>
-                  <!-- Ways to contribute -->
                 <template v-for="(block, index) in page.dynamicContentBlocks" v-if="index == 3">
                     <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
                     :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" />
@@ -184,9 +183,15 @@
         contentBlockCnts.forEach(contentBlock => {
           let rect = contentBlock.getBoundingClientRect()
           let headerHeight = 75
-          let debounce = 100
+          let debounce = 10
+
 
           let topDistance = (window.innerHeight - headerHeight) - rect.y - debounce
+
+          // let marker = document.getElementById("marker")
+          // marker.style.backgroundColor = "blue"
+          // marker.style.height = topDistance + "px"
+
 
           if(topDistance > 0 && topDistance < window.innerHeight) {
             // pass to sidebar

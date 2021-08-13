@@ -181,7 +181,7 @@
 
       if (this.initType != undefined) {
         this.blockType = this.initType
-        console.log(this.blockType)
+        
         if (this.blockType == "GettingStarted") this.isDark = true;
         if (this.blockType == "keyFeatures") this.isLight = true
       }

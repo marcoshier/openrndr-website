@@ -12,8 +12,8 @@
 
       <b-card-img v-if="image" :src="image.url" :alt="image.alt" class="rounded-0 border-bottom clickable" @click="goToCardUrl"></b-card-img>
 
-      <b-card-body>
-        <p class="card-text mb-0" v-if="description">{{parsedDescription}}</p>
+      <b-card-body class="bg-white clickable" @click="goToCardUrl">
+        <p class="card-text mb-0" v-if="description">{{parsedDescription}} <span v-if="breakWord" class="font-weight-bold"> >> </span></p>
       </b-card-body>
 
     </b-card>
@@ -41,14 +41,19 @@
     },
     data: function() {
       return {
-        parsedDescription: null
+        parsedDescription: null,
+        breakWord: false
       }
     },
     mounted() {
       if(this.description) {
-        this.parsedDescription = this.description.substring(0, 150)
+        let parsedDescription = this.description.substring(0, 150)
+        this.parsedDescription = parsedDescription
         if(this.description.length > 150) {
-          this.parsedDescription += '...'
+          let descWords = parsedDescription.split(" ")
+          let cutDesc = parsedDescription.replace(descWords[descWords.length - 1], " ")
+          this.breakWord = true
+          this.parsedDescription = cutDesc
         }
       }
     },

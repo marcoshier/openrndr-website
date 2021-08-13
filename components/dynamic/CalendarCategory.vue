@@ -24,7 +24,7 @@
 
     <template v-if="hasPastItems">
       <div class="mb-4 mb-lg-5 mt-2">
-        <button class="btn btn-light btn-lg" @click="togglePastItems()">{{buttonText}} {{type}}</button>
+        <button class="btn btn-lg" @click="togglePastItems()">{{buttonText}} {{type}}</button>
       </div>
     </template>
 
