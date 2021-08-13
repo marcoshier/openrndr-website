@@ -17,7 +17,7 @@
         <h4 class="mb-0">{{title}}</h4>
       </b-card-header>
 
-      <b-card-body class="py-3 pl-3 pr-0">
+      <b-card-body class="py-3 pl-3 pr-3">
         <div class="card-text" v-if="blurb && blurb != ''" v-html="blurb">
         </div>
       </b-card-body>
@@ -156,6 +156,36 @@
 </script>
 
 <style>
+
+    .bg-white {
+      background-color: pink !important;
+    }
+
+    .card {
+      border-radius: 0px !important;
+    }
+
+    .card img {
+      border-radius: 0px !important;
+    }
+  
+   /* .card:hover {
+     border-color: white !important;
+     color: white !important;     
+     background-color: pink !important;
+     transition: all 0.1s ease-in-out !important;
+   } */
+
+    .card .card-header h4 {
+        transition: all 0.1s ease-in-out !important;
+    }
+
+   /* .card:hover .card-header h4 {
+     color: white !important;     
+     background-color: pink !important;
+
+   } */
+  
   .modal-is-open {
     padding-right: 15px;
     overflow-y: hidden;

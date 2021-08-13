@@ -1,5 +1,5 @@
 <template lang="html">
-  <footer class="bg-white" v-if="showFooter">
+  <footer class="bg-pink" v-if="showFooter">
     <div class="container-fluid p-4 p-lg-5">
       <div class="row m-0 justify-content-between" v-if="allFooterNavigations">
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0 px-0 px-sm-3" v-for="(block, index) in allFooterNavigations" v-if="index < 4">
@@ -48,3 +48,17 @@ export default {
   }
 }
 </script>
+
+<style>
+
+  
+  
+  
+
+  footer {
+    border-top:1px solid black;
+  }
+  .bg-pink {
+    background-color: pink !important;
+  }
+</style>
