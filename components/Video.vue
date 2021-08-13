@@ -54,7 +54,8 @@
 <style>
   .video-wrap {
     position: unset;
-    height:73vh
+    height:73vh;
+    background-color: black;
   }
 
   .video-wrapper {
@@ -78,7 +79,6 @@
 
   @media screen and (max-width: 692px) {
     .video-wrap {
-      height: 44vh;
       position: relative;
     }
   }

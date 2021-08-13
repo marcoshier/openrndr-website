@@ -138,7 +138,7 @@
       margin: 0 0 0 3rem;
       position: absolute;
       top: 19vh;
-      max-width: 50vw;
+      max-width: 46vw;
       z-index: 2;
   }
 
@@ -156,15 +156,22 @@
     font-family: 'IBM Plex Mono';
     display: block;
     margin: 40px 0 0 0;
-    font-size: 1.025rem;
+    font-size: 24px;
   }
 
+  @media screen and (max-width: 1120px) {
+    .video-text {
+      max-width: 95vw;
+    }
+    
+  }
 
+/*
   @media screen and (max-width: 1133px) {
 
     .video-text { 
        max-width: 90vw;
-       /* justify-content: space-between; */
+       justify-content: space-between;
        margin: 7.5vh 0 0 5vw;
     }
 
@@ -174,7 +181,7 @@
 
     span {
       font-size: 2.1vh;
-      margin: 10px 0 0 100px;
+      margin: 10px 0 0 0;
     }
   }
 
@@ -185,21 +192,21 @@
 
     span {
       font-size: 2.8vw;
-      margin: 10px 0 0 50px;
+      margin: 10px 0 0 0;
     }
   }
 
   @media screen and (max-height: 637px) {
     .video-text { 
        max-width: 90vw;
-       /* flex-direction: row; */
-       /* justify-content: space-between; */
+       /* flex-direction: row;
+      justify-content: space-between;
        margin: 7.5vh 0 0 12vw;
     }
 
     span {
       font-size: 1.4vw;
-      margin: 10px 0 0 160px;
+      margin: 10px 0 0 0;
     }
-  }
+  }*/
 </style>
