@@ -164,8 +164,7 @@
 
     .video-text { 
        max-width: 90vw;
-       flex-direction: row;
-       justify-content: space-between;
+       /* justify-content: space-between; */
        margin: 7.5vh 0 0 5vw;
     }
 
@@ -192,9 +191,9 @@
 
   @media screen and (max-height: 637px) {
     .video-text { 
-       max-width: 70vw;
-       flex-direction: row;
-       justify-content: space-between;
+       max-width: 90vw;
+       /* flex-direction: row; */
+       /* justify-content: space-between; */
        margin: 7.5vh 0 0 12vw;
     }
 
