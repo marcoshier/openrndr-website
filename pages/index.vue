@@ -138,7 +138,7 @@
       margin: 0 0 0 3rem;
       position: absolute;
       top: 19vh;
-      max-width: 46vw;
+      max-width: 50vw;
       z-index: 2;
   }
 
@@ -161,10 +161,26 @@
 
   @media screen and (max-width: 1120px) {
     .video-text {
-      max-width: 95vw;
+      max-width: 80vw;
     }
     
   }
+
+  @media screen and (max-width: 680px) {
+    h1 {
+      font-size: 7.5vh;
+    }
+    
+  }
+
+    @media screen and (max-width: 540px) {
+    h1 {
+      font-size: 5.9vh;
+    }
+    
+  }
+
+
 
 /*
   @media screen and (max-width: 1133px) {

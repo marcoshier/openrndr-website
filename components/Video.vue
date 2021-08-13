@@ -54,7 +54,7 @@
 <style>
   .video-wrap {
     position: unset;
-    height:73vh;
+    height:80vh;
     background-color: black;
   }
 
