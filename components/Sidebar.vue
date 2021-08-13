@@ -109,9 +109,43 @@
     top: 140px;
   }
 
-  .current-block {
+  .list-group-item {
+    padding-left: 3rem !important;
+  }
+
+  .list-group-item a {
+    position: relative !important;
+    padding:0px;
+    display: inline-block !important;
+    
+  }
+
+  .list-group-item a:hover:before {
+    color: rgba(0, 0, 0, 0.7) !important;
+        visibility: visible !important;
+    width: 100% !important;
+  }
+
+  .list-group-item a::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 2px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background-color: black !important;
+    visibility: hidden !important;
+    transition: all 0.1s ease-in-out !important;
+  }
+
+  .current-block {    
     color: white !important;
-    font-weight: 600 !important;
+    /* font-weight: 600 !important; */
+  }
+
+  .current-block a::before {    
+    visibility: visible !important;
+    width: 100% !important;
   }
 
   /*.current-block::before {
