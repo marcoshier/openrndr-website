@@ -8,7 +8,7 @@
       </template>
     </div>
 
-    <template v-if="this.page && items.length > 4">
+    <template v-if="this.page && items.length > 4 && showBtn">
        <b-button v-on:click="expand" class="btn btn-light btn-lg mb-4 mb-lg-5" variant="primary">
         {{ buttonText }}
       </b-button>
@@ -27,7 +27,9 @@
       return {
         expanded: false,
         maxItems: 4,
-        buttonText: "See all"
+        buttonText: "Show 5 more",
+        difference: 0,
+        showBtn: true
       }
     },
     props: {
@@ -38,24 +40,49 @@
         type: Object
       },
     },
+    mounted() {
+      
+      if(this.expanded == false) {
+        this.difference = this.items.length - this.maxItems
+        
+        if (this.difference >= 5) {
+          this.buttonText = "Show 5 more"
+        } else if (this.difference > 0 && this.difference < 5) {  
+          this.buttonText = "Show " + this.difference + " more"
+        } else if(this.difference <= 0) {
+          this.showBtn = false
+        }
+      }
+    },
     methods: {
       expand() {
-          let difference = this.items.length - this.maxItems
+        
+          //TODO add scroll restore
           if(this.expanded == false) {
-            if(this.items.length > this.maxItems && difference >= 5) {
+            if(this.difference >= 5) {
               this.maxItems += 5
               this.buttonText = "Show 5 more"
-            } else if (this.items.length > this.maxItems && difference < 5) {
-              this.maxItems += difference
-              this.buttonText = "Show " + difference + " more"
-            } else if(this.items.length <= this.maxItems && difference < 5) {
+            } else if (this.difference > 0 && this.difference < 5) {
+              this.maxItems += this.difference
+              this.buttonText = "Show " + this.difference + " more"
+              this.difference = this.items.length - this.maxItems
+
+              if(this.difference <= 0) {
+                this.maxItems = this.items.length
+                this.expanded = true
+                this.buttonText = "Collapse"
+              }
+            } else if(this.difference <= 0) {
               this.maxItems = this.items.length
               this.expanded = true
               this.buttonText = "Collapse"
             }
+            
           } else {
+            this.expanded = false
             this.maxItems = 4
-            this.buttonText = "Show 5 more"
+            this.difference = this.items.length - this.maxItems
+            this.buttonText = "Show " + this.difference + " more"
           }
           
       }

@@ -4,7 +4,7 @@
       <div role="tab">
         <a class="question" v-b-toggle :href="'#accordion-'+index" @click.prevent><h4 class="mb-2">{{question.question}}</h4></a>
       </div>
-      <b-collapse :id="'accordion-'+index" accordion="faq" class="ml-2">
+      <b-collapse :id="'accordion-'+index" accordion="faq" class="ml-5">
         <div v-html="question.answer">
         </div>
       </b-collapse>

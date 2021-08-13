@@ -53,6 +53,11 @@ p.lead {
     color: $dark;
 }
 
+.horiz-blocks h1 {
+    display: block;
+    min-height: 150px;
+}
+
 a {
     color: $darkGray;
     text-decoration: underline;

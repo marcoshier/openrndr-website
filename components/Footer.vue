@@ -1,14 +1,14 @@
 <template lang="html">
   <footer class="bg-white" v-if="showFooter">
     <div class="container-fluid p-4 p-lg-5">
-      <div class="row m-0" v-if="allFooterNavigations">
+      <div class="row m-0 justify-content-between" v-if="allFooterNavigations">
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0 px-0 px-sm-3" v-for="(block, index) in allFooterNavigations" v-if="index < 4">
           <h5 v-if="block.title">{{block.title}}</h5>
           <h5 v-else class="d-none d-sm-block">&nbsp;</h5>
 
           <b-nav vertical>
             <template v-if="block.menuItems.length > 0" v-for="(item, index) in block.menuItems">
-
+              
               <menu-item
                 v-if="item.menuItem != undefined || item.menuItem != null"
                 :title="item.menuItem.title"
@@ -48,6 +48,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scoped>
-</style>

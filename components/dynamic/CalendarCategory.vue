@@ -1,6 +1,6 @@
 <template>
   <div class="row m-0 px-4 px-lg-5 pt-4 pt-lg-5">
-    <div class="col-12 px-0 mb-4 mb-lg-5" v-if="!hasCurrentItems">
+    <div class="col-12 px-0 mb-4 mb-lg-5" v-if="hasPastItems == false">
       <div class="card p-3 p-lg-5 d-block d-lg-flex flex-row align-items-center">
         <div>
           <h2 class="">No upcoming {{type}}</h2>
@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="col-12 px-0" v-for="(item, index) in calendarItems">
+    <div class="col-12 px-0" v-for="(item, index) in calendarItems" v-if="index < maxItems">
       <calendar-item
         :type="item.type"
         :dateStart="item.dateStart"
@@ -24,7 +24,7 @@
 
     <template v-if="hasPastItems">
       <div class="mb-4 mb-lg-5 mt-2">
-        <button class="btn btn-light btn-lg" @click="togglePastItems()">{{buttonText}} past {{type}}</button>
+        <button class="btn btn-light btn-lg" @click="togglePastItems()">{{buttonText}} {{type}}</button>
       </div>
     </template>
 
@@ -56,8 +56,10 @@
         calendarItems: [],
         hasPastItems: false,
         hasCurrentItems: false,
-        showPastItems: false,
-        buttonText: 'View '
+        showPastItems: true,
+        buttonText: 'View ',
+        expanded: true,
+        maxItems: 2
       }
     },
     methods: {
@@ -88,7 +90,15 @@
         }
       },
       togglePastItems: function() {
-        this.showPastItems = !this.showPastItems
+        //this.showPastItems = !this.showPastItems
+        this.expanded = !this.expanded
+        if(this.expanded == false) {
+          this.buttonText = "View less"
+          this.maxItems = this.calendarItems.length
+        } else {
+          this.maxItems = 2
+          this.buttonText = "View more"
+        }
       },
       sortCalendarItems() {
         let now = new Date()

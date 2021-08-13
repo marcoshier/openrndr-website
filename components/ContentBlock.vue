@@ -1,10 +1,15 @@
 <template>
-  <div class="content-block-cnt w-100 px-0 py-5 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'nopadding': noPadding }" :id="anchorpoint ? anchorpoint : ''">
+  <div class="content-block-cnt w-100 px-0 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'nopadding': noPadding, 'py-5': isCommunity == false}" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
 
       <div ref="titlecnt" class="px-4 pt-4 px-lg-5 pt-lg-5 pb-0" v-if="title || subtext">
-        <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }]">{{title}}</h1>
+        <div class="title-stats-cnt">
+          <h1 v-if="title" v-bind:class="[{ 'mb-0': !subtext }]">{{title}}</h1>
+          <div class="title-stats-cnt mb-4">
+            <span class="title-stats" v-if="isCommunity"><font-awesome-icon :icon="['fas', 'user']" />     {{ stats }}</span>
+          </div>
+        </div>
         <p v-if="subtext" class="lead">
           {{subtext}}
         </p>
@@ -118,6 +123,8 @@
         index: null,
         borderTop: true,
         noPadding: false,
+        stats: '100 users',
+        isCommunity: false
       }
     },
     mounted() {
@@ -138,6 +145,21 @@
 
       if(this.initTitle != undefined) {
         this.title = this.initTitle
+
+        //////////////////////////////////////
+        ////   STATS
+        /////////////////////////////////////
+
+        if(this.title == "Discourse forum") {
+            this.isCommunity = true
+            this.stats = "70+ users"
+        } else if (this.title == "Slack") {
+            this.isCommunity = true
+            this.stats = "300+ members"
+        } else if (this.title == "Github") {
+            this.isCommunity = true
+            this.stats = "20+ contributors"
+        }
       }
 
       if(this.initSubtext != undefined) {
@@ -195,6 +217,14 @@
   }
 </script>
 <style>
+.title-stats {
+  margin-top: -30px;
+}
+
+.title-stats span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.925rem
+}
 
 .nopadding {
   padding-top: 0 !important;
