@@ -71,7 +71,7 @@
         pageInfo: null,
         loading: null,
         loadingBar: null,
-        loadingBarDone: false
+        loadingBarDone: false,
       }
     },
     watch: {
@@ -138,7 +138,7 @@
       margin: 0 0 0 3rem;
       position: absolute;
       top: 19vh;
-      max-width: 40vw;
+      max-width: 50vw;
       z-index: 2;
   }
 

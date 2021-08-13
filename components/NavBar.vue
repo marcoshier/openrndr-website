@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" type="light" class="p-0 bg-primary" :class="{'border-bottom border-dark': borderactive}" v-if="allMainNavigations">
       <div class="container-fluid px-0 px-lg-5">
         <b-navbar-brand to="/" :id="'openrndr-logo'">
-          <span id="logo"></span>
+          <span id="logo">{{ logoText }}</span>
         </b-navbar-brand>
 
         <!-- Desktop menu -->
@@ -48,6 +48,15 @@
       MobileMenu,
       MenuItem
     },
+    data: function() {
+      return {
+        yScroll: 0,
+        borderactive: false,
+        currentRouteName: "",
+        logoText: "",
+        slug: this.$route.params.slug,
+      }
+    },
     computed: {
       borderStatus() {
         return this.$store.state.borderStatus
@@ -80,7 +89,7 @@
           }
         },
         deep: true,
-        immediate: true
+        immediate: true,
       }
     },
     methods: {
@@ -173,15 +182,12 @@
               .start()
         }
     },
-    data: function() {
-      return {
-        yScroll: 0,
-        borderactive: false,
-        currentRouteName: ""
-      }
-    },
     mounted() {
-      this.logoAnim()
+      if(this.slug == undefined) {
+        this.logoAnim()
+      } else {
+        this.logoText = "OPENRNDR"
+      }
     }
 
   }
