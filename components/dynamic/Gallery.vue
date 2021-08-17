@@ -51,10 +51,10 @@
             this.difference = items.length - this.maxItems
             
             
-            if (this.difference >= 5) {
-              this.buttonText = "Show 5 more"
+            if (this.difference > 4) {
+              this.buttonText = "Show 4 more"
               this.expanded = true
-            } else if (this.difference > 0 && this.difference < 5) {  
+            } else if (this.difference > 0 && this.difference <= 4) {  
               this.expanded = true
               this.difference -= this.difference
               this.buttonText = "Show " + this.difference + " more"
@@ -70,12 +70,12 @@
     methods: {
       expand() {
 
-            if(this.difference >= 5) {
-              this.maxItems += 5
-              this.difference -= 5
+            if(this.difference > 4) {
+              this.maxItems += 4
+              this.difference -= 4
               this.buttonText = "Show " + this.difference + " more"
 
-            } else if (this.difference > 0 && this.difference < 5) {
+            } else if (this.difference > 0 && this.difference <= 4) {
               this.maxItems += this.difference
               this.buttonText = "Show " + this.difference + " more"
               this.difference = this.items.length - this.maxItems
@@ -89,7 +89,7 @@
               this.maxItems = 4
               this.difference = this.items.length - this.maxItems
               this.expanded = false
-              this.buttonText = "Show 5 more"
+              this.buttonText = "Show 4 more"
             }
           
       }
