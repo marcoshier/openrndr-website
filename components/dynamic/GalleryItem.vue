@@ -6,6 +6,7 @@
       img-top
       tag="article"
       class="h-100 card-overflow"
+      @click="goToCardUrl()"
     >
       <b-card-img
         v-if="headerImage.url"
@@ -74,6 +75,11 @@
       }
     },
     methods: {
+      goToCardUrl() {
+        let cardUrl = this.url
+        let win = window.open(cardUrl, '_blank')
+        win.focus()
+      }
       /*open() {
         this.index = 0
         this.toggleBodyClass('modal-is-open')
