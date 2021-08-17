@@ -133,7 +133,8 @@
     height: 2px !important;
     bottom: 0 !important;
     left: 0 !important;
-    background-color: black !important;
+    /* background-color: black !important; */
+    border-bottom: 2px solid black;
     visibility: hidden !important;
     transition: all 0.1s ease-in-out !important;
   }

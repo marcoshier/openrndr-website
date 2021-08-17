@@ -53,7 +53,7 @@
         yScroll: 0,
         borderactive: false,
         currentRouteName: "",
-        logoText: "",
+        logoText: "OPENRNDR",
         slug: this.$route.params.slug,
       }
     },

@@ -57,7 +57,7 @@
         hasPastItems: false,
         hasCurrentItems: false,
         showPastItems: true,
-        buttonText: 'View ',
+        buttonText: 'View more',
         expanded: true,
         maxItems: 2
       }

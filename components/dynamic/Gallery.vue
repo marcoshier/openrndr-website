@@ -27,7 +27,7 @@
       return {
         expanded: false,
         maxItems: 4,
-        buttonText: "Show 5 more",
+        buttonText: "",
         difference: 0,
         showBtn: true
       }
@@ -40,28 +40,41 @@
         type: Object
       },
     },
-    mounted() {
-      
-      if(this.expanded == false) {
-        this.difference = this.items.length - this.maxItems
-        
-        if (this.difference >= 5) {
-          this.buttonText = "Show 5 more"
-        } else if (this.difference > 0 && this.difference < 5) {  
-          this.buttonText = "Show " + this.difference + " more"
-        } else if(this.difference <= 0) {
-          this.showBtn = false
-        }
+    watch: {
+      'items': {
+        handler: function(items) {
+          
+          console.log("Items", items)
+   
+          if(this.expanded == false && items.length > 0) {
+            
+            this.difference = items.length - this.maxItems
+            
+            
+            if (this.difference >= 5) {
+              this.buttonText = "Show 5 more"
+              this.expanded = true
+            } else if (this.difference > 0 && this.difference < 5) {  
+              this.expanded = true
+              this.difference -= this.difference
+              this.buttonText = "Show " + this.difference + " more"
+            } else if(this.difference <= 0) {
+              this.showBtn = false
+            }
+          }
+        },
+        deep: true,
+        immediate: true
       }
     },
     methods: {
       expand() {
-        
-          //TODO add scroll restore
-          if(this.expanded == false) {
+
             if(this.difference >= 5) {
               this.maxItems += 5
-              this.buttonText = "Show 5 more"
+              this.difference -= 5
+              this.buttonText = "Show " + this.difference + " more"
+
             } else if (this.difference > 0 && this.difference < 5) {
               this.maxItems += this.difference
               this.buttonText = "Show " + this.difference + " more"
@@ -73,17 +86,11 @@
                 this.buttonText = "Collapse"
               }
             } else if(this.difference <= 0) {
-              this.maxItems = this.items.length
-              this.expanded = true
-              this.buttonText = "Collapse"
+              this.maxItems = 4
+              this.difference = this.items.length - this.maxItems
+              this.expanded = false
+              this.buttonText = "Show 5 more"
             }
-            
-          } else {
-            this.expanded = false
-            this.maxItems = 4
-            this.difference = this.items.length - this.maxItems
-            this.buttonText = "Show " + this.difference + " more"
-          }
           
       }
     }

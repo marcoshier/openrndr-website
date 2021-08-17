@@ -99,6 +99,7 @@
   import ErrorMessage from '~/components/404.vue'
 
   export default {
+    scrollToTop: true,
     layout: 'sidebar',
     components: {
       PageHeader,
