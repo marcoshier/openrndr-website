@@ -112,6 +112,7 @@ export default {
       }
     },
     isValueActive(value) {
+      
       if (value != undefined) {
         if(value != '') {
           return true
