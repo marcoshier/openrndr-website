@@ -21,12 +21,12 @@
 
             <template v-if="hasSidebar">
               <!-- BEGIN Sidebar -->
-              <div class="sidebar col-12 col-lg-2 col-xxl-2 p-4 p-lg-0">
+              <div class="sidebar col-12 col-lg-2 col-xxl-3 p-4 p-lg-0">
                 <sidebar :title="page.title" :contentBlocks="page.dynamicContentBlocks" />
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-10 col-xxl-10 px-0 border-left border-dark">
+              <div class="col-12 col-lg-10 col-xxl-9 px-0 border-left border-dark">
                 
                 <!--<div id="marker" style="position: absolute; width: 10vw; right: 0; background-color: red; z-index: 99"></div>-->
                 <template v-for="(block, index) in page.dynamicContentBlocks">
