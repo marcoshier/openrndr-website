@@ -61,6 +61,10 @@
       classes: {
         type: String,
         default: 'col-12 col-md-6'
+      },
+      url: {
+        type: String,
+
       }
     },
     data: function() {
@@ -79,7 +83,7 @@
         let cardUrl = this.url
         let win = window.open(cardUrl, '_blank')
         win.focus()
-      }
+      },
       /*open() {
         this.index = 0
         this.toggleBodyClass('modal-is-open')

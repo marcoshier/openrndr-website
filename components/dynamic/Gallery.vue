@@ -3,7 +3,7 @@
     <div class="row row-eq-height gallery-cnt">
       <template v-for="(item, index) in items" v-if="index < maxItems">
         <gallery-item
-        :title="item.title" :media="item.media" :credits="item.credits" :blurb="item.blurb" :specs="item.techSpecs"
+        :title="item.title" :media="item.media" :credits="item.credits" :blurb="item.blurb" :specs="item.techSpecs" :url="item.url"
         />
       </template>
     </div>
@@ -43,8 +43,6 @@
     watch: {
       'items': {
         handler: function(items) {
-          
-          console.log("Items", items)
    
           if(this.expanded == false && items.length > 0) {
             
