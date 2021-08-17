@@ -8,7 +8,8 @@
           </b-dropdown-item>
 
           <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="item.value" target="_blank">
-            {{item.title}}
+            {{item.title}}      
+            <img class="external" src="../assets/images/external.svg" v-if="item.linkType == 'extern'" />
           </b-dropdown-item>
 
           <b-dropdown-item v-else-if="item.isActive && item.linkType == 'mail'" :href="'mailto:' + item.value" target="_blank">
@@ -26,9 +27,11 @@
       {{ title }}
     </b-nav-item>
 
-    <b-nav-item v-else-if="type == 'extern'" :href="value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
-      {{title}}
-    </b-nav-item>
+      <b-nav-item v-else-if="type == 'extern'" :href="value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
+        {{title}}
+      <img class="external" src="../assets/images/external.svg" v-if="type == 'extern'" />
+      </b-nav-item>
+
 
     <b-nav-item v-else-if="type == 'mail'" :href="'mailto:' + value" target="_blank" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
      {{title}}
@@ -201,4 +204,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.external {
+  width: 10px;
+}
 </style>

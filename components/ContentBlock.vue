@@ -1,5 +1,5 @@
 <template>
-  <div class="content-block-cnt w-100 px-0 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'nopadding': noPadding, 'py-5': isCommunity == false}" :id="anchorpoint ? anchorpoint : ''">
+  <div class="content-block-cnt w-100 px-0 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'py-5': isCommunity == false}" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
 

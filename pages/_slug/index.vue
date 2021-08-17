@@ -38,10 +38,10 @@
 
             <template v-else-if="isCommunity">
               <div class="col-12 col-lg-12 col-xxl-12 px-0 border-left border-dark">
-                <div class="d-flex flex-row">
+                <div class="d-flex flex-row community">
                   <template v-for="(block, index) in page.dynamicContentBlocks" v-if="index < 3">
                     <content-block :initTitle="block.title" :initSubtext="block.subtext" :initBodyText="block.bodyText"
-                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" class="border-right"/>
+                    :initAnchorpoint="block.anchorpoint" :initType="block.blockType" :dynamicContent="block.dynamicContent" :initButtons="block.buttons" :page="pageInfo" :initIndex="index" class="border-right community-item"/>
                   </template>
                 </div>
                 

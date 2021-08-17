@@ -19,7 +19,7 @@
                 :itemClass="'footer-li'"
                 :key="index"
               />
-
+            
             </template>
           </b-nav>
         </div>
