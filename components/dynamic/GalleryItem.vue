@@ -15,10 +15,10 @@
         class="rounded-0 clickable">
       </b-card-img>
       <div class="gallery-video-cnt" 
-        v-else-if="headerImage.url && isVideo"> 
+        v-else-if="url && isVideo"> 
         <div id="gallery-video" 
         class="rounded-0 clickable gallery-video-wrap">
-          <iframe src="https://player.vimeo.com/video/559666592?background=1&autoplay=1&loop=1&byline=0&title=0?muted=1" 
+          <iframe :src="urlEmbed" 
           allow="autoplay; fullscreen" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="allowfullscreen" frameborder="0"
           style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; "></iframe>
         </div>
@@ -86,7 +86,8 @@
         index: null,
         gallery: [],
         id: null,
-        isVideo: false
+        isVideo: false,
+        urlEmbed: null
       }
     },
     methods: {
@@ -110,6 +111,9 @@
       getVimeoId(url) {
         let m = url.match(/^.+vimeo.com\/(.*\/)?([^#\?]*)/);
         return m ? m[2] || m[1] : null;
+      },
+      vimeoURL(id) {
+        return 'https://player.vimeo.com/video/' + id + '?background=1&autoplay=1&loop=1&byline=0&title=0?muted=1'
       }
     },
     mounted() {
@@ -137,11 +141,10 @@
               this.headerImage.url = this.media[0].file.url
             } else {
               // If video
-
-              console.log("video obj", this.media[0])
               this.isVideo = true;
-
-              this.headerImage.url = this.media[0].file.thumbnailUrl
+              let id = this.url.split("https://vimeo.com/")[1]
+              this.urlEmbed = this.vimeoURL(id)
+              //this.headerImage.url = this.media[0].file.thumbnailUrl
             }
             break;
           }
@@ -188,7 +191,6 @@
     }
 
     .gallery-video-wrap {
-      background-color: red;
       position: relative;
       overflow: hidden;
       width: 100%;
