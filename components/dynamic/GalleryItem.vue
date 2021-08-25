@@ -9,11 +9,22 @@
       @click="goToCardUrl()"
     >
       <b-card-img
-        v-if="headerImage.url"
+        v-if="headerImage.url && !isVideo"
         :src="headerImage.url"
         :alt="headerImage.caption"
         class="rounded-0 clickable">
       </b-card-img>
+      <div class="gallery-video-cnt" 
+        v-else-if="headerImage.url && isVideo"> 
+        <div id="gallery-video" 
+        class="rounded-0 clickable gallery-video-wrap">
+          <iframe src="https://player.vimeo.com/video/559666592?background=1&autoplay=1&loop=1&byline=0&title=0?muted=1" 
+          allow="autoplay; fullscreen" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="allowfullscreen" frameborder="0"
+          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; "></iframe>
+        </div>
+      </div>
+      
+
       <b-card-header class="bg-white py-35">
         <h4 class="mb-0">{{title}}</h4>
       </b-card-header>
@@ -64,7 +75,6 @@
       },
       url: {
         type: String,
-
       }
     },
     data: function() {
@@ -75,7 +85,8 @@
         },
         index: null,
         gallery: [],
-        id: null
+        id: null,
+        isVideo: false
       }
     },
     methods: {
@@ -125,6 +136,11 @@
             if(this.media[0].__typename != 'VideoRecord') {
               this.headerImage.url = this.media[0].file.url
             } else {
+              // If video
+
+              console.log("video obj", this.media[0])
+              this.isVideo = true;
+
               this.headerImage.url = this.media[0].file.thumbnailUrl
             }
             break;
@@ -166,6 +182,18 @@
 </script>
 
 <style>
+    .gallery-video-cnt {
+      max-height: 230px;
+      overflow: hidden;
+    }
+
+    .gallery-video-wrap {
+      background-color: red;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    }
 
     .bg-white {
       background-color: pink !important;
