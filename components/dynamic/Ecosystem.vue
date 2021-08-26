@@ -5,7 +5,7 @@
       :description="item.description"
       :image="item.image"
       :url="item.link"
-      :exampleurl="item.example_link"
+      :exampleurl="item.exampleLink"
       :index="index"
       :key="index"
     />
@@ -32,8 +32,10 @@ export default {
    ...mapState({
      allEcosystems: (state) => state.landingPage.allEcosystems
    })
-  }
-}
+  },
+  mounted() {
+    console.log(this.allEcosystems)
+  }}
 </script>
 
 <style scoped>

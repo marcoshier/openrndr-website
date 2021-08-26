@@ -112,6 +112,7 @@ query landingData {
     title
     description
     link
+    exampleLink
     image {
       url
       alt
