@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-column justify-content-center links-modal px-3">
+    <div class="d-flex flex-column links-modal p-3">
       <a v-if="exampleurl" :href="exampleurl">
          Example
       </a>
@@ -70,7 +70,9 @@ export default {
 .links-modal {
   position: relative;
   background: #ffc0cb;
+  text-align: center;
   border-radius: 2px;
+  bottom: 20px;
 }
 
 .links-modal span, .links-modal a  {
