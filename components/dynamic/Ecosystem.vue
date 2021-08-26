@@ -5,6 +5,7 @@
       :description="item.description"
       :image="item.image"
       :url="item.link"
+      :exampleurl="item.example_link"
       :index="index"
       :key="index"
     />

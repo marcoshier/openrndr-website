@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="links-modal p-3">
-      <a v-if="url" :href="url">
+      <a v-if="exampleurl" :href="exampleurl">
          Example
       </a>
       <span> ‎| ‎</span>
@@ -39,6 +39,10 @@ export default {
       type: String
     },
     url: {
+      type: String,
+      default: undefined
+    },
+    exampleurl: {
       type: String,
       default: undefined
     },
