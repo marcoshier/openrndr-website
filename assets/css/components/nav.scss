@@ -1,18 +1,18 @@
 .navbar-container {
-  height: $navbarHeight;
+    height: $navbarHeight;
 }
 
 // Nav component inside footer
-.footer-li > a {
-  color: $black;
-  padding-left: 0;
-  padding-right: 0;
-  font-family: $textHead;
-  font-size: 1.15rem;
-  line-height: 150%;
+.footer-li>a {
+    color: $black;
+    padding-left: 0;
+    padding-right: 0;
+    font-family: $textHead;
+    font-size: 1.15rem;
+    line-height: 150%;
 }
 
-.footer-li > a:hover {
-  color: $darkGray;
-  text-decoration: underline;
+.footer-li>a:hover {
+    color: $light;
+    text-decoration: underline;
 }

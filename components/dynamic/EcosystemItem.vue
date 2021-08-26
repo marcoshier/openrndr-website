@@ -1,5 +1,5 @@
 <template lang="html">
-   <div class="mb-1 mb-lg-1 px-0 px-lg-3">
+   <div class="col-12 col-lg-3 mb-1 mb-lg-1 px-0 px-lg-3">
     
     <div class="card border-0" :class="{'hovered' : hovered}" v-on:mouseover="showLinks" v-on:mouseout="hideLinks">
       <a v-if="url" class="eco-link h-100" :href="url">

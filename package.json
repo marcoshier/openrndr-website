@@ -1,36 +1,36 @@
 {
-  "name": "openrndr",
-  "version": "1.0.0",
-  "description": "Website project for openrndr.org",
-  "author": "Mark Westgeest",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "dev:host": "nuxt --hostname 0.0.0.0 --port 8000",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@nuxtjs/apollo": "^4.0.1-rc.4",
-    "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/dotenv": "^1.4.1",
-    "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.18.0",
-    "nuxt": "^2.14.7",
-    "typewriter-effect": "^2.18.0",
-    "vue-gallery": "^2.0.1",
-    "vue-observe-visibility": "^1.0.0",
-    "vue-progress": "^0.2.1"
-  },
-  "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@graphql-codegen/cli": "^1.18.0",
-    "@graphql-codegen/fragment-matcher": "^1.17.8",
-    "@nuxtjs/fontawesome": "^1.1.2",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2"
-  }
+    "name": "OPENRNDR",
+    "version": "1.0.0",
+    "description": "Website project for openrndr.org",
+    "author": "Mark Westgeest",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "dev:host": "nuxt --hostname 0.0.0.0 --port 8000",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate"
+    },
+    "dependencies": {
+        "@fortawesome/free-regular-svg-icons": "^5.15.1",
+        "@nuxtjs/apollo": "^4.0.1-rc.4",
+        "@nuxtjs/axios": "^5.12.2",
+        "@nuxtjs/dotenv": "^1.4.1",
+        "bootstrap": "^4.5.3",
+        "bootstrap-vue": "^2.18.0",
+        "nuxt": "^2.14.7",
+        "typewriter-effect": "^2.18.0",
+        "vue-gallery": "^2.0.1",
+        "vue-observe-visibility": "^1.0.0",
+        "vue-progress": "^0.2.1"
+    },
+    "devDependencies": {
+        "@fortawesome/free-brands-svg-icons": "^5.15.1",
+        "@fortawesome/free-solid-svg-icons": "^5.15.1",
+        "@graphql-codegen/cli": "^1.18.0",
+        "@graphql-codegen/fragment-matcher": "^1.17.8",
+        "@nuxtjs/fontawesome": "^1.1.2",
+        "node-sass": "^4.14.1",
+        "sass-loader": "^8.0.2"
+    }
 }
