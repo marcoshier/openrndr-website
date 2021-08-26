@@ -32,9 +32,6 @@ export default {
    ...mapState({
      allEcosystems: (state) => state.landingPage.allEcosystems
    })
-  },
-  mounted() {
-    console.log(this.allEcosystems)
   }}
 </script>
 

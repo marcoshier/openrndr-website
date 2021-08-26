@@ -1,6 +1,7 @@
 .btn {
     padding: .35rem 2rem;
     border: 2px solid black;
+    color: black !important;
     background-color: transparent !important;
     transition: all 0.2s ease;
     outline: none !important;
@@ -11,7 +12,8 @@
     -moz-box-shadows: none !important;
 }
 
-.btn:active {
+.btn:active,
+.btn:focus {
     border: 2px solid black !important;
     outline: none !important;
     -webkit-outline: none !important;

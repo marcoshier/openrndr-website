@@ -21,7 +21,7 @@
       <a v-if="exampleurl" :href="exampleurl">
          Example
       </a>
-      <span> ‎| ‎</span>
+      <span v-if="exampleurl"> ‎| ‎</span>
       <a v-if="url" :href="url">
          Docs
       </a>
@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     showLinks() {
-      console.log(this.title)
       this.hovered = true
     },
     hideLinks() {

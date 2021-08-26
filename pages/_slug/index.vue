@@ -26,7 +26,7 @@
               </div>
               <!-- END Sidebar -->
 
-              <div class="col-12 col-lg-10 col-xxl-9 px-0 border-left border-dark">
+              <div class="col-12 col-lg-10 col-xxl-9 px-0 border-left border-dark content-blocks-cnt">
                 
                 <!--<div id="marker" style="position: absolute; width: 10vw; right: 0; background-color: red; z-index: 99"></div>-->
                 <template v-for="(block, index) in page.dynamicContentBlocks">
@@ -129,7 +129,11 @@
       page: function() {
         if(this.page || typeof this.page === 'undefined') {
           this.loading = false
+          if(this.page.dynamicContentBlocks) {
+            this.$store.dispatch("blockChange", this.page.dynamicContentBlocks[0].anchorpoint)
+          }
         }
+        
       }
     },
     methods: {
@@ -194,9 +198,11 @@
           // marker.style.height = topDistance + "px"
 
 
-          if(topDistance > 0 && topDistance < window.innerHeight) {
+          if(topDistance > 0 && topDistance < window.innerHeight && window.scrollY > 10) {
             // pass to sidebar
             this.$store.dispatch("blockChange", contentBlock.id)
+          } else if (window.scrollY > 0 && window.scrollY <= 20) {
+            this.$store.dispatch("blockChange", contentBlockCnts[0].id)
           }
 
         })

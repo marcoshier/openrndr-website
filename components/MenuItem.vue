@@ -3,22 +3,13 @@
     <div class="dd-wrapper">
       <b-nav-item-dropdown v-if="type == 'dropdown'" :text="title" :class="classes" :data-animation-base="animationBase" v-bind="dataOffset">
         <template v-for="(item, index) in items" >
-          <b-dropdown-item v-if="item.isActive && item.linkType == 'intern'" :to="'/' + item.internLink.action">
-            {{item.title}}
-          </b-dropdown-item>
+          <b-dropdown-item v-if="item.isActive && item.linkType == 'intern'" :to="'/' + item.internLink.action">{{item.title}}</b-dropdown-item>
 
-          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="item.value" target="_blank">
-            {{item.title}}      
-            <img class="external" src="../assets/images/external.svg" v-if="item.linkType == 'extern'" />
-          </b-dropdown-item>
+          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'extern'" :href="item.value" target="_blank">{{item.title}}<img class="external" src="../assets/images/external.svg" v-if="item.linkType == 'extern'" /></b-dropdown-item>
 
-          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'mail'" :href="'mailto:' + item.value" target="_blank">
-            {{item.title}}
-          </b-dropdown-item>
+          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'mail'" :href="'mailto:' + item.value" target="_blank">{{item.title}}</b-dropdown-item>
 
-          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'phone'" :href="'tel:' + item.value" target="_blank">
-            {{item.title}}
-          </b-dropdown-item>
+          <b-dropdown-item v-else-if="item.isActive && item.linkType == 'phone'" :href="'tel:' + item.value" target="_blank">{{item.title}}</b-dropdown-item>
         </template>
       </b-nav-item-dropdown>
     </div>

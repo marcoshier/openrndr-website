@@ -4,7 +4,8 @@
       <li v-if="pageTitle" class="list-group-item border-0 pr-0 pr-lg-3 bg-primary">
         <span class="sidebar-title">{{this.title}}</span>
       </li>
-      <li :id="'menu-' + item.anchorpoint" v-for="(item, index) in items" :key="index" class="list-group-item border-0 bg-primary">
+      <li :id="'menu-' + item.anchorpoint" v-for="(item, index) in items" :key="index" class="list-group-item border-0 bg-primary"
+          :class="{ 'current-block': index === 0 }">
         <a class="" :href="'#' + item.anchorpoint">
           {{item.title}}
         </a>
@@ -46,21 +47,28 @@
       }
     },
     watch: {
-      currentBlock (currentBlock, previousBlock) {
+      'currentBlock': {
+        handler: function(currentBlock, previousBlock) {
+          
 
-        this.items.forEach(item => {
-          let firstElem = document.getElementById('menu-' + this.items[0].anchorpoint)
-          let currentElem = document.getElementById('menu-' + currentBlock)
-          let previousElem = document.getElementById('menu-' + previousBlock)
+          this.items.forEach(item => {
+            let firstElem = document.getElementById('menu-' + this.items[0].anchorpoint)
+            let currentElem = document.getElementById('menu-' + currentBlock)
+            let previousElem = document.getElementById('menu-' + previousBlock)
 
-          if (currentElem != "" && currentElem && previousElem && currentBlock == item.anchorpoint) {
-              currentElem.classList.add("current-block")
-              previousElem.classList.remove("current-block")
-          } else if (currentElem == "" || !currentElem || currentElem && !previousElem || previousElem == "") {
-              firstElem.classList.add("current-block")
-          }
+            if (currentElem != "" && currentElem && previousElem && currentBlock == item.anchorpoint) {
+                currentElem.classList.add("current-block")
+                previousElem.classList.remove("current-block")
+            } else if (currentElem == "" || !currentElem || currentElem && !previousElem || previousElem == "") {
+                firstElem.classList.add("current-block")
+            }
         })
+        },
+        immediate: true
       }
+
+
+
     },
     data: function() {
       return {
@@ -80,6 +88,7 @@
 
       // Check for each contentBlock if sidebar is true
       if(this.contentBlocks != undefined) {
+
         this.contentBlocks.forEach(function(block, index) {
           if(block.sidebar && block.anchorpoint != '') {
             self.items.push({'title' : block.title, 'anchorpoint' : block.anchorpoint})
@@ -137,11 +146,6 @@
     border-bottom: 2px solid black;
     visibility: hidden !important;
     transition: all 0.1s ease-in-out !important;
-  }
-
-  .current-block {    
-    color: white !important;
-    /* font-weight: 600 !important; */
   }
 
   .current-block a::before {    

@@ -47,6 +47,21 @@ body,
     border-bottom: 1px solid $primary !important;
 }
 
+.content-blocks-cnt>div:first-child {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.dropdown-item {
+    width: auto;
+    display: inline-block !important;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus {
+    color: $dark;
+}
+
 @media (min-width: 1200px) {
     .container,
     .container-sm,

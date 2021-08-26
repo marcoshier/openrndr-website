@@ -69,7 +69,6 @@
     watch: {
       'borderStatus': {
         handler: function(yScroll){
-          console.log("LO SCROLLO", yScroll);
           if(this.currentRouteName == "index") {
             if(yScroll && yScroll < 75) {
               this.borderactive = true
@@ -110,11 +109,6 @@
             }
 
             tw.pauseFor(10)
-              .typeString("‎‎‎ ‎OPENRNDR")
-              .pauseFor(1500)
-              .callFunction((e) => {
-                clearReplace(e, 'OPENRNDR')
-              })
               .callFunction((e) => {
                 clearReplace(e, 'PENRNDR')
               })
