@@ -5,7 +5,7 @@
       no-body
       img-top
       tag="article"
-      class="h-100 card-overflow"
+      class="h-100 card-overflow pointer"
       @click="goToCardUrl()"
     >
       <b-card-img
@@ -20,7 +20,7 @@
         class="rounded-0 clickable gallery-video-wrap">
           <iframe :src="urlEmbed" 
           allow="autoplay; fullscreen" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="allowfullscreen" frameborder="0"
-          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; "></iframe>
+          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; cursor: pointer"></iframe>
         </div>
       </div>
       
@@ -185,6 +185,10 @@
 </script>
 
 <style>
+    .pointer {
+      cursor: pointer;
+    }
+
     .gallery-video-cnt {
       max-height: 230px;
       overflow: hidden;
