@@ -142,7 +142,7 @@
             } else {
               // If video
               this.isVideo = true;
-              let id = this.url.split("https://vimeo.com/")[1]
+              let id = this.media[0].file.url.split("https://vimeo.com/")[1]
               this.urlEmbed = this.vimeoURL(id)
               //this.headerImage.url = this.media[0].file.thumbnailUrl
             }
