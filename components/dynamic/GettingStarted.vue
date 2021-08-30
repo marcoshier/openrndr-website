@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="getting-started-area" class="d-flex justify-content-between p-3 p-lg-4">
+  <div id="getting-started-area" class="d-flex justify-content-around p-3 p-lg-4">
     <template v-for="(button, index) in items">
       
     <vue-button

@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="col-12 px-0" v-for="(item, index) in calendarItems" v-if="index < maxItems">
+    <div class="col-12 px-0" v-for="(item, index) in sortedCalendarItems" v-if="index < maxItems">
       <calendar-item
         :type="item.type"
         :dateStart="item.dateStart"
@@ -104,6 +104,7 @@
         let now = new Date()
         let self = this
 
+
         this.allCalendars.forEach(function(item, index) {
           if(self.calendarType == item.eventType) {
             let date = new Date(item.dateStart)
@@ -119,9 +120,10 @@
           }
         })
 
+        console.log(this.calendarItems)
         // Sort the calendarItems array
-        this.calendarItems.sort()
-        this.calendarItems.reverse()
+        //this.calendarItems.sort((a, b))
+        //this.calendarItems.reverse()
       }
     },
     watch: {
@@ -136,7 +138,12 @@
     computed: {
       ...mapState({
         allCalendars: (state) => state.dynamic.allCalendars
-      })
+      }),
+      
+      sortedCalendarItems: function() {
+        let sortedItems = this.calendarItems.sort((a, b) => new Date(a.dateStart) - new Date(b.dateStart))
+        return sortedItems.reverse()
+      }
     },
     mounted() {
       switch(this.type) {

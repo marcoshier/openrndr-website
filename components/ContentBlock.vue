@@ -1,5 +1,5 @@
 <template>
-  <div class="content-block-cnt w-100 px-0 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'py-5': isCommunity == false}" :id="anchorpoint ? anchorpoint : ''">
+  <div class="content-block-cnt w-100 px-0 border-dark bg-primary" v-bind:class="{'border-top': borderTop, 'py-1': isCommunity == false}" :id="anchorpoint ? anchorpoint : ''">
     <div class="container-xl">
       <!-- icon (make sub-comp if accepted) -->
 
@@ -235,6 +235,12 @@
   width: 40px;
   box-sizing: content-box;
   padding-left: 3rem;
+}
+
+@media screen and (max-width: 992px) {
+  .content-blocks-cnt {
+    border-left: none !important;
+  }
 }
 
 </style>

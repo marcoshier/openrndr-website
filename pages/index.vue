@@ -175,7 +175,10 @@
 
     @media screen and (max-width: 540px) {
     h1 {
-      font-size: 5.9vh;
+      font-size: 7.0vh;
+    }
+    span {
+      font-size: 21px;
     }
     
   }

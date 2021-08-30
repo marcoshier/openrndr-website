@@ -26,9 +26,15 @@
 p {
     a:hover {
         text-decoration: underline !important;
-        color:white !important;
+        color: white !important;
         border: white !important;
         text-decoration-color: white!important;
     }
 }
 
+@media (max-width: 992px) {
+    #openrndr-logo,
+    #mobile-button-wrapper {
+        padding: 0 20px;
+    }
+}

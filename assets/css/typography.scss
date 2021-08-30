@@ -76,6 +76,13 @@ a:hover {
     color: $light;
 }
 
+@media screen and (max-width: 992px) {
+    a:focus,
+    a:active {
+        color: $light;
+    }
+}
+
 .btn {
     font-family: $textButton;
     font-size: 1.25rem;
