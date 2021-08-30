@@ -49,16 +49,21 @@ export default {
 }
 </script>
 
-<style>
-
-  
-  
-  
+<style lang="scss">
 
   footer {
     border-top:1px solid black;
+
+     a:hover {
+        text-decoration: underline !important;
+        color:white !important;
+        border: white !important;
+        text-decoration-color: white!important;
+    }
+
   }
   .bg-pink {
     background-color: pink !important;
   }
+
 </style>

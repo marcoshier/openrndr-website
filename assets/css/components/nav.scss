@@ -16,3 +16,19 @@
     color: $light;
     text-decoration: underline;
 }
+
+.d-inline-block {
+    a {
+        text-decoration: none;
+    }
+}
+
+p {
+    a:hover {
+        text-decoration: underline !important;
+        color:white !important;
+        border: white !important;
+        text-decoration-color: white!important;
+    }
+}
+
