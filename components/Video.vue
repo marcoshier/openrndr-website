@@ -1,6 +1,8 @@
 <template>
   <div>
     <div class="video-wrap">
+      
+      <div class="gradient"></div>
       <iframe
         :src="videoUrl"
         style="position:absolute;top:0;left:0;width:100%;height:100%;"
@@ -52,6 +54,16 @@
 </script>
 
 <style>
+  .gradient {
+      position: absolute;
+      width: 100vw;
+      height:80vh;
+      background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.32) 24%, rgba(0,0,0,0.25) 44%, rgba(0,0,0,0) 67%, rgba(0,0,0,0) 100%); 
+      z-index: 2;
+  }
+  
+
+
   .video-wrap {
     position: unset;
     height:80vh;
@@ -75,11 +87,15 @@
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
+  
+      z-index: 1;
   }
 
   @media screen and (max-width: 692px) {
     .video-wrap {
       position: relative;
     }
+
   }
+  
 </style>

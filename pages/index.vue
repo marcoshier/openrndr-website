@@ -139,7 +139,7 @@
       position: absolute;
       top: 19vh;
       max-width: 50vw;
-      z-index: 2;
+      z-index: 3 !important;
   }
 
   h1, span {

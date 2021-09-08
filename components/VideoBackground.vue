@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="video-wrapper">
+      
        <iframe v-if="isVideo" :src="videoUrl"
                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
        </iframe>
@@ -47,6 +48,8 @@
 </script>
 
 <style>
+
+
   .video-wrapper {
     width: 100%;
     height: 650px;
@@ -65,5 +68,11 @@
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
+      z-index: 1;
+  }
+
+  
+  @media screen and (max-width: 692px) {
+     .gradient {}
   }
 </style>
