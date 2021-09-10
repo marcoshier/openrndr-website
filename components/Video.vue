@@ -56,7 +56,7 @@
 <style>
   .gradient {
       position: absolute;
-      width: 100vw;
+      width: 100%;
       height:80vh;
       background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.32) 24%, rgba(0,0,0,0.25) 44%, rgba(0,0,0,0) 67%, rgba(0,0,0,0) 100%); 
       z-index: 2;
